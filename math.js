@@ -6,6 +6,13 @@
 //Repository: github.com/SatyamV7/MathJS
 //License: MIT License
 
+//Constants
+const e = Math.E;
+const PI = Math.PI;
+const i = Math.sqrt(-1);
+const PHI = (1 + Math.sqrt(5)) / 2;
+const godEquation = e ^ (i * PI) + 1 == 0;
+
 //Basic Arithmetic Functions
 function add(...n) { //Add all parameters
     return n.reduce((a, b) => a + b, 0);
