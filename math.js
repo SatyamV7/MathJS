@@ -1,17 +1,26 @@
 //MathJS v1.0.0
-//Last Modified: 28/02/2024 <DD/MM/YYYY>
+//Last Modified: 01/03/2024 <DD/MM/YYYY>
 //Author: Satyam Verma <github.com/SatyamV7>
 //Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 //Note: The author is not resposible fo accuracy of the results
 //Repository: github.com/SatyamV7/MathJS
 //License: MIT License
 
-//Constants
+//Mathematical Constants
 const e = Math.E;
 const PI = Math.PI;
+const LN2 = Math.LN2;
+const NaN = Number.NaN;
+const LN10 = Math.LN10;
 const i = Math.sqrt(-1);
+const TAU = 2 * Math.PI;
+const LOG2E = Math.LOG2E;
+const LOG10E = Math.LOG10E;
+const EPSILON = Number.EPSILON;
 const PHI = (1 + Math.sqrt(5)) / 2;
-const godEquation = e ^ (i * PI) + 1 == 0;
+const INFINITY = Number.POSITIVE_INFINITY;
+const GAMMA = 0.57721566490153286060651209;
+const negativeInfinity = Number.NEGATIVE_INFINITY;
 
 //Basic Arithmetic Functions
 function add(...n) { //Add all parameters
