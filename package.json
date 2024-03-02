@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json.schemastore.org/package",
+    "name": "mathjs",
+    "version": "1.0.0",
+    "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
+    "main": "math.js",
+    "module": "math.mjs",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MTSOSS/MathJS.git"
+    },
+    "keywords": [
+        "math",
+        "mathjs",
+        "math library",
+        "math operations",
+        "mathematical functions",
+        "mathematical operations",
+        "arithmetic operations",
+        "comparison functions",
+        "random number functions",
+        "trignometric functions"
+    ],
+    "author": "Satyam Verma",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MTSOSS/MathJS/issues"
+    },
+    "homepage": "https://github.com/MTSOSS/MathJS#readme"
+}

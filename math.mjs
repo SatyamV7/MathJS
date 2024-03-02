@@ -257,3 +257,6 @@ function csc(n) { //Return the cosecant of the parameter till 2 decimal places
     let cosecant = 1 / Math.sin(n * Math.PI / 180);
     return cosecant.toFixed(2);
 }
+
+//Exporting the module
+export { e, PI, LN2, NaN, LN10, i, TAU, LOG2E, LOG10E, EPSILON, PHI, Infinity, negativeInfinity, add, subtract, multiply, divide, square, cube, power, root, round, roundUp, roundDown, absolute, remainder, max, min, sqrt, cbrt, hypotenuse, average, mean, median, mode, range, greatestCommonDivisor, highestCommonFactor, leastCommonMultiple, isEven, isOdd, isPrime, isComposite, isFinite, factorial, fibonacci, random, log, logBase2, logBase5, logBase10, sin, cos, tan, cot, sec, csc };
