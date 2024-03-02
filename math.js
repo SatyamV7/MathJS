@@ -17,8 +17,6 @@ const LOG2E = Math.LOG2E;
 const LOG10E = Math.LOG10E;
 const EPSILON = Number.EPSILON;
 const PHI = (1 + Math.sqrt(5)) / 2;
-const Infinity = Number.POSITIVE_INFINITY;
-const negativeInfinity = Number.NEGATIVE_INFINITY;
 
 //Basic Arithmetic Functions
 function add(...n) { //Add all parameters

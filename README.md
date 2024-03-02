@@ -34,7 +34,9 @@ Include the following code snippets in your html file
 
 <h2>NPM:</h2>
 Install MathJS using the following command
-```npm i quantum-math.js```
+```
+npm i quantum-math.js
+```
 
 
 ### Mathematical Constants
