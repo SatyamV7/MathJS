@@ -1,0 +1,95 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow: overlay;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    display: block;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    display: block;
+    background: #5e5e5e;
+    border-radius: 7.5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: overlay;
+    margin: 0;
+    padding: 0 !important;
+}
+
+#root {
+    height: 100%;
+    width: 65%;
+    padding: 100px 0;
+}
+
+.expand {
+    transform: scale(120);
+}
+
+#blender {
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    border-radius: 50%;
+    right: 32px;
+    bottom: 1rem;
+    pointer-events: none;
+    background: white;
+    transition: all 1s ease;
+    mix-blend-mode: difference;
+}
+
+.module--toggle {
+    background: #100f2c;
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    border-radius: 50%;
+    right: 32px;
+    bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.module--zIndex {
+    z-index: 1;
+}
+
+@media screen and (max-width: 380px) {
+    .module--zIndex {
+        opacity: 0.2;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .module--toggle {
+        right: 1rem;
+        opacity: 0.8;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .blend {
+        right: 1rem;
+    }
+}

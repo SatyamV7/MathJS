@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/md.css">
+    <title>webBg Module</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="toggle" class="module--toggle module--zIndex"><img src="assets/symbol.svg" height="50%"></div>
+    <div class="blend" id="blender"></div>
+    <script src="lib/showdown.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script>
+        url = "src/md/DOCS.md";
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "text",
+            success: function (results) {
+                var converter = new showdown.Converter();
+                converter.setFlavor('github');
+                var html = converter.makeHtml(results);
+                document.querySelector('#root').innerHTML = html
+            }
+        });
+        document.getElementById('toggle').addEventListener('click', () => {
+            document.getElementById('blender').classList.toggle('expand');
+            document.getElementById('toggle').classList.toggle('module--zIndex');
+        });
+    </script>
+</body>
+
+</html>

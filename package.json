@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/package",
-    "name": "mathjs",
+    "name": "quantum-math.js",
     "version": "1.0.0",
     "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
     "main": "math.js",
@@ -29,5 +29,5 @@
     "bugs": {
         "url": "https://github.com/MTSOSS/MathJS/issues"
     },
-    "homepage": "https://github.com/MTSOSS/MathJS#readme"
+    "homepage": "https://mtsoss.github.io/MathJS/docs/"
 }

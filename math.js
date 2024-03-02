@@ -3,14 +3,13 @@
 //Author: Satyam Verma <github.com/SatyamV7>
 //Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 //Note: The author is not resposible fo accuracy of the results
-//Repository: github.com/SatyamV7/MathJS
+//Repository: github.com/MTSOSS/MathJS
 //License: MIT License
 
 //Mathematical Constants
 const e = Math.E;
 const PI = Math.PI;
 const LN2 = Math.LN2;
-const NaN = Number.NaN;
 const LN10 = Math.LN10;
 const i = Math.sqrt(-1);
 const TAU = 2 * Math.PI;
