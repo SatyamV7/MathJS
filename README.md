@@ -35,7 +35,7 @@ Include the following code snippets in your html file
 ```
 
 <h2>NPM:</h2>
-Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js">npm</a>:
+Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
 
     npm i quantum-math.js
 
@@ -55,8 +55,6 @@ It defines several mathematical constants using JavaScript's built-in Math objec
 | `LOG10E` | Constant | Base 10 logarithm of Euler's number |
 | `EPSILON` | Constant | Smallest interval between representable numbers |
 | `PHI` | Constant | Golden ratio |
-| `Infinity` | Constant | Positive infinity |
-| `negativeInfinity` | Constant | Negative infinity |
 
 ### Basic Arithmetic Functions
 The library provides functions for basic arithmetic operations, such as
