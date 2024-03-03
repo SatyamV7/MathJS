@@ -16,6 +16,8 @@ This JavaScript file, math.js, is a library that provides various mathematical f
 
 ### How to use
 
+MathJS can be used in both node.js and in the browser.
+
 <h2>For Browser:</h2>
 
 Include the following code snippets in your html file
@@ -30,10 +32,12 @@ Include the following code snippets in your html file
 ```
 
 <h2>NPM:</h2>
-Install MathJS using the following command
+Install MathJS using [npm](https://www.npmjs.com/package/quantum-math.js):
+
 ```
 npm i quantum-math.js
 ```
+
 
 
 ### Mathematical Constants
