@@ -14,13 +14,13 @@
 
 This JavaScript file, math.js, is a library that provides various mathematical functions.
 
-Github Repository: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
+_Github Repository_: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
 
 ### How to use
 
 MathJS can be used in both node.js and in the browser.
 
-<h2>For Browser:</h2>
+<h4>For Browser:</h4>
 
 Include the following code snippets in your html file
 ```
@@ -33,7 +33,7 @@ Include the following code snippets in your html file
     <script src="https://mtsoss.github.io/MathJS/math.mjs" type="module"></script>
 ```
 
-<h2>NPM:</h2>
+<h4>NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
 
 ```
