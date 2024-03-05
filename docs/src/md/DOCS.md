@@ -14,7 +14,7 @@
 
 This JavaScript file, math.js, is a library that provides various mathematical functions.
 
-> Github Repository: [repository](https://github.com/MTSOSS/MathJS)
+Github Repository: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
 
 ### How to use
 
@@ -37,7 +37,7 @@ Include the following code snippets in your html file
 Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
 
 ```
-npm i quantum-math.js
+npm i arithmetic-core.js
 ```
 
 

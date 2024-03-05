@@ -37,7 +37,7 @@ Include the following code snippets in your html file
 <h2>NPM:</h2>
 Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
 
-    npm i quantum-math.js
+    npm i arithmetic-core.js
 
 
 
