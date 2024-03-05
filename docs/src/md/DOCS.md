@@ -10,13 +10,13 @@
 > &#128161; Info
 >Each function is defined using JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
 
-## Brief Explanation about MathJS Library
+# Brief Explanation about MathJS Library
 
 This JavaScript file, math.js, is a library that provides various mathematical functions.
 
 _Github Repository_: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
 
-### How to use
+## How to use
 
 MathJS can be used in both node.js and in the browser.
 
@@ -42,7 +42,7 @@ npm i arithmetic-core.js
 
 
 
-### Mathematical Constants
+## Mathematical Constants
 It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include
 | Name | Type | Description |
 | --- | --- | --- |
