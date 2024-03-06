@@ -24,23 +24,19 @@ MathJS can be used in both node.js and in the browser.
 
 Include the following code snippets in your html file
 ```
-    <script src="https://mtsoss.github.io/MathJS/math.js"></script>
+    <script src="https://unpkg.com/arithmetic-core.js/math.js"></script>
 
     <!--minified version(7kb → 3kb)-->
-    <script src="https://mtsoss.github.io/MathJS/dist/math.min.js"></script>
+    <script src="https://unpkg.com/arithmetic-core.js//dist/math.min.js"></script>
 
     <!--or use the module-->
-    <script src="https://mtsoss.github.io/MathJS/math.mjs" type="module"></script>
+    <script src="https://unpkg.com/arithmetic-core.js//math.mjs" type="module"></script>
 ```
 
 <h4>NPM:</h4>
-Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
+Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
 
-```
-npm i arithmetic-core.js
-```
-
-
+    npm i arithmetic-core.js
 
 ## Mathematical Constants
 It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include
