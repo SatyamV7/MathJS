@@ -1,5 +1,5 @@
 //MathJS v0.0.3
-//Last Modified: 06/03/2024 <DD/MM/YYYY>
+//Last Modified: 01/03/2024 <DD/MM/YYYY>
 //Author: Satyam Verma <github.com/SatyamV7>
 //Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 //Note: The author is not resposible fo accuracy of the results
@@ -255,5 +255,4 @@ function csc(n) { //Return the cosecant of the parameter till 2 decimal places
     return cosecant.toFixed(2);
 }
 
-//Exporting the functions
-export { e, PI, LN2, LN10, i, TAU, LOG2E, LOG10E, EPSILON, PHI, add, subtract, multiply, divide, square, cube, power, root, round, roundUp, roundDown, absolute, remainder, max, min, sqrt, cbrt, hypotenuse, average, mean, median, mode, range, greatestCommonDivisor, highestCommonFactor, leastCommonMultiple, isEven, isOdd, isPrime, isComposite, isFinite, factorial, fibonacci, random, log, logBase2, logBase5, logBase10, sin, cos, tan, cot, sec, csc };
+module.exports = { e, PI, LN2, LN10, i, TAU, LOG2E, LOG10E, EPSILON, PHI, add, subtract, multiply, divide, square, cube, power, root, round, roundUp, roundDown, absolute, remainder, max, min, sqrt, cbrt, hypotenuse, average, mean, median, mode, range, greatestCommonDivisor, highestCommonFactor, leastCommonMultiple, isEven, isOdd, isPrime, isComposite, isFinite, factorial, fibonacci, random, log, logBase2, logBase5, logBase10, sin, cos, tan, cot, sec, csc };
