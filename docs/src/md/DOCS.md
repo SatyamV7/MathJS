@@ -27,10 +27,10 @@ Include the following code snippets in your html file
     <script src="https://unpkg.com/arithmetic-core.js/math.js"></script>
 
     <!--minified version(7kb → 3kb)-->
-    <script src="https://unpkg.com/arithmetic-core.js//dist/math.min.js"></script>
+    <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
 
     <!--or use the module-->
-    <script src="https://unpkg.com/arithmetic-core.js//math.mjs" type="module"></script>
+    <script src="https://unpkg.com/arithmetic-core.js/math.mjs" type="module"></script>
 ```
 
 <h4>NPM:</h4>
