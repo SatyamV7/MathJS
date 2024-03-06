@@ -16,7 +16,7 @@ This JavaScript file, math.js, is a library that provides various mathematical f
 
 _Github Repository_: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
 
-## How to use
+## Installation
 
 MathJS can be used in both node.js and in the browser.
 

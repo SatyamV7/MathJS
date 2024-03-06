@@ -1,4 +1,4 @@
-url = "md/DOCS.md";
+url = "\\docs\\src\\md\\DOCS.md";
 $.ajax({
     url: url,
     type: "GET",
