@@ -1,4 +1,4 @@
-//MathJS v0.0.3
+//MathJS v0.0.4
 //Last Modified: 01/03/2024 <DD/MM/YYYY>
 //Author: Satyam Verma <github.com/SatyamV7>
 //Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
