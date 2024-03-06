@@ -27,7 +27,7 @@ Include the following code snippets in your html file
     <script src="https://mtsoss.github.io/MathJS/math.js"></script>
 
     <!--minified version(7kb → 3kb)-->
-    <script src="https://mtsoss.github.io/MathJS/math.min.js"></script>
+    <script src="https://mtsoss.github.io/MathJS/dist/math.min.js"></script>
 
     <!--or use the module-->
     <script src="https://mtsoss.github.io/MathJS/math.mjs" type="module"></script>

@@ -21,20 +21,20 @@ This JavaScript file, math.js, is a library that provides various mathematical f
 
 MathJS can be used in both node.js and in the browser.
 
-<h2>For Browser:</h2>
+<h4>For Browser:</h4>
 
 Include the following code snippets in your html file
 ```
     <script src="https://mtsoss.github.io/MathJS/math.js"></script>
 
     <!--minified version(7kb → 3kb)-->
-    <script src="https://mtsoss.github.io/MathJS/math.min.js"></script>
+    <script src="https://mtsoss.github.io/MathJS/dist/math.min.js"></script>
 
     <!--or use the module-->
     <script src="https://mtsoss.github.io/MathJS/math.mjs" type="module"></script>
 ```
 
-<h2>NPM:</h2>
+<h4>NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/quantum-math.js" target="_blank">npm</a>:
 
     npm i arithmetic-core.js
