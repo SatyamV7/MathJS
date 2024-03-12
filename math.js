@@ -254,3 +254,8 @@ function csc(n) { //Return the cosecant of the parameter till 2 decimal places
     let cosecant = 1 / Math.sin(n * Math.PI / 180);
     return cosecant.toFixed(2);
 }
+
+//Evaluate Expression Function
+function evaluateExpression(expression) { //Evaluate the given expression
+    return Function(`'use strict'; return (${expression})`)();
+}

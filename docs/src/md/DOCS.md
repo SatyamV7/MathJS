@@ -126,3 +126,9 @@ Finally, the library provides functions to calculate the sine, cosine, tangent, 
 | `cot(n)` | Function | Return the cotangent of the parameter till 2 decimal places |
 | `sec(n)` | Function | Return the secant of the parameter till 2 decimal places |
 | `csc(n)` | Function | Return the cosecant of the parameter till 2 decimal places |
+
+### Evaluate Expression
+There's a function to evaluate given expression.
+| Name | Type | Description |
+| --- | --- | --- |
+| `evaluateExpression(e)` | Function | Evaluate the given expression |

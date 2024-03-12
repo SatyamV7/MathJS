@@ -255,4 +255,9 @@ function csc(n) { //Return the cosecant of the parameter till 2 decimal places
     return cosecant.toFixed(2);
 }
 
-module.exports = { e, PI, LN2, LN10, i, TAU, LOG2E, LOG10E, EPSILON, PHI, add, subtract, multiply, divide, square, cube, power, root, round, roundUp, roundDown, absolute, remainder, max, min, sqrt, cbrt, hypotenuse, average, mean, median, mode, range, greatestCommonDivisor, highestCommonFactor, leastCommonMultiple, isEven, isOdd, isPrime, isComposite, isFinite, factorial, fibonacci, random, log, logBase2, logBase5, logBase10, sin, cos, tan, cot, sec, csc };
+//Evaluate Expression Function
+function evaluateExpression(expression) { //Evaluate the given expression
+    return Function(`'use strict'; return (${expression})`)();
+}
+
+module.exports = { e, PI, LN2, LN10, i, TAU, LOG2E, LOG10E, EPSILON, PHI, add, subtract, multiply, divide, square, cube, power, root, round, roundUp, roundDown, absolute, remainder, max, min, sqrt, cbrt, hypotenuse, average, mean, median, mode, range, greatestCommonDivisor, highestCommonFactor, leastCommonMultiple, isEven, isOdd, isPrime, isComposite, isFinite, factorial, fibonacci, random, log, logBase2, logBase5, logBase10, sin, cos, tan, cot, sec, csc, evaluateExpression };

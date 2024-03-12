@@ -56,4 +56,5 @@ declare module 'arithmetic-core.js' {
     export function cot(n: any): string;
     export function sec(n: any): string;
     export function csc(n: any): string;
+    export function evaluateExpression(expression: any): any;
 }
