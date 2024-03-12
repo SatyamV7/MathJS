@@ -1,14 +1,14 @@
 {
     "$schema": "https://json.schemastore.org/package",
     "name": "arithmetic-core.js",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "type": "module",
     "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
     "main": "math.cjs",
     "module": "math.mjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "prepare": "tsc --declaration --emitDeclarationOnly --allowJs math.js math.cjs math.mjs"
+        "prepare": "tsc --declaration --emitDeclarationOnly --allowJs math.cjs math.mjs"
     },
     "repository": {
         "type": "git",
