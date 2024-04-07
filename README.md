@@ -17,7 +17,7 @@
 
 This JavaScript file, math.js, is a library that provides various mathematical functions.
 
-### How to use
+### Installation
 
 MathJS can be used in both node.js and in the browser.
 
@@ -29,12 +29,9 @@ Include the following code snippets in your html file
 
     <!--minified version(7kb → 3kb)-->
     <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
-
-    <!--or use the module-->
-    <script src="https://unpkg.com/arithmetic-core.js/math.mjs" type="module"></script>
 ```
 
-<h4>NPM:</h4>
+<h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
 
     npm i arithmetic-core.js

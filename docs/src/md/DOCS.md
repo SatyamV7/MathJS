@@ -33,7 +33,7 @@ Include the following code snippets in your html file
 > ⓘ Note
 > **_This library does Universal Module Definition (UMD) support i.e you can call math.js as a normal js or import it as a Module (CJS or MJS, both supported)._**
 
-<h4>NPM:</h4>
+<h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
 
     npm i arithmetic-core.js
