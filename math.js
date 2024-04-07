@@ -1,5 +1,5 @@
 ; 'use strict';
-//MathJS v1.0.0
+//MathJS v1.0.2
 //Last Modified: 07/04/2024 <DD/MM/YYYY>
 //Author: Satyam Verma <github.com/SatyamV7>
 //Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -96,8 +96,9 @@ const math = {
         return n.reduce((a, b) => a + b, 0) / n.length;
     },
 
+    //Note: Dependent Function (Dependent on: average)
     mean(...n) { //Return the mean of the parameters
-        return average(...n);
+        return this.average(...n);
     },
 
     median(...n) { //Return the median of the parameters

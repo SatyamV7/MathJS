@@ -52,7 +52,7 @@ Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" 
         console.log(math.leastCommonMultiple(12, 18)); // 36
 
         console.log(math.isPrime(2)); // true
-        <!-- and so on -->
+        // and so on
     </script>
 
 <h4>For Node.js:</h4>

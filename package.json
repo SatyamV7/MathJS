@@ -1,7 +1,7 @@
 {
     "$schema": "https://json.schemastore.org/package",
     "name": "arithmetic-core.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "module",
     "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
     "main": "math.js",

@@ -26,7 +26,7 @@ export function sqrt(n: any): number;
 export function cbrt(n: any): any;
 export function hypotenuse(a: any, b: any): any;
 export function average(...n: any[]): number;
-export function mean(...n: any[]): any;
+export function mean(...n: any[]): number;
 export function median(...n: any[]): any;
 export function mode(...n: any[]): any[];
 export function range(...n: any[]): any[];
