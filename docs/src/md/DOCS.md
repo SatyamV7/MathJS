@@ -26,17 +26,50 @@ Include the following code snippets in your html file
 ```
     <script src="https://unpkg.com/arithmetic-core.js/math.js"></script>
 
-    <!--minified version(7kb → 3kb)-->
+    <!--minified version(8kb → 3kb)-->
     <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
-
-    <!--or use the module-->
-    <script src="https://unpkg.com/arithmetic-core.js/math.mjs" type="module"></script>
 ```
+
+> ⓘ Note
+> **_This library does Universal Module Definition (UMD) support i.e you can call math.js as a normal js or import it as a Module (CJS or MJS, both supported)._**
 
 <h4>NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
 
     npm i arithmetic-core.js
+
+## Usage
+<h4>For Browser:</h4>
+
+    <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
+    <script>
+        console.log(math.hypotenuse(3, 4)); // 5
+
+        console.log(math.mean(1, 2, 3, 4, 5)); // 3
+
+        console.log(math.greatestCommonDivisor(12, 18)); // 6
+
+        console.log(math.leastCommonMultiple(12, 18)); // 36
+
+        console.log(math.isPrime(2)); // true
+        <!-- and so on -->
+    </script>
+
+<h4>For Node.js:</h4>
+
+        const math = require('arithmetic-core.js');
+
+        console.log(math.hypotenuse(3, 4)); // 5
+
+        console.log(math.mean(1, 2, 3, 4, 5)); // 3
+
+        console.log(math.greatestCommonDivisor(12, 18)); // 6
+
+        console.log(math.leastCommonMultiple(12, 18)); // 36
+
+        console.log(math.isPrime(2)); // true
+        <!-- and so on -->
+
 
 ## Mathematical Constants
 It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include
@@ -46,7 +79,6 @@ It defines several mathematical constants using JavaScript's built-in Math objec
 | `PI` | Constant | Pi |
 | `LN2` | Constant | Natural logarithm of 2 |
 | `LN10` | Constant | Natural logarithm of 10 |
-| `i` | Constant | Imaginary unit |
 | `TAU` | Constant | Tau (2 * Pi) |
 | `LOG2E` | Constant | Base 2 logarithm of Euler's number |
 | `LOG10E` | Constant | Base 10 logarithm of Euler's number |
