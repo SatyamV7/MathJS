@@ -10,7 +10,7 @@
         ".vscode",
     ],
     "compilerOptions": {
-        "allowJs": true,
+        "target": "ESNext",
         "declaration": true,
         "emitDeclarationOnly": true,
         "declarationMap": true
