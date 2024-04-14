@@ -16,7 +16,8 @@ function getUnts(str: string): string {
 
 function getNumericalValue(str: string): number {
     str = str.toString();
-    return parseInt(str.match(/\d+/)[0]);
+    const numericalValue = str.match(/\d+/);
+    return numericalValue ? +numericalValue[0] : 0;
 }
 
 const math = {
@@ -268,7 +269,7 @@ const math = {
     },
 
     fibonacci(n: number): number { //Return the nth Fibonacci number
-        let a = 1, b = 0, temp;
+        let a = 1, b = 0, temp: number;
         while (n >= 0) {
             temp = a;
             a = a + b;
@@ -396,14 +397,16 @@ const math = {
     },
 };
 
-//@ts-ignore
-/// <reference no-default-lib="true"/>
 // Export the math object for different environments
 
 declare var define: {
     (id: string[], factory: () => any): void;
     amd: any;
 };
+
+declare var exports: any;
+
+declare var module: any;
 
 (function (root: any, factory: any) {
     if (typeof define === 'function' && define.amd) {
@@ -425,4 +428,3 @@ declare var define: {
 }(typeof self !== 'undefined' ? self : this, function () {
     return math;
 }));
-

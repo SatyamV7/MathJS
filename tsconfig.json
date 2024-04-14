@@ -1,18 +1,12 @@
 {
-    "include": [
-        "./"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist",
-        "docs",
-        "assets",
-        ".vscode",
+    "files": [
+        "./math.ts"
     ],
     "compilerOptions": {
+        "strict": true,
         "target": "ESNext",
+        "sourceMap": true,
         "declaration": true,
-        "emitDeclarationOnly": true,
-        "declarationMap": true
+        "declarationMap": true,
     }
 }
