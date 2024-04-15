@@ -1,4 +1,4 @@
-url = "https://mtsoss.github.io/MathJS/docs/src/md/DOCS.md";
+url = "https://mtsoss.github.io/MathJS/src/md/DOCS.md";
 $.ajax({
     url: url,
     type: "GET",
