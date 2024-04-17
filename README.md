@@ -1,7 +1,7 @@
 # MathJS
 
 <center>
-<img src="https://mtsoss.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
+<img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
 </center>
 
  A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions
