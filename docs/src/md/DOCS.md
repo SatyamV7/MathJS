@@ -1,5 +1,5 @@
 <center>
-<img src="./assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
+<img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
 </center>
 
  _A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions_
@@ -8,7 +8,7 @@
 > **_This library does not support complex numbers._**
 
 > &#128161; Info
->Each function is defined using JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
+>Each function is defined using https://satyamv7.github.io/MathJS/assets/MathJSBanner.svgJavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
 
 # Brief Explanation about MathJS Library
 
