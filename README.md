@@ -35,4 +35,4 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
     npm i @cypher_077/math
 
 
-### _Full Docs Here_ ☞ [MathJS Docs](https://mtsoss.github.io/MathJS/docs/)
+### _Full Docs Here_ ☞ [MathJS Docs](https://SatyamV7.github.io/MathJS/docs/)
