@@ -153,6 +153,9 @@ const math = {
     isNegative(n) {
         return n < 0;
     },
+    isZero(n) {
+        return n === 0;
+    },
     isInteger(n) {
         return Number.isInteger(n);
     },
@@ -208,6 +211,9 @@ const math = {
     },
     isFinite(n) {
         return Number.isFinite(n);
+    },
+    isInfinite(n) {
+        return !Number.isFinite(n);
     },
     //Factorial and Fibonacci Functions
     factorial(n) {

@@ -43,6 +43,7 @@ declare const math: {
     isOdd(n: number): boolean;
     isPositive(n: number): boolean;
     isNegative(n: number): boolean;
+    isZero(n: number): boolean;
     isInteger(n: number): boolean;
     isFloat(n: number): boolean;
     isPrime(n: number): boolean;
@@ -57,6 +58,7 @@ declare const math: {
     isArmstrong(n: number): boolean;
     isPalindrome(n: number): boolean;
     isFinite(n: number): boolean;
+    isInfinite(n: number): boolean;
     factorial(n: number): number;
     fibonacci(n: number): number;
     random(a: number, b: number): number;

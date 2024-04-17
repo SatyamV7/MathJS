@@ -188,6 +188,10 @@ const math = {
         return n < 0;
     },
 
+    isZero(n: number): boolean { //Return true if the parameter is zero
+        return n === 0;
+    },
+
     isInteger(n: number): boolean { //Return true if the parameter is an integer
         return Number.isInteger(n);
     },
@@ -256,6 +260,10 @@ const math = {
 
     isFinite(n: number): boolean { //Return true if the parameter is a finite number
         return Number.isFinite(n);
+    },
+
+    isInfinite(n: number): boolean { //Return true if the parameter is an infinite number
+        return !Number.isFinite(n);
     },
 
     //Factorial and Fibonacci Functions
