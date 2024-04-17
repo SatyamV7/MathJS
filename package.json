@@ -1,6 +1,6 @@
 {
     "name": "@cypher_077/math",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
     "main": "math.js",
     "types": "math.d.ts",

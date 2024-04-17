@@ -19,6 +19,21 @@ function getNumericalValue(str) {
     const numericalValue = str.match(/\d+/);
     return numericalValue ? +numericalValue[0] : 0;
 }
+function convertToRadians(n) {
+    let num = getNumericalValue(n);
+    if (getUnts(n) == 'deg' || getUnts(n) == '') {
+        return num * Math.PI / 180;
+    }
+    else if (getUnts(n) == 'grad') {
+        return num * Math.PI / 200;
+    }
+    else if (getUnts(n) == 'rad') {
+        return num;
+    }
+    else {
+        throw new Error('Invalid Unit');
+    }
+}
 const math = {
     // Mathematical Constants
     e: Math.E,
@@ -260,105 +275,27 @@ const math = {
     },
     //Trigonometric Functions
     sin(n) {
-        let sine;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            sine = Math.sin(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            sine = Math.sin(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            sine = Math.sin(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let sine = Math.sin(convertToRadians(n));
         return sine.toFixed(2);
     },
     cos(n) {
-        let cosine;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            cosine = Math.cos(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            cosine = Math.cos(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            cosine = Math.cos(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let cosine = Math.cos(convertToRadians(n));
         return cosine.toFixed(2);
     },
     tan(n) {
-        let tangent;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            tangent = Math.tan(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            tangent = Math.tan(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            tangent = Math.tan(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let tangent = Math.tan(convertToRadians(n));
         return tangent.toFixed(2);
     },
     cot(n) {
-        let cotangent;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            cotangent = 1 / Math.tan(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            cotangent = 1 / Math.tan(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            cotangent = 1 / Math.tan(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let cotangent = 1 / Math.tan(convertToRadians(n));
         return cotangent.toFixed(2);
     },
     sec(n) {
-        let secant;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            secant = 1 / Math.cos(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            secant = 1 / Math.cos(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            secant = 1 / Math.cos(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let secant = 1 / Math.cos(convertToRadians(n));
         return secant.toFixed(2);
     },
     csc(n) {
-        let cosecant;
-        let num = getNumericalValue(n);
-        if (getUnts(n) == 'deg' || getUnts(n) == '' || getUnts(n) == ' ') {
-            cosecant = 1 / Math.sin(num * Math.PI / 180);
-        }
-        else if (getUnts(n) == 'grad') {
-            cosecant = 1 / Math.sin(num * Math.PI / 200);
-        }
-        else if (getUnts(n) == 'rad') {
-            cosecant = 1 / Math.sin(num);
-        }
-        else {
-            return 'Invalid Unit';
-        }
+        let cosecant = 1 / Math.sin(convertToRadians(n));
         return cosecant.toFixed(2);
     },
     //Evaluate Expression Function

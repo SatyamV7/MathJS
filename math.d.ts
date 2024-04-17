@@ -1,5 +1,6 @@
 declare function getUnts(str: string): string;
 declare function getNumericalValue(str: string): number;
+declare function convertToRadians(n: string): number;
 declare const math: {
     e: number;
     PI: number;
