@@ -1,5 +1,3 @@
-# MathJS
-
 <center>
 <img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
 </center>
