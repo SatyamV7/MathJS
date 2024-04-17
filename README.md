@@ -25,16 +25,16 @@ MathJS can be used in both node.js and in the browser.
 
 Include the following code snippets in your html file
 ```
-    <script src="https://unpkg.com/arithmetic-core.js/math.js"></script>
+    <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
     <!--minified version(7kb → 3kb)-->
-    <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
+    <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
 <h4>Via NPM:</h4>
-Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
+Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
 
-    npm i arithmetic-core.js
+    npm i @cypher_077/math
 
 
 ### _Full Docs Here_ ☞ [MathJS Docs](https://mtsoss.github.io/MathJS/docs/)

@@ -108,11 +108,11 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return modes.toString();
+        return modes.join(', ');
     },
     range(...n) {
         n.sort((a, b) => a - b);
-        return [n[0], n[n.length - 1]].toString();
+        return [n[0], n[n.length - 1]].join(', ');
     },
     greatestCommonDivisor(...n) {
         const gcd = (x, y) => !y ? x : gcd(y, x % y);
@@ -136,7 +136,7 @@ const math = {
         ;
         return n.reduce((a, b) => lcm(a, b));
     },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    //Note: Dependent Function (Dependent on: leastCommonMultiple)
     LCM(...n) {
         return this.leastCommonMultiple(...n);
     },

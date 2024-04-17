@@ -1,4 +1,6 @@
 index.html
 /docs/
 /tests/
+/.github/
+/.vscode/
 .gitattributes

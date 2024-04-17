@@ -72,10 +72,10 @@ declare const math: {
     csc(n: string): string;
     evaluateExpression(e: string): any;
 };
+declare var module: any;
+declare var exports: any;
 declare var define: {
     (id: string[], factory: () => any): void;
     amd: any;
 };
-declare var exports: any;
-declare var module: any;
 //# sourceMappingURL=math.d.ts.map

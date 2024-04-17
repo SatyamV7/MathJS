@@ -24,24 +24,24 @@ MathJS can be used in both node.js and in the browser.
 
 Include the following code snippets in your html file
 ```
-    <script src="https://unpkg.com/arithmetic-core.js/math.js"></script>
+    <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
     <!--minified version(8kb → 3kb)-->
-    <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
+    <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
 > ⓘ Note
 > **_This library does Universal Module Definition (UMD) support i.e you can call math.js as a normal js or import it as a Module (CJS or MJS, both supported)._**
 
 <h4>Via NPM:</h4>
-Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" target="_blank">npm</a>:
+Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
 
-    npm i arithmetic-core.js
+    npm i @cypher_077/math
 
 ## Usage
 <h4>For Browser:</h4>
 
-    <script src="https://unpkg.com/arithmetic-core.js/dist/math.min.js"></script>
+    <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
     <script>
         console.log(math.hypotenuse(3, 4)); // 5
 
@@ -57,7 +57,7 @@ Install MathJS using <a href="https://www.npmjs.com/package/arithmetic-core.js" 
 
 <h4>For Node.js:</h4>
 
-        const math = require('arithmetic-core.js');
+        const math = require('@cypher_077/math');
 
         console.log(math.hypotenuse(3, 4)); // 5
 

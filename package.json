@@ -1,14 +1,13 @@
 {
-    "$schema": "https://json.schemastore.org/package",
-    "name": "arithmetic-core.js",
-    "version": "1.0.7",
+    "name": "@cypher_077/math",
+    "version": "1.0.0",
     "description": "A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions",
     "main": "math.js",
     "types": "math.d.ts",
     "scripts": {
         "test": "node ./tests/NodeTest.js && exit 0",
         "prepublishOnly": "tsc && minify math.js --out-file dist/math.min.js --mangle.keepClassName",
-        "publish": "npm publish"
+        "publish": "npm publish --access public"
     },
     "repository": {
         "type": "git",
@@ -31,7 +30,7 @@
     "bugs": {
         "url": "https://github.com/MTSOSS/MathJS/issues"
     },
-    "homepage": "https://mtsoss.github.io/MathJS/docs/",
+    "homepage": "https://mtsoss.github.io/MathJS/",
     "devDependencies": {
         "babel-minify": "^0.5.2",
         "typescript": "^5.4.5"

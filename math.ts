@@ -132,12 +132,12 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return modes.toString();
+        return modes.join(', ');
     },
 
     range(...n: number[]): string { //Return the range of the parameters
         n.sort((a, b) => a - b);
-        return [n[0], n[n.length - 1]].toString();
+        return [n[0], n[n.length - 1]].join(', ');
     },
 
     greatestCommonDivisor(...n: number[]): number { //Return the greatest common divisor of the parameters
@@ -166,7 +166,7 @@ const math = {
         return n.reduce((a, b) => lcm(a, b));
     },
 
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    //Note: Dependent Function (Dependent on: leastCommonMultiple)
     LCM(...n: number[]): number { //Return the highest common factor of the parameters
         return this.leastCommonMultiple(...n);
     },
@@ -399,14 +399,14 @@ const math = {
 
 // Export the math object for different environments
 
+declare var module: any;
+
+declare var exports: any;
+
 declare var define: {
     (id: string[], factory: () => any): void;
     amd: any;
 };
-
-declare var exports: any;
-
-declare var module: any;
 
 (function (root: any, factory: any) {
     if (typeof define === 'function' && define.amd) {
