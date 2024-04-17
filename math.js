@@ -1,6 +1,4 @@
 "use strict";
-;
-'use strict';
 /*
 MathJS v1.0.7
 Last Modified: 17/04/2024 <DD/MM/YYYY>
