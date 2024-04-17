@@ -14,7 +14,7 @@
 
 This JavaScript file, math.js, is a library that provides various mathematical functions.
 
-_Github Repository_: [@MTSOSS/MathJS](https://github.com/MTSOSS/MathJS)
+_Github Repository_: [@SatyamV7/MathJS](https://github.com/SatyamV7/MathJS)
 
 ## Installation
 
