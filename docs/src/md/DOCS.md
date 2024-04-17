@@ -115,7 +115,7 @@ The library provides functions for basic arithmetic operations, such as
 | `math.mode(...n)` | Function | Return the mode of the parameters |
 | `math.range(...n)` | Function | Return the range of the parameters |
 | `math.greatestCommonDivisor(...n)` <br> or `math.highestCommonFactor(...n)` <br> or `math.GCD(...n)` or `math.HCF(...n)`| Function | Return the greatest common divisor of the parameters |
-| `math.leastCommonMultiple(...n) <br> or math.LCM(...n)` | Function | Return the least common multiple of the parameters |
+| `math.leastCommonMultiple(...n)` <br> or `math.LCM(...n)` | Function | Return the least common multiple of the parameters |
 
 ### Comparison Functions
 It also includes functions to check if a number is even, odd, prime, composite, or finite.
