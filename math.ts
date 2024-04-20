@@ -292,13 +292,20 @@ const math = {
 
     fibonacci(n: number): number { //Return the nth Fibonacci number
         let a = 1, b = 0, temp: number;
-        while (n >= 0) {
+        for (; n >= 0; n--) {
             temp = a;
             a = a + b;
             b = temp;
-            n--;
         }
         return b;
+    },
+
+    fibonacciSeries(n: number): string { //Return the Fibonacci series upto the nth term
+        let series = [];
+        for (let i = 0; i < n; i++) {
+            series.push(this.fibonacci(i));
+        }
+        return series.join(', ');
     },
 
     //Random Number Functions

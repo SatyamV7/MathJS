@@ -62,6 +62,7 @@ declare const math: {
     isInfinite(n: number): boolean;
     factorial(n: number): number;
     fibonacci(n: number): number;
+    fibonacciSeries(n: number): string;
     random(a: number, b: number): number;
     log(n: number, b?: number): number;
     logBase2(n: number): number;

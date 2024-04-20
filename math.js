@@ -243,13 +243,19 @@ const math = {
     },
     fibonacci(n) {
         let a = 1, b = 0, temp;
-        while (n >= 0) {
+        for (; n >= 0; n--) {
             temp = a;
             a = a + b;
             b = temp;
-            n--;
         }
         return b;
+    },
+    fibonacciSeries(n) {
+        let series = [];
+        for (let i = 0; i < n; i++) {
+            series.push(this.fibonacci(i));
+        }
+        return series.join(', ');
     },
     //Random Number Functions
     random(a, b) {
