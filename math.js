@@ -1,14 +1,16 @@
 "use strict";
 /*
-MathJS v1.0.7
-Last Modified: 17/04/2024 <DD/MM/YYYY>
-Author: Satyam Verma <github.com/SatyamV7>
-Description: A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
-Note: The author is not resposible fo accuracy of the results
-Repository: github.com/MTSOSS/MathJS
-License: MIT License
+    MathJS v1.0.7
+    Last Modified: 17/04/2024 <DD/MM/YYYY>
+    Author: Satyam Verma <github.com/SatyamV7>
+    Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
+    Note: The author is not resposible fo accuracy of the results
+    Repository: github.com/SatyamV7/MathJS
+    License: MIT License
 */
-//Helper Functions
+/*
+    Helper Functions
+*/
 function getUnts(str) {
     str = str.toString();
     const units = str.match(/[a-zA-Z]+/g);
@@ -35,7 +37,9 @@ function convertToRadians(n) {
     }
 }
 const math = {
-    // Mathematical Constants
+    /*
+        Mathematical Constants
+    */
     e: Math.E,
     PI: Math.PI,
     LN2: Math.LN2,
@@ -100,6 +104,9 @@ const math = {
     hypotenuse(a, b) {
         return Math.hypot(a, b);
     },
+    /*
+        Statistical Functions
+    */
     average(...n) {
         return n.reduce((a, b) => a + b, 0) / n.length;
     },
@@ -157,7 +164,12 @@ const math = {
     LCM(...n) {
         return this.leastCommonMultiple(...n);
     },
-    //Comparison Functions
+    /*
+        Logical Functions
+    */
+    isEqual(a, b) {
+        return a === b;
+    },
     isEven(n) {
         return n % 2 === 0;
     },
@@ -232,7 +244,9 @@ const math = {
     isInfinite(n) {
         return !Number.isFinite(n);
     },
-    //Factorial and Fibonacci Functions
+    /*
+        Factorial and Fibonacci Functions
+    */
     factorial(n) {
         let ans = 1;
         if (n === 0)
@@ -250,18 +264,27 @@ const math = {
         }
         return b;
     },
-    fibonacciSeries(n) {
+    fibonacciSeries(n, returnType = 'string') {
         let series = [];
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
         }
-        return series.join(', ');
+        if (returnType === 'string') {
+            return series.join(', ');
+        }
+        else {
+            return series;
+        }
     },
-    //Random Number Functions
+    /*
+        Random Number Functions
+    */
     random(a, b) {
         return Math.floor(Math.random() * (b - a + 1)) + a;
     },
-    //Advanced Arithmetic Functions
+    /*
+        Advanced Arithmetic Functions
+    */
     log(n, b) {
         if (b !== undefined) {
             let log = Math.log(n) / Math.log(b);
@@ -279,7 +302,9 @@ const math = {
     logBase10(n) {
         return Math.log10(n);
     },
-    //Trigonometric Functions
+    /*
+        Trigonometric Functions
+    */
     sin(n) {
         let sine = Math.sin(convertToRadians(n));
         return sine.toFixed(2);
@@ -304,10 +329,29 @@ const math = {
         let cosecant = 1 / Math.sin(convertToRadians(n));
         return cosecant.toFixed(2);
     },
-    //Evaluate Expression Function
-    evaluateExpression(e) {
-        return Function(`'use strict'; return (${e})`)();
-    },
+    evaluateExpression(expression, variables) {
+        try {
+            if (variables) {
+                for (let variable in variables) {
+                    const regex = new RegExp('\\b' + variable + '\\b', 'g');
+                    expression = expression.replace(regex, variables[variable].toString());
+                }
+            }
+            for (let method in math) {
+                const regex = new RegExp(`\\b${method}\\b`, 'g');
+                expression = expression.replace(regex, `math['${method}']`);
+            }
+            expression = expression
+                .replace(/\^/g, '**')
+                .replace(/÷/g, '/')
+                .replace(/×/g, '*');
+            return Function('math', `'use strict'; return (${expression})`)(math);
+        }
+        catch (error) {
+            console.error('Error occurred while evaluating the expression:', error);
+            throw new Error('Error occurred while evaluating the expression: ' + error);
+        }
+    }
 };
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {

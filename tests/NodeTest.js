@@ -60,7 +60,7 @@ console.log(math.tan(45)); // 1
 console.log(math.cot(45)); // 1
 console.log(math.sec(0)); // 1
 console.log(math.csc(90)); // 1
-console.log(math.evaluateExpression('2 + 3 * 4')); // 14
+console.log(math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
 
 const endTime = performance.now()
 

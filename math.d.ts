@@ -40,6 +40,7 @@ declare const math: {
     HCF(...n: number[]): number;
     leastCommonMultiple(...n: number[]): number;
     LCM(...n: number[]): number;
+    isEqual(a: number, b: number): boolean;
     isEven(n: number): boolean;
     isOdd(n: number): boolean;
     isPositive(n: number): boolean;
@@ -62,7 +63,7 @@ declare const math: {
     isInfinite(n: number): boolean;
     factorial(n: number): number;
     fibonacci(n: number): number;
-    fibonacciSeries(n: number): string;
+    fibonacciSeries(n: number, returnType?: 'string' | 'array'): string | number[];
     random(a: number, b: number): number;
     log(n: number, b?: number): number;
     logBase2(n: number): number;
@@ -74,7 +75,9 @@ declare const math: {
     cot(n: string): string;
     sec(n: string): string;
     csc(n: string): string;
-    evaluateExpression(e: string): any;
+    evaluateExpression(expression: string, variables: {
+        [key: string]: number;
+    }): any;
 };
 declare var module: any;
 declare var exports: any;

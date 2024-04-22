@@ -53,6 +53,8 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
 
         console.log(math.isPrime(2)); // true
 
+        math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 }); // 80
+
         // and so on
     </script>
 
@@ -69,6 +71,8 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
         console.log(math.leastCommonMultiple(12, 18)); // 36
 
         console.log(math.isPrime(2)); // true
+
+        math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 }); // 80
 
         // and so on
 
