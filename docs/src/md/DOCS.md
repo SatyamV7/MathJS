@@ -1,5 +1,5 @@
 <center>
-<img src="./assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
+<img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
 </center>
 
  _A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions_
@@ -8,7 +8,7 @@
 > **_This library does not support complex numbers._**
 
 > &#128161; Info
->Each function is defined using JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
+>Each function is defined using https JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
 
 # Brief Explanation about MathJS Library
 
@@ -119,7 +119,7 @@ The library provides functions for basic arithmetic operations, such as
 | `math.mode(...n)` | Function | Return the mode of the parameters |
 | `math.range(...n)` | Function | Return the range of the parameters |
 | `math.greatestCommonDivisor(...n)` <br> or `math.highestCommonFactor(...n)` <br> or `math.GCD(...n)` or `math.HCF(...n)`| Function | Return the greatest common divisor of the parameters |
-| `math.leastCommonMultiple(...n) <br> or math.LCM(...n)` | Function | Return the least common multiple of the parameters |
+| `math.leastCommonMultiple(...n)` <br> or `math.LCM(...n)` | Function | Return the least common multiple of the parameters |
 
 ### Comparison Functions
 It also includes functions to check if a number is even, odd, prime, composite, or finite.
