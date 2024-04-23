@@ -1,4 +1,4 @@
-const math = require('../src/math.js')
+const math = require('../math.js');
 
 const startTime = performance.now()
 
