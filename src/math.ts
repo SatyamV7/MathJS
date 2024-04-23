@@ -1,6 +1,6 @@
 /*
-    MathJS v1.0.7
-    Last Modified: 17/04/2024 <DD/MM/YYYY>
+    MathJS v1.1.5
+    Last Modified: 23/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -38,6 +38,7 @@ function convertToRadians(n: string): number {
 }
 
 const math = {
+
     /*
         Mathematical Constants
     */
@@ -144,9 +145,13 @@ const math = {
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
 
-    mode(...n: number[]): string { //Return the mode of the parameters
+    mode(...n: (number | 'string' | 'array')[]): string | number[] {
+        let returnType: 'string' | 'array' = 'string';
+        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1].toString())) {
+            returnType = n.pop() as 'string' | 'array';
+        }
         const count: { [key: number]: number } = {};
-        n.forEach(e => count[e] = (count[e] || 0) + 1);
+        n.forEach(e => count[e as number] = (count[e as number] || 0) + 1);
         let max = 0, modes: number[] = [];
         for (const e in count) {
             if (count[e] > max) {
@@ -156,12 +161,47 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return modes.join(', ');
+        return returnType === 'string' ? modes.join(', ') : modes;
     },
 
-    range(...n: number[]): string { //Return the range of the parameters
-        n.sort((a, b) => a - b);
-        return [n[0], n[n.length - 1]].join(', ');
+    range(...n: (number | 'string' | 'array')[]): string | number[] {
+        let returnType: 'string' | 'array' = 'string';
+        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1] as string)) {
+            returnType = n.pop() as 'string' | 'array';
+        }
+        const numbers = n.filter((item): item is number => typeof item === 'number');
+        numbers.sort((a, b) => a - b);
+        const range: number[] = [numbers[0], numbers[numbers.length - 1]];
+        return returnType === 'string' ? range.join(', ') : range;
+    },
+
+    factors(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
+        const factors: number[] = [];
+        for (let i = 1; i <= n; i++) {
+            if (n % i === 0) {
+                factors.push(i);
+            }
+        }
+        return returnType === 'string' ? factors.join(', ') : factors;
+    },
+
+    factorsOf(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
+        return this.factors(n, returnType);
+    },
+
+    primeFactors(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
+        const primeFactors: number[] = [];
+        for (let i = 2; i <= n; i++) {
+            while (n % i === 0) {
+                primeFactors.push(i);
+                n /= i;
+            }
+        }
+        return returnType === 'string' ? primeFactors.join(', ') : primeFactors;
+    },
+
+    primeFactorsOf(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
+        return this.primeFactors(n, returnType);
     },
 
     greatestCommonDivisor(...n: number[]): number { //Return the greatest common divisor of the parameters
@@ -320,16 +360,12 @@ const math = {
         return b;
     },
 
-    fibonacciSeries(n: number, returnType: 'string' | 'array' = 'string'): string | number[] {
+    fibonacciSeries(n: number, returnType: 'string' | 'array' = 'string'): string | number[] { //Return the Fibonacci series upto n terms
         let series: number[] = [];
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
         }
-        if (returnType === 'string') {
-            return series.join(', ');
-        } else {
-            return series;
-        }
+        return returnType === 'string' ? series.join(', ') : series;
     },
 
     /*
@@ -369,35 +405,39 @@ const math = {
         Trigonometric Functions
     */
 
-    sin(n: string): string {
+    sin(n: string): number { //Return the sine of the parameter
         let sine = Math.sin(convertToRadians(n));
-        return sine.toFixed(2);
+        return +sine.toFixed(2);
     },
 
-    cos(n: string): string {
+    cos(n: string): number { //Return the cosine of the parameter
         let cosine = Math.cos(convertToRadians(n));
-        return cosine.toFixed(2);
+        return +cosine.toFixed(2);
     },
 
-    tan(n: string): string {
+    tan(n: string): number { //Return the tangent of the parameter
         let tangent = Math.tan(convertToRadians(n));
-        return tangent.toFixed(2);
+        return +tangent.toFixed(2);
     },
 
-    cot(n: string): string {
+    cot(n: string): number { //Return the cotangent of the parameter
         let cotangent = 1 / Math.tan(convertToRadians(n));
-        return cotangent.toFixed(2);
+        return +cotangent.toFixed(2);
     },
 
-    sec(n: string): string {
+    sec(n: string): number { //Return the secant of the parameter
         let secant = 1 / Math.cos(convertToRadians(n));
-        return secant.toFixed(2);
+        return +secant.toFixed(2);
     },
 
-    csc(n: string): string {
+    csc(n: string): number { //Return the cosecant of the parameter
         let cosecant = 1 / Math.sin(convertToRadians(n));
-        return cosecant.toFixed(2);
+        return +cosecant.toFixed(2);
     },
+
+    /*
+        evaluateExpression Function
+    */
 
     evaluateExpression(expression: string, variables: { [key: string]: number }) {
         try {
@@ -420,6 +460,10 @@ const math = {
             console.error('Error occurred while evaluating the expression:', error);
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
+    },
+
+    evaluate(expression: string, variables: { [key: string]: number }) {
+        return this.evaluateExpression(expression, variables);
     }
 };
 

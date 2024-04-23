@@ -1,4 +1,4 @@
-const math = require('../math.js')
+const math = require('../src/math.js')
 
 const startTime = performance.now()
 
@@ -22,8 +22,12 @@ console.log(math.hypotenuse(3, 4)); // 5
 console.log(math.average(1, 2, 3)); // 2
 console.log(math.mean(1, 2, 3)); // 2
 console.log(math.median(1, 2, 3)); // 2
-console.log(math.mode(1, 1, 2, 2, 3)); // 1, 2
-console.log(math.range(1, 2, 3)); // 1, 3
+console.log(math.mode(1, 1, 2, 2, 3, 'array')); // 1, 2
+console.log(math.range(1, 2, 3, 'array')); // 1, 3
+console.log(math.factors(12, 'array')); // 1, 2, 3, 4, 6, 12
+console.log(math.factorsOf(12, 'string')); // 1, 2, 3, 4, 6, 12
+console.log(math.primeFactors(12, 'array')); // 2, 3
+console.log(math.primeFactorsOf(12, 'string')); // 2, 3
 console.log(math.greatestCommonDivisor(14, 21)); // 7
 console.log(math.GCD(14, 21)); // 7
 console.log(math.highestCommonFactor(14, 21)); // 7
@@ -50,6 +54,7 @@ console.log(math.isPalindrome(121)); // true
 console.log(math.isFinite(28)); // true
 console.log(math.factorial(5)); // 120
 console.log(math.fibonacci(5)); // 5
+console.log(math.fibonacciSeries(5, 'array')); // 3
 console.log(math.log(2, 8)); // 3
 console.log(math.logBase2(8)); // 3
 console.log(math.logBase5(25)); // 2

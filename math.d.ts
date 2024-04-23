@@ -32,8 +32,12 @@ declare const math: {
     average(...n: number[]): number;
     mean(...n: number[]): number;
     median(...n: number[]): number;
-    mode(...n: number[]): string;
-    range(...n: number[]): string;
+    mode(...n: (number | 'string' | 'array')[]): string | number[];
+    range(...n: (number | 'string' | 'array')[]): string | number[];
+    factors(n: number, returnType?: 'string' | 'array'): string | number[];
+    factorsOf(n: number, returnType?: 'string' | 'array'): string | number[];
+    primeFactors(n: number, returnType?: 'string' | 'array'): string | number[];
+    primeFactorsOf(n: number, returnType?: 'string' | 'array'): string | number[];
     greatestCommonDivisor(...n: number[]): number;
     GCD(...n: number[]): number;
     highestCommonFactor(...n: number[]): number;
@@ -69,13 +73,16 @@ declare const math: {
     logBase2(n: number): number;
     logBase5(n: number): number;
     logBase10(n: number): number;
-    sin(n: string): string;
-    cos(n: string): string;
-    tan(n: string): string;
-    cot(n: string): string;
-    sec(n: string): string;
-    csc(n: string): string;
+    sin(n: string): number;
+    cos(n: string): number;
+    tan(n: string): number;
+    cot(n: string): number;
+    sec(n: string): number;
+    csc(n: string): number;
     evaluateExpression(expression: string, variables: {
+        [key: string]: number;
+    }): any;
+    evaluate(expression: string, variables: {
         [key: string]: number;
     }): any;
 };

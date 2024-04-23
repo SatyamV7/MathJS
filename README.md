@@ -25,7 +25,7 @@ Include the following code snippets in your html file
 ```
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
-    <!--minified version(7kb → 3kb)-->
+    <!--minified version(10.5kb → 5kb)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
@@ -35,4 +35,4 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
     npm i @cypher_077/math
 
 
-### _Full Docs Here_ ☞ [MathJS Docs](https://SatyamV7.github.io/MathJS/docs/)
+### _Full Docs Here_ ☞ [MathJS Docs](https://SatyamV7.github.io/MathJS/)

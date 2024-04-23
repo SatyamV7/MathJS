@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.0.7
-    Last Modified: 17/04/2024 <DD/MM/YYYY>
+    MathJS v1.1.5
+    Last Modified: 23/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -120,6 +120,10 @@ const math = {
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
     mode(...n) {
+        let returnType = 'string';
+        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1].toString())) {
+            returnType = n.pop();
+        }
         const count = {};
         n.forEach(e => count[e] = (count[e] || 0) + 1);
         let max = 0, modes = [];
@@ -132,11 +136,42 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return modes.join(', ');
+        return returnType === 'string' ? modes.join(', ') : modes;
     },
     range(...n) {
-        n.sort((a, b) => a - b);
-        return [n[0], n[n.length - 1]].join(', ');
+        let returnType = 'string';
+        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1])) {
+            returnType = n.pop();
+        }
+        const numbers = n.filter((item) => typeof item === 'number');
+        numbers.sort((a, b) => a - b);
+        const range = [numbers[0], numbers[numbers.length - 1]];
+        return returnType === 'string' ? range.join(', ') : range;
+    },
+    factors(n, returnType = 'array') {
+        const factors = [];
+        for (let i = 1; i <= n; i++) {
+            if (n % i === 0) {
+                factors.push(i);
+            }
+        }
+        return returnType === 'string' ? factors.join(', ') : factors;
+    },
+    factorsOf(n, returnType = 'array') {
+        return this.factors(n, returnType);
+    },
+    primeFactors(n, returnType = 'array') {
+        const primeFactors = [];
+        for (let i = 2; i <= n; i++) {
+            while (n % i === 0) {
+                primeFactors.push(i);
+                n /= i;
+            }
+        }
+        return returnType === 'string' ? primeFactors.join(', ') : primeFactors;
+    },
+    primeFactorsOf(n, returnType = 'array') {
+        return this.primeFactors(n, returnType);
     },
     greatestCommonDivisor(...n) {
         const gcd = (x, y) => !y ? x : gcd(y, x % y);
@@ -269,12 +304,7 @@ const math = {
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
         }
-        if (returnType === 'string') {
-            return series.join(', ');
-        }
-        else {
-            return series;
-        }
+        return returnType === 'string' ? series.join(', ') : series;
     },
     /*
         Random Number Functions
@@ -307,28 +337,31 @@ const math = {
     */
     sin(n) {
         let sine = Math.sin(convertToRadians(n));
-        return sine.toFixed(2);
+        return +sine.toFixed(2);
     },
     cos(n) {
         let cosine = Math.cos(convertToRadians(n));
-        return cosine.toFixed(2);
+        return +cosine.toFixed(2);
     },
     tan(n) {
         let tangent = Math.tan(convertToRadians(n));
-        return tangent.toFixed(2);
+        return +tangent.toFixed(2);
     },
     cot(n) {
         let cotangent = 1 / Math.tan(convertToRadians(n));
-        return cotangent.toFixed(2);
+        return +cotangent.toFixed(2);
     },
     sec(n) {
         let secant = 1 / Math.cos(convertToRadians(n));
-        return secant.toFixed(2);
+        return +secant.toFixed(2);
     },
     csc(n) {
         let cosecant = 1 / Math.sin(convertToRadians(n));
-        return cosecant.toFixed(2);
+        return +cosecant.toFixed(2);
     },
+    /*
+        evaluateExpression Function
+    */
     evaluateExpression(expression, variables) {
         try {
             if (variables) {
@@ -351,6 +384,9 @@ const math = {
             console.error('Error occurred while evaluating the expression:', error);
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
+    },
+    evaluate(expression, variables) {
+        return this.evaluateExpression(expression, variables);
     }
 };
 (function (root, factory) {

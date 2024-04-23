@@ -26,7 +26,7 @@ Include the following code snippets in your html file
 ```
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
-    <!--minified version(8kb → 3kb)-->
+    <!--minified version(10.5kb → 5kb)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
