@@ -1,6 +1,6 @@
 "use strict";
 /*
-    MathJS v1.1.5
+    MathJS v1.1.6
     Last Modified: 23/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
