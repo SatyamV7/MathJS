@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.1.7
-    Last Modified: 23/04/2024 <DD/MM/YYYY>
+    MathJS v1.1.8
+    Last Modified: 24/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -49,60 +49,32 @@ const math = {
     LOG10E: Math.LOG10E,
     EPSILON: Number.EPSILON,
     PHI: (1 + Math.sqrt(5)) / 2,
-    //Basic Arithmetic Functions
+    /*
+        Basic Arithmetic Functions
+    */
     add(...n) {
         return n.reduce((a, b) => a + b, 0);
+    },
+    sum(...n) {
+        return this.add(...n);
     },
     subtract(...n) {
         return n.reduce((a, b) => a - b);
     },
+    difference(...n) {
+        return this.subtract(...n);
+    },
     multiply(...n) {
         return n.reduce((a, b) => a * b);
+    },
+    product(...n) {
+        return this.multiply(...n);
     },
     divide(...n) {
         return n.reduce((a, b) => a / b);
     },
-    square(n) {
-        return n * n;
-    },
-    cube(n) {
-        return n * n * n;
-    },
-    power(n, e) {
-        return Math.pow(n, e);
-    },
-    root(n, e) {
-        return Math.pow(n, 1 / e);
-    },
-    round(n) {
-        return Math.round(n);
-    },
-    roundUp(n) {
-        return Math.ceil(n);
-    },
-    roundDown(n) {
-        return Math.floor(n);
-    },
-    absolute(n) {
-        return Math.abs(n);
-    },
-    remainder(n, d) {
-        return n % d;
-    },
-    max(...n) {
-        return Math.max(...n);
-    },
-    min(...n) {
-        return Math.min(...n);
-    },
-    sqrt(n) {
-        return Math.sqrt(n);
-    },
-    cbrt(n) {
-        return Math.cbrt(n);
-    },
-    hypotenuse(a, b) {
-        return Math.hypot(a, b);
+    quotient(...n) {
+        return this.divide(...n);
     },
     /*
         Statistical Functions
@@ -120,8 +92,8 @@ const math = {
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
     mode(...n) {
-        let returnType = 'string';
-        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1].toString())) {
+        let returnType = 'Str';
+        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1].toString())) {
             returnType = n.pop();
         }
         const count = {};
@@ -136,68 +108,17 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return returnType === 'string' ? modes.join(', ') : modes;
+        return returnType === 'Str' ? modes.join(', ') : modes;
     },
     range(...n) {
-        let returnType = 'string';
-        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1])) {
+        let returnType = 'Str';
+        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1])) {
             returnType = n.pop();
         }
         const numbers = n.filter((item) => typeof item === 'number');
         numbers.sort((a, b) => a - b);
         const range = [numbers[0], numbers[numbers.length - 1]];
-        return returnType === 'string' ? range.join(', ') : range;
-    },
-    factors(n, returnType = 'array') {
-        const factors = [];
-        for (let i = 1; i <= n; i++) {
-            if (n % i === 0) {
-                factors.push(i);
-            }
-        }
-        return returnType === 'string' ? factors.join(', ') : factors;
-    },
-    factorsOf(n, returnType = 'array') {
-        return this.factors(n, returnType);
-    },
-    primeFactors(n, returnType = 'array') {
-        const primeFactors = [];
-        for (let i = 2; i <= n; i++) {
-            while (n % i === 0) {
-                primeFactors.push(i);
-                n /= i;
-            }
-        }
-        return returnType === 'string' ? primeFactors.join(', ') : primeFactors;
-    },
-    primeFactorsOf(n, returnType = 'array') {
-        return this.primeFactors(n, returnType);
-    },
-    greatestCommonDivisor(...n) {
-        const gcd = (x, y) => !y ? x : gcd(y, x % y);
-        return n.reduce((a, b) => gcd(a, b));
-    },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    GCD(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    highestCommonFactor(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    HCF(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    leastCommonMultiple(...n) {
-        const hcf = (x, y) => !y ? x : hcf(y, x % y);
-        const lcm = (x, y) => (x * y) / n.reduce((a, b) => hcf(a, b));
-        ;
-        return n.reduce((a, b) => lcm(a, b));
-    },
-    //Note: Dependent Function (Dependent on: leastCommonMultiple)
-    LCM(...n) {
-        return this.leastCommonMultiple(...n);
+        return returnType === 'Str' ? range.join(', ') : range;
     },
     /*
         Logical Functions
@@ -283,12 +204,12 @@ const math = {
         Factorial and Fibonacci Functions
     */
     factorial(n) {
-        let ans = 1;
+        let int = 1;
         if (n === 0)
             return 1;
         for (let i = 2; i <= n; i++)
-            ans = ans * i;
-        return ans;
+            int = int * i;
+        return int;
     },
     fibonacci(n) {
         let a = 1, b = 0, temp;
@@ -299,12 +220,12 @@ const math = {
         }
         return b;
     },
-    fibonacciSeries(n, returnType = 'string') {
+    fibonacciSeries(n, returnType = 'Str') {
         let series = [];
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
         }
-        return returnType === 'string' ? series.join(', ') : series;
+        return returnType === 'Str' ? series.join(', ') : series;
     },
     /*
         Random Number Functions
@@ -331,6 +252,123 @@ const math = {
     },
     logBase10(n) {
         return Math.log10(n);
+    },
+    square(n) {
+        return n * n;
+    },
+    cube(n) {
+        return n * n * n;
+    },
+    power(n, e) {
+        return Math.pow(n, e);
+    },
+    nthPower(n, e) {
+        return Math.pow(n, e);
+    },
+    root(n, e) {
+        return Math.pow(n, 1 / e);
+    },
+    nthRoot(n, e) {
+        return Math.pow(n, 1 / e);
+    },
+    round(n) {
+        return Math.round(n);
+    },
+    roundUp(n) {
+        return Math.ceil(n);
+    },
+    roundDown(n) {
+        return Math.floor(n);
+    },
+    absolute(n) {
+        return Math.abs(n);
+    },
+    remainder(n, d) {
+        return n % d;
+    },
+    max(...n) {
+        return Math.max(...n);
+    },
+    min(...n) {
+        return Math.min(...n);
+    },
+    sqrt(n) {
+        return Math.sqrt(n);
+    },
+    cbrt(n) {
+        return Math.cbrt(n);
+    },
+    hypotenuse(a, b) {
+        return Math.hypot(a, b);
+    },
+    factors(n, returnType = 'Arr') {
+        const factors = [];
+        for (let i = 1; i <= n; i++) {
+            if (n % i === 0) {
+                factors.push(i);
+            }
+        }
+        return returnType === 'Str' ? factors.join(', ') : factors;
+    },
+    factorsOf(n, returnType = 'Arr') {
+        return this.factors(n, returnType);
+    },
+    primeFactors(n, returnType = 'Arr') {
+        const primeFactors = [];
+        for (let i = 2; i <= n; i++) {
+            while (n % i === 0) {
+                if (!primeFactors.includes(i)) {
+                    primeFactors.push(i);
+                }
+                n /= i;
+            }
+        }
+        return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
+    },
+    primeFactorsOf(n, returnType = 'Arr') {
+        return this.primeFactors(n, returnType);
+    },
+    primeFactorization(n, returnType = 'Arr') {
+        let factors = [];
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            while (n % i === 0) {
+                factors.push(i);
+                n /= i;
+            }
+        }
+        if (n > 1) {
+            factors.push(n);
+        }
+        return returnType === 'Str' ? factors.join(', ') : factors;
+    },
+    primeFactorizationOf(n, returnType = 'Arr') {
+        return this.primeFactorization(n, returnType);
+    },
+    greatestCommonDivisor(...n) {
+        const gcd = (x, y) => !y ? x : gcd(y, x % y);
+        return n.reduce((a, b) => gcd(a, b));
+    },
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    GCD(...n) {
+        return this.greatestCommonDivisor(...n);
+    },
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    highestCommonFactor(...n) {
+        return this.greatestCommonDivisor(...n);
+    },
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    HCF(...n) {
+        return this.greatestCommonDivisor(...n);
+    },
+    leastCommonMultiple(...n) {
+        const hcf = (x, y) => !y ? x : hcf(y, x % y);
+        const lcm = (x, y) => (x * y) / n.reduce((a, b) => hcf(a, b));
+        ;
+        return n.reduce((a, b) => lcm(a, b));
+    },
+    //Note: Dependent Function (Dependent on: leastCommonMultiple)
+    LCM(...n) {
+        return this.leastCommonMultiple(...n);
     },
     /*
         Trigonometric Functions
@@ -381,7 +419,6 @@ const math = {
             return Function('math', `'use strict'; return (${expression})`)(math);
         }
         catch (error) {
-            console.error('Error occurred while evaluating the expression:', error);
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
     },

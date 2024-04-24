@@ -1,6 +1,6 @@
 /*
-    MathJS v1.1.7
-    Last Modified: 23/04/2024 <DD/MM/YYYY>
+    MathJS v1.1.8
+    Last Modified: 24/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -53,77 +53,40 @@ const math = {
     EPSILON: Number.EPSILON,
     PHI: (1 + Math.sqrt(5)) / 2,
 
-    //Basic Arithmetic Functions
+    /*
+        Basic Arithmetic Functions
+    */
+
     add(...n: number[]): number { //Add all parameters
         return n.reduce((a, b) => a + b, 0);
+    },
+
+    sum(...n: number[]): number { //Sum all parameters
+        return this.add(...n);
     },
 
     subtract(...n: number[]): number { //Subtract all parameters
         return n.reduce((a, b) => a - b);
     },
 
+    difference(...n: number[]): number { //Return the difference of all parameters
+        return this.subtract(...n);
+    },
+
     multiply(...n: number[]): number { //Multiply all parameters
         return n.reduce((a, b) => a * b);
+    },
+
+    product(...n: number[]): number { //Return the product of all parameters
+        return this.multiply(...n);
     },
 
     divide(...n: number[]): number { //Divide all parameters
         return n.reduce((a, b) => a / b);
     },
 
-    square(n: number): number { //Square the parameter
-        return n * n;
-    },
-
-    cube(n: number): number { //Cube the parameter
-        return n * n * n;
-    },
-
-    power(n: number, e: number): number { //Raise the parameter to the exponent
-        return Math.pow(n, e);
-    },
-
-    root(n: number, e: number): number { //Return the nth root of the parameter
-        return Math.pow(n, 1 / e);
-    },
-
-    round(n: number): number { //Round the parameter
-        return Math.round(n);
-    },
-
-    roundUp(n: number): number { //Round the parameter up
-        return Math.ceil(n);
-    },
-
-    roundDown(n: number): number { //Round the parameter down
-        return Math.floor(n);
-    },
-
-    absolute(n: number): number { //Return the absolute value of the parameter
-        return Math.abs(n);
-    },
-
-    remainder(n: number, d: number): number { //Return the remainder of the parameter divided by the divisor
-        return n % d;
-    },
-
-    max(...n: number[]): number { //Return the maximum of the parameters
-        return Math.max(...n);
-    },
-
-    min(...n: number[]): number { //Return the minimum of the parameters
-        return Math.min(...n);
-    },
-
-    sqrt(n: number): number { //Return the square root of the parameter
-        return Math.sqrt(n);
-    },
-
-    cbrt(n: number): number { //Return the cube root of the parameter
-        return Math.cbrt(n);
-    },
-
-    hypotenuse(a: number, b: number): number { //Return the hypotenuse of a right-angled triangle given the other two sides
-        return Math.hypot(a, b);
+    quotient(...n: number[]): number { //Return the quotient of all parameters
+        return this.divide(...n);
     },
 
     /*
@@ -145,10 +108,10 @@ const math = {
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
 
-    mode(...n: (number | 'string' | 'array')[]): string | number[] {
-        let returnType: 'string' | 'array' = 'string';
-        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1].toString())) {
-            returnType = n.pop() as 'string' | 'array';
+    mode(...n: (number | 'Str' | 'Arr')[]): string | number[] {
+        let returnType: 'Str' | 'Arr' = 'Str';
+        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1].toString())) {
+            returnType = n.pop() as 'Str' | 'Arr';
         }
         const count: { [key: number]: number } = {};
         n.forEach(e => count[e as number] = (count[e as number] || 0) + 1);
@@ -161,78 +124,18 @@ const math = {
                 modes.push(parseInt(e));
             }
         }
-        return returnType === 'string' ? modes.join(', ') : modes;
+        return returnType === 'Str' ? modes.join(', ') : modes;
     },
 
-    range(...n: (number | 'string' | 'array')[]): string | number[] {
-        let returnType: 'string' | 'array' = 'string';
-        if (typeof n[n.length - 1] === 'string' && ['string', 'array'].includes(n[n.length - 1] as string)) {
-            returnType = n.pop() as 'string' | 'array';
+    range(...n: (number | 'Str' | 'Arr')[]): string | number[] {
+        let returnType: 'Str' | 'Arr' = 'Str';
+        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1] as string)) {
+            returnType = n.pop() as 'Str' | 'Arr';
         }
         const numbers = n.filter((item): item is number => typeof item === 'number');
         numbers.sort((a, b) => a - b);
         const range: number[] = [numbers[0], numbers[numbers.length - 1]];
-        return returnType === 'string' ? range.join(', ') : range;
-    },
-
-    factors(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
-        const factors: number[] = [];
-        for (let i = 1; i <= n; i++) {
-            if (n % i === 0) {
-                factors.push(i);
-            }
-        }
-        return returnType === 'string' ? factors.join(', ') : factors;
-    },
-
-    factorsOf(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
-        return this.factors(n, returnType);
-    },
-
-    primeFactors(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
-        const primeFactors: number[] = [];
-        for (let i = 2; i <= n; i++) {
-            while (n % i === 0) {
-                primeFactors.push(i);
-                n /= i;
-            }
-        }
-        return returnType === 'string' ? primeFactors.join(', ') : primeFactors;
-    },
-
-    primeFactorsOf(n: number, returnType: 'string' | 'array' = 'array'): string | number[] {
-        return this.primeFactors(n, returnType);
-    },
-
-    greatestCommonDivisor(...n: number[]): number { //Return the greatest common divisor of the parameters
-        const gcd = (x: number, y: number): number => !y ? x : gcd(y, x % y);
-        return n.reduce((a, b) => gcd(a, b));
-    },
-
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    GCD(...n: number[]): number { //Return the highest common factor of the parameters
-        return this.greatestCommonDivisor(...n);
-    },
-
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    highestCommonFactor(...n: number[]): number { //Return the highest common factor of the parameters
-        return this.greatestCommonDivisor(...n);
-    },
-
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    HCF(...n: number[]): number { //Return the highest common factor of the parameters
-        return this.greatestCommonDivisor(...n);
-    },
-
-    leastCommonMultiple(...n: number[]): number { //Return the least common multiple of the parameters
-        const hcf = (x: number, y: number): number => !y ? x : hcf(y, x % y);
-        const lcm = (x: number, y: number): number => (x * y) / n.reduce((a, b) => hcf(a, b));;
-        return n.reduce((a, b) => lcm(a, b));
-    },
-
-    //Note: Dependent Function (Dependent on: leastCommonMultiple)
-    LCM(...n: number[]): number { //Return the highest common factor of the parameters
-        return this.leastCommonMultiple(...n);
+        return returnType === 'Str' ? range.join(', ') : range;
     },
 
     /*
@@ -342,12 +245,12 @@ const math = {
     */
 
     factorial(n: number): number { //Return the factorial of the parameter
-        let ans = 1;
+        let int = 1;
         if (n === 0)
             return 1;
         for (let i = 2; i <= n; i++)
-            ans = ans * i;
-        return ans;
+            int = int * i;
+        return int;
     },
 
     fibonacci(n: number): number { //Return the nth Fibonacci number
@@ -360,12 +263,12 @@ const math = {
         return b;
     },
 
-    fibonacciSeries(n: number, returnType: 'string' | 'array' = 'string'): string | number[] { //Return the Fibonacci series upto n terms
+    fibonacciSeries(n: number, returnType: 'Str' | 'Arr' = 'Str'): string | number[] {
         let series: number[] = [];
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
         }
-        return returnType === 'string' ? series.join(', ') : series;
+        return returnType === 'Str' ? series.join(', ') : series;
     },
 
     /*
@@ -399,6 +302,150 @@ const math = {
 
     logBase10(n: number): number { //Return the base 10 logarithm of the parameter
         return Math.log10(n);
+    },
+
+    square(n: number): number { //Square the parameter
+        return n * n;
+    },
+
+    cube(n: number): number { //Cube the parameter
+        return n * n * n;
+    },
+
+    power(n: number, e: number): number { //Raise the parameter to the exponent
+        return Math.pow(n, e);
+    },
+
+    nthPower(n: number, e: number): number { //Raise the parameter to the nth power
+        return Math.pow(n, e);
+    },
+
+    root(n: number, e: number): number { //Return the nth root of the parameter
+        return Math.pow(n, 1 / e);
+    },
+
+    nthRoot(n: number, e: number): number { //Return the nth root of the parameter
+        return Math.pow(n, 1 / e);
+    },
+
+    round(n: number): number { //Round the parameter
+        return Math.round(n);
+    },
+
+    roundUp(n: number): number { //Round the parameter up
+        return Math.ceil(n);
+    },
+
+    roundDown(n: number): number { //Round the parameter down
+        return Math.floor(n);
+    },
+
+    absolute(n: number): number { //Return the absolute value of the parameter
+        return Math.abs(n);
+    },
+
+    remainder(n: number, d: number): number { //Return the remainder of the parameter divided by the divisor
+        return n % d;
+    },
+
+    max(...n: number[]): number { //Return the maximum of the parameters
+        return Math.max(...n);
+    },
+
+    min(...n: number[]): number { //Return the minimum of the parameters
+        return Math.min(...n);
+    },
+
+    sqrt(n: number): number { //Return the square root of the parameter
+        return Math.sqrt(n);
+    },
+
+    cbrt(n: number): number { //Return the cube root of the parameter
+        return Math.cbrt(n);
+    },
+
+    hypotenuse(a: number, b: number): number { //Return the hypotenuse of a right-angled triangle given the other two sides
+        return Math.hypot(a, b);
+    },
+
+    factors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+        const factors: number[] = [];
+        for (let i = 1; i <= n; i++) {
+            if (n % i === 0) {
+                factors.push(i);
+            }
+        }
+        return returnType === 'Str' ? factors.join(', ') : factors;
+    },
+
+    factorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+        return this.factors(n, returnType);
+    },
+
+    primeFactors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+        const primeFactors: number[] = [];
+        for (let i = 2; i <= n; i++) {
+            while (n % i === 0) {
+                if (!primeFactors.includes(i)) {
+                    primeFactors.push(i);
+                }
+                n /= i;
+            }
+        }
+        return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
+    },
+
+    primeFactorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+        return this.primeFactors(n, returnType);
+    },
+
+    primeFactorization(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
+        let factors = [];
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            while (n % i === 0) {
+                factors.push(i);
+                n /= i;
+            }
+        }
+        if (n > 1) {
+            factors.push(n);
+        }
+        return returnType === 'Str' ? factors.join(', ') : factors;
+    },
+
+    primeFactorizationOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+        return this.primeFactorization(n, returnType);
+    },
+
+    greatestCommonDivisor(...n: number[]): number { //Return the greatest common divisor of the parameters
+        const gcd = (x: number, y: number): number => !y ? x : gcd(y, x % y);
+        return n.reduce((a, b) => gcd(a, b));
+    },
+
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    GCD(...n: number[]): number { //Return the highest common factor of the parameters
+        return this.greatestCommonDivisor(...n);
+    },
+
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    highestCommonFactor(...n: number[]): number { //Return the highest common factor of the parameters
+        return this.greatestCommonDivisor(...n);
+    },
+
+    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
+    HCF(...n: number[]): number { //Return the highest common factor of the parameters
+        return this.greatestCommonDivisor(...n);
+    },
+
+    leastCommonMultiple(...n: number[]): number { //Return the least common multiple of the parameters
+        const hcf = (x: number, y: number): number => !y ? x : hcf(y, x % y);
+        const lcm = (x: number, y: number): number => (x * y) / n.reduce((a, b) => hcf(a, b));;
+        return n.reduce((a, b) => lcm(a, b));
+    },
+
+    //Note: Dependent Function (Dependent on: leastCommonMultiple)
+    LCM(...n: number[]): number { //Return the highest common factor of the parameters
+        return this.leastCommonMultiple(...n);
     },
 
     /*
@@ -457,7 +504,6 @@ const math = {
                 .replace(/×/g, '*');
             return Function('math', `'use strict'; return (${expression})`)(math);
         } catch (error) {
-            console.error('Error occurred while evaluating the expression:', error);
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
     },
