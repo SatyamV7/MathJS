@@ -22,11 +22,13 @@ MathJS can be used in both node.js and in the browser.
 
 <h4>For Browser:</h4>
 
-Include the following code snippets in your html file
+Include either of the following script in your html file
 ```
+    <!--unminified version(12kb)-->
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
-    <!--minified version(10.5kb → 5kb)-->
+    <!--Recommended for browsers-->
+    <!--minified version(12kb → 5.55kb)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
