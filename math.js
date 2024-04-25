@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.1.9
-    Last Modified: 24/04/2024 <DD/MM/YYYY>
+    MathJS v1.2.0
+    Last Modified: 25/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -55,26 +55,33 @@ const math = {
     add(...n) {
         return n.reduce((a, b) => a + b, 0);
     },
+    //Note: Dependent Function (Dependent on: add)
     sum(...n) {
         return this.add(...n);
     },
     subtract(...n) {
         return n.reduce((a, b) => a - b);
     },
+    //Note: Dependent Function (Dependent on: subtract)
     difference(...n) {
         return this.subtract(...n);
     },
     multiply(...n) {
         return n.reduce((a, b) => a * b);
     },
+    //Note: Dependent Function (Dependent on: multiply)
     product(...n) {
         return this.multiply(...n);
     },
     divide(...n) {
         return n.reduce((a, b) => a / b);
     },
+    //Note: Dependent Function (Dependent on: divide)
     quotient(...n) {
         return this.divide(...n);
+    },
+    remainder(n, d) {
+        return n % d;
     },
     /*
         Statistical Functions
@@ -161,6 +168,7 @@ const math = {
         }
         return true;
     },
+    //Note: Dependent Function (Dependent on: isPrime)
     isComposite(n) {
         if (n == 1) {
             return false;
@@ -220,6 +228,7 @@ const math = {
         }
         return b;
     },
+    //Note: Dependent Function (Dependent on: fibonacci)
     fibonacciSeries(n, returnType = 'Str') {
         let series = [];
         for (let i = 0; i < n; i++) {
@@ -283,9 +292,6 @@ const math = {
     absolute(n) {
         return Math.abs(n);
     },
-    remainder(n, d) {
-        return n % d;
-    },
     max(...n) {
         return Math.max(...n);
     },
@@ -310,6 +316,7 @@ const math = {
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
+    //Note: Dependent Function (Dependent on: factors)
     factorsOf(n, returnType = 'Arr') {
         return this.factors(n, returnType);
     },
@@ -325,6 +332,7 @@ const math = {
         }
         return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
     },
+    //Note: Dependent Function (Dependent on: primeFactors)
     primeFactorsOf(n, returnType = 'Arr') {
         return this.primeFactors(n, returnType);
     },
@@ -341,6 +349,7 @@ const math = {
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
+    //Note: Dependent Function (Dependent on: primeFactorization)
     primeFactorizationOf(n, returnType = 'Arr') {
         return this.primeFactorization(n, returnType);
     },
@@ -422,8 +431,39 @@ const math = {
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
     },
+    //Note: Dependent Function (Dependent on: evaluateExpression)
     evaluate(expression, variables) {
         return this.evaluateExpression(expression, variables);
+    },
+    /*
+        Chain Handler
+    */
+    chain(initialValue) {
+        let result = initialValue;
+        const chained = {};
+        // Iterate over properties of math object
+        for (const method in math) {
+            // Check if the property is a function and not the chain method itself
+            if (typeof math[method] === 'function' && method !== 'chain') {
+                // Dynamically generate a method for the property
+                chained[method] = (...args) => {
+                    if (typeof result === 'number') {
+                        result = math[method](result, ...args);
+                    }
+                    return chained; // Return the chained object
+                };
+            }
+        }
+        // Add a done method to return the final result
+        chained.result = () => {
+            return result;
+        };
+        if (typeof initialValue === 'number') {
+            return chained;
+        }
+        else {
+            throw new Error('Initial value must be a number');
+        }
     }
 };
 (function (root, factory) {

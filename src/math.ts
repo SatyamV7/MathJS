@@ -1,6 +1,6 @@
 /*
-    MathJS v1.1.9
-    Last Modified: 24/04/2024 <DD/MM/YYYY>
+    MathJS v1.2.0
+    Last Modified: 25/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -12,19 +12,19 @@
     Helper Functions
 */
 
-function getUnts(str: string): string {
+function getUnts(str: string): string { //Extract the units from the parameter
     str = str.toString();
     const units = str.match(/[a-zA-Z]+/g);
     return units ? units.join('') : '';
 }
 
-function getNumericalValue(str: string): number {
+function getNumericalValue(str: string): number { //Extract the numerical value from the parameter
     str = str.toString();
     const numericalValue = str.match(/\d+/);
     return numericalValue ? +numericalValue[0] : 0;
 }
 
-function convertToRadians(n: string): number {
+function convertToRadians(n: string): number { //Convert the parameter to radians
     let num = getNumericalValue(n);
     if (getUnts(n) == 'deg' || getUnts(n) == '') {
         return num * Math.PI / 180;
@@ -61,6 +61,7 @@ const math = {
         return n.reduce((a, b) => a + b, 0);
     },
 
+    //Note: Dependent Function (Dependent on: add)
     sum(...n: number[]): number { //Sum all parameters
         return this.add(...n);
     },
@@ -69,6 +70,7 @@ const math = {
         return n.reduce((a, b) => a - b);
     },
 
+    //Note: Dependent Function (Dependent on: subtract)
     difference(...n: number[]): number { //Return the difference of all parameters
         return this.subtract(...n);
     },
@@ -77,6 +79,7 @@ const math = {
         return n.reduce((a, b) => a * b);
     },
 
+    //Note: Dependent Function (Dependent on: multiply)
     product(...n: number[]): number { //Return the product of all parameters
         return this.multiply(...n);
     },
@@ -85,8 +88,13 @@ const math = {
         return n.reduce((a, b) => a / b);
     },
 
+    //Note: Dependent Function (Dependent on: divide)
     quotient(...n: number[]): number { //Return the quotient of all parameters
         return this.divide(...n);
+    },
+
+    remainder(n: number, d: number): number { //Return the remainder of the parameter divided by the divisor
+        return n % d;
     },
 
     /*
@@ -108,7 +116,7 @@ const math = {
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
 
-    mode(...n: (number | 'Str' | 'Arr')[]): string | number[] {
+    mode(...n: (number | 'Str' | 'Arr')[]): string | number[] { //Return the mode of the parameters
         let returnType: 'Str' | 'Arr' = 'Str';
         if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1].toString())) {
             returnType = n.pop() as 'Str' | 'Arr';
@@ -127,7 +135,7 @@ const math = {
         return returnType === 'Str' ? modes.join(', ') : modes;
     },
 
-    range(...n: (number | 'Str' | 'Arr')[]): string | number[] {
+    range(...n: (number | 'Str' | 'Arr')[]): string | number[] { //Return the range of the parameters
         let returnType: 'Str' | 'Arr' = 'Str';
         if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1] as string)) {
             returnType = n.pop() as 'Str' | 'Arr';
@@ -189,6 +197,7 @@ const math = {
         return true;
     },
 
+    //Note: Dependent Function (Dependent on: isPrime)
     isComposite(n: number): boolean { //Return true if the parameter is a composite number
         if (n == 1) {
             return false;
@@ -263,7 +272,8 @@ const math = {
         return b;
     },
 
-    fibonacciSeries(n: number, returnType: 'Str' | 'Arr' = 'Str'): string | number[] {
+    //Note: Dependent Function (Dependent on: fibonacci)
+    fibonacciSeries(n: number, returnType: 'Str' | 'Arr' = 'Str'): string | number[] { //Return the Fibonacci series upto the parameter
         let series: number[] = [];
         for (let i = 0; i < n; i++) {
             series.push(this.fibonacci(i));
@@ -344,10 +354,6 @@ const math = {
         return Math.abs(n);
     },
 
-    remainder(n: number, d: number): number { //Return the remainder of the parameter divided by the divisor
-        return n % d;
-    },
-
     max(...n: number[]): number { //Return the maximum of the parameters
         return Math.max(...n);
     },
@@ -368,7 +374,7 @@ const math = {
         return Math.hypot(a, b);
     },
 
-    factors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+    factors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
         const factors: number[] = [];
         for (let i = 1; i <= n; i++) {
             if (n % i === 0) {
@@ -378,11 +384,12 @@ const math = {
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
 
-    factorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+    //Note: Dependent Function (Dependent on: factors)
+    factorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
         return this.factors(n, returnType);
     },
 
-    primeFactors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+    primeFactors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factors of the parameter
         const primeFactors: number[] = [];
         for (let i = 2; i <= n; i++) {
             while (n % i === 0) {
@@ -395,11 +402,12 @@ const math = {
         return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
     },
 
-    primeFactorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+    //Note: Dependent Function (Dependent on: primeFactors)
+    primeFactorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factors of the parameter
         return this.primeFactors(n, returnType);
     },
 
-    primeFactorization(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
+    primeFactorization(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factorization tree of the parameter
         let factors = [];
         for (let i = 2; i <= Math.sqrt(n); i++) {
             while (n % i === 0) {
@@ -413,7 +421,8 @@ const math = {
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
 
-    primeFactorizationOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] {
+    //Note: Dependent Function (Dependent on: primeFactorization)
+    primeFactorizationOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factorization tree of the parameter
         return this.primeFactorization(n, returnType);
     },
 
@@ -486,7 +495,7 @@ const math = {
         evaluateExpression Function
     */
 
-    evaluateExpression(expression: string, variables: { [key: string]: number }) {
+    evaluateExpression(expression: string, variables: { [key: string]: number }) { //Evaluate the expression with the variables
         try {
             if (variables) {
                 for (let variable in variables) {
@@ -508,8 +517,40 @@ const math = {
         }
     },
 
-    evaluate(expression: string, variables: { [key: string]: number }) {
+    //Note: Dependent Function (Dependent on: evaluateExpression)
+    evaluate(expression: string, variables: { [key: string]: number }) { //Evaluate the expression with the variables
         return this.evaluateExpression(expression, variables);
+    },
+
+    /*
+        Chain Handler
+    */
+
+    chain(initialValue: number): { [key: string]: Function } { //Chain the methods
+        let result: number = initialValue;
+        const chained: { [key: string]: Function } = {};
+        // Iterate over properties of math object
+        for (const method in math) {
+            // Check if the property is a function and not the chain method itself
+            if (typeof math[method as keyof typeof math] === 'function' && method !== 'chain') {
+                // Dynamically generate a method for the property
+                chained[method] = (...args: number[]) => {
+                    if (typeof result === 'number') {
+                        result = (math[method as keyof typeof math] as (...args: number[]) => number)(result, ...args);
+                    }
+                    return chained; // Return the chained object
+                };
+            }
+        }
+        // Add a done method to return the final result
+        chained.result = () => {
+            return result;
+        };
+        if (typeof initialValue === 'number') {
+            return chained;
+        } else {
+            throw new Error('Initial value must be a number');
+        }
     }
 };
 

@@ -19,6 +19,7 @@ declare const math: {
     product(...n: number[]): number;
     divide(...n: number[]): number;
     quotient(...n: number[]): number;
+    remainder(n: number, d: number): number;
     average(...n: number[]): number;
     mean(...n: number[]): number;
     median(...n: number[]): number;
@@ -63,7 +64,6 @@ declare const math: {
     roundUp(n: number): number;
     roundDown(n: number): number;
     absolute(n: number): number;
-    remainder(n: number, d: number): number;
     max(...n: number[]): number;
     min(...n: number[]): number;
     sqrt(n: number): number;
@@ -93,6 +93,9 @@ declare const math: {
     evaluate(expression: string, variables: {
         [key: string]: number;
     }): any;
+    chain(initialValue: number): {
+        [key: string]: Function;
+    };
 };
 declare var module: any;
 declare var exports: any;

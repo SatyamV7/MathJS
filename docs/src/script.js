@@ -1,4 +1,4 @@
-url = "https://satyamv7.github.io/MathJS/src/md/DOCS.md";
+url = "./src/md/DOCS.md";
 fetch(url)
     .then(response => response.text())
     .then(results => {

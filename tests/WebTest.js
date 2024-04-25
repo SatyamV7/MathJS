@@ -22,12 +22,13 @@ function Test() {
     console.log(math.average(1, 2, 3)); // 2
     console.log(math.mean(1, 2, 3)); // 2
     console.log(math.median(1, 2, 3)); // 2
-    console.log(math.mode(1, 1, 2, 2, 3)); // 1, 2
-    console.log(math.range(1, 2, 3)); // 1, 3
-    console.log(math.factors(12, 'array')); // 1, 2, 3, 4, 6, 12
-    console.log(math.factorsOf(12, 'string')); // 1, 2, 3, 4, 6, 12
-    console.log(math.primeFactors(12, 'array')); // 2, 3
-    console.log(math.primeFactorsOf(12, 'string')); // 2, 3
+    console.log(math.mode(1, 1, 2, 2, 3, 'Arr')); // 1, 2
+    console.log(math.range(1, 2, 3, 'Arr')); // 1, 3
+    console.log(math.factors(12, 'Arr')); // 1, 2, 3, 4, 6, 12
+    console.log(math.factorsOf(12, 'Str')); // 1, 2, 3, 4, 6, 12
+    console.log(math.primeFactors(12, 'Arr')); // 2, 3
+    console.log(math.primeFactorsOf(12, 'Str')); // 2, 3
+    console.log(math.primeFactorizationOf(12, 'Str')); // 2^2, 3
     console.log(math.greatestCommonDivisor(14, 21)); // 7
     console.log(math.GCD(14, 21)); // 7
     console.log(math.highestCommonFactor(14, 21)); // 7
@@ -54,6 +55,7 @@ function Test() {
     console.log(math.isFinite(28)); // true
     console.log(math.factorial(5)); // 120
     console.log(math.fibonacci(5)); // 5
+    console.log(math.fibonacciSeries(5, 'Arr')); // 3
     console.log(math.log(2, 8)); // 3
     console.log(math.logBase2(8)); // 3
     console.log(math.logBase5(25)); // 2
@@ -64,7 +66,9 @@ function Test() {
     console.log(math.cot(45)); // 1
     console.log(math.sec(0)); // 1
     console.log(math.csc(90)); // 1
-    console.log(math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
+    console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
+    console.log(math.chain(10).add(5).subtract(3).multiply(2).divide(4).result()); // 6
+    console.log(math.chain(2).result()); // 2
 
     const endTime = performance.now()
 
@@ -74,9 +78,13 @@ function Test() {
 
     console.log('Exit code:', 0);
 
+    const Time = endTime - startTime
+
     document.head.title = 'MathJS Web Testing'
 
-    document.body.innerText = `Exit code: 0 \n All tests passed! \n Time taken to execute: ${endTime - startTime}ms \n See Console for detailed results.`
+    document.body.innerText = `Exit code: 0 \n All tests passed! \n Time taken to execute: ${+Time.toFixed(2)}ms \n See Console for detailed results.`
+
+    document.body.style.cssText = 'font-size: 28px;font-family: system-ui;display: flex;justify-content: center;align-items: center;'
 
 }
 

@@ -55,13 +55,27 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
 
         console.log(math.isPrime(2)); // true
 
-        math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 }); // 80
+        console.log(math.isArmstrong(153)); // true
+
+        console.log(math.isPalindrome(121)); // true
+
+        console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
+
+        console.log(
+                    math.chain(10)
+                        .add(5)
+                        .subtract(3)
+                        .multiply(2)
+                        .divide(4)
+                        .result()
+        ); // 6
 
         // and so on
     </script>
 
 <h4>For Node.js:</h4>
 
+        // Import the MathJS library
         const math = require('@cypher_077/math');
 
         console.log(math.hypotenuse(3, 4)); // 5
@@ -74,7 +88,20 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
 
         console.log(math.isPrime(2)); // true
 
-        math.evaluateExpression('(2 * tan(45) + 3) * 4 ^ x', { x: 2 }); // 80
+        console.log(math.isArmstrong(153)); // true
+
+        console.log(math.isPalindrome(121)); // true
+
+        console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
+
+                console.log(
+                    math.chain(10)
+                        .add(5)
+                        .subtract(3)
+                        .multiply(2)
+                        .divide(4)
+                        .result()
+        ); // 6
 
         // and so on
 
