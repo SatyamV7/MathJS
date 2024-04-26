@@ -1,5 +1,5 @@
 /*
-    MathJS v1.2.1
+    MathJS v1.2.3
     Last Modified: 26/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -101,6 +101,14 @@ const math = {
         Statistical Functions
     */
 
+    max(...n: number[]): number { //Return the maximum of the parameters
+        return Math.max(...n);
+    },
+
+    min(...n: number[]): number { //Return the minimum of the parameters
+        return Math.min(...n);
+    },
+
     average(...n: number[]): number { //Return the average of the parameters
         return n.reduce((a, b) => a + b, 0) / n.length;
     },
@@ -144,6 +152,15 @@ const math = {
         numbers.sort((a, b) => a - b);
         const range: number[] = [numbers[0], numbers[numbers.length - 1]];
         return returnType === 'Str' ? range.join(', ') : range;
+    },
+
+    variance(...n: number[]): number { //Return the variance of the parameters
+        const mean = this.mean(...n);
+        return this.mean(...n.map(e => this.square(e - mean)));
+    },
+
+    standardDeviation(...n: number[]): number { //Return the standard deviation of the parameters
+        return Math.sqrt(this.variance(...n));
     },
 
     /*
@@ -354,14 +371,6 @@ const math = {
         return Math.abs(n);
     },
 
-    max(...n: number[]): number { //Return the maximum of the parameters
-        return Math.max(...n);
-    },
-
-    min(...n: number[]): number { //Return the minimum of the parameters
-        return Math.min(...n);
-    },
-
     sqrt(n: number): number { //Return the square root of the parameter
         return Math.sqrt(n);
     },
@@ -374,7 +383,7 @@ const math = {
         return Math.hypot(a, b);
     },
 
-    factors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
+    factorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
         const factors: number[] = [];
         for (let i = 1; i <= n; i++) {
             if (n % i === 0) {
@@ -384,12 +393,7 @@ const math = {
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
 
-    //Note: Dependent Function (Dependent on: factors)
-    factorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the factors of the parameter
-        return this.factors(n, returnType);
-    },
-
-    primeFactors(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factors of the parameter
+    primeFactorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factors of the parameter
         const primeFactors: number[] = [];
         for (let i = 2; i <= n; i++) {
             while (n % i === 0) {
@@ -402,12 +406,7 @@ const math = {
         return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
     },
 
-    //Note: Dependent Function (Dependent on: primeFactors)
-    primeFactorsOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factors of the parameter
-        return this.primeFactors(n, returnType);
-    },
-
-    primeFactorization(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factorization tree of the parameter
+    primeFactorizationOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factorization tree of the parameter
         let factors = [];
         for (let i = 2; i <= Math.sqrt(n); i++) {
             while (n % i === 0) {
@@ -419,11 +418,6 @@ const math = {
             factors.push(n);
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
-    },
-
-    //Note: Dependent Function (Dependent on: primeFactorization)
-    primeFactorizationOf(n: number, returnType: 'Str' | 'Arr' = 'Arr'): string | number[] { //Return the prime factorization tree of the parameter
-        return this.primeFactorization(n, returnType);
     },
 
     greatestCommonDivisor(...n: number[]): number { //Return the greatest common divisor of the parameters
@@ -489,6 +483,84 @@ const math = {
     csc(n: string): number { //Return the cosecant of the parameter
         let cosecant = 1 / Math.sin(convertToRadians(n));
         return +cosecant.toFixed(2);
+    },
+
+    asin(n: number): number { //Return the arcsine of the parameter
+        let arcsine = Math.asin(n) * 180 / Math.PI;
+        return +arcsine.toFixed(2);
+    },
+
+    acos(n: number): number { //Return the arccosine of the parameter
+        let arccosine = Math.acos(n) * 180 / Math.PI;
+        return +arccosine.toFixed(2);
+    },
+
+    atan(n: number): number { //Return the arctangent of the parameter
+        let arctangent = Math.atan(n) * 180 / Math.PI;
+        return +arctangent.toFixed(2);
+    },
+
+    acot(n: number): number { //Return the arccotangent of the parameter
+        let arccotangent = Math.atan(1 / n) * 180 / Math.PI;
+        return +arccotangent.toFixed(2);
+    },
+
+    asec(n: number): number { //Return the arcsecant of the parameter
+        let arcsecant = Math.acos(1 / n) * 180 / Math.PI;
+        return +arcsecant.toFixed(2);
+    },
+
+    acsc(n: number): number { //Return the arccosecant of the parameter
+        let arccosecant = Math.asin(1 / n) * 180 / Math.PI;
+        return +arccosecant.toFixed(2);
+    },
+
+    sinh(n: number): number { //Return the hyperbolic sine of the parameter
+        return Math.sinh(n);
+    },
+
+    cosh(n: number): number { //Return the hyperbolic cosine of the parameter
+        return Math.cosh(n);
+    },
+
+    tanh(n: number): number { //Return the hyperbolic tangent of the parameter
+        return Math.tanh(n);
+    },
+
+    coth(n: number): number { //Return the hyperbolic cotangent of the parameter
+        return 1 / Math.tanh(n);
+    },
+
+    sech(n: number): number { //Return the hyperbolic secant of the parameter
+        return 1 / Math.cosh(n);
+    },
+
+    csch(n: number): number { //Return the hyperbolic cosecant of the parameter
+        return 1 / Math.sinh(n);
+    },
+
+    asinh(n: number): number { //Return the inverse hyperbolic sine of the parameter
+        return Math.asinh(n);
+    },
+
+    acosh(n: number): number { //Return the inverse hyperbolic cosine of the parameter
+        return Math.acosh(n);
+    },
+
+    atanh(n: number): number { //Return the inverse hyperbolic tangent of the parameter
+        return Math.atanh(n);
+    },
+
+    acoth(n: number): number { //Return the inverse hyperbolic cotangent of the parameter
+        return Math.atanh(1 / n);
+    },
+
+    asech(n: number): number { //Return the inverse hyperbolic secant of the parameter
+        return Math.acosh(1 / n);
+    },
+
+    acsch(n: number): number { //Return the inverse hyperbolic cosecant of the parameter
+        return Math.asinh(1 / n);
     },
 
     /*

@@ -1,6 +1,6 @@
 "use strict";
 /*
-    MathJS v1.2.1
+    MathJS v1.2.3
     Last Modified: 26/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -86,6 +86,12 @@ const math = {
     /*
         Statistical Functions
     */
+    max(...n) {
+        return Math.max(...n);
+    },
+    min(...n) {
+        return Math.min(...n);
+    },
     average(...n) {
         return n.reduce((a, b) => a + b, 0) / n.length;
     },
@@ -126,6 +132,13 @@ const math = {
         numbers.sort((a, b) => a - b);
         const range = [numbers[0], numbers[numbers.length - 1]];
         return returnType === 'Str' ? range.join(', ') : range;
+    },
+    variance(...n) {
+        const mean = this.mean(...n);
+        return this.mean(...n.map(e => this.square(e - mean)));
+    },
+    standardDeviation(...n) {
+        return Math.sqrt(this.variance(...n));
     },
     /*
         Logical Functions
@@ -292,12 +305,6 @@ const math = {
     absolute(n) {
         return Math.abs(n);
     },
-    max(...n) {
-        return Math.max(...n);
-    },
-    min(...n) {
-        return Math.min(...n);
-    },
     sqrt(n) {
         return Math.sqrt(n);
     },
@@ -307,7 +314,7 @@ const math = {
     hypotenuse(a, b) {
         return Math.hypot(a, b);
     },
-    factors(n, returnType = 'Arr') {
+    factorsOf(n, returnType = 'Arr') {
         const factors = [];
         for (let i = 1; i <= n; i++) {
             if (n % i === 0) {
@@ -316,11 +323,7 @@ const math = {
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
-    //Note: Dependent Function (Dependent on: factors)
-    factorsOf(n, returnType = 'Arr') {
-        return this.factors(n, returnType);
-    },
-    primeFactors(n, returnType = 'Arr') {
+    primeFactorsOf(n, returnType = 'Arr') {
         const primeFactors = [];
         for (let i = 2; i <= n; i++) {
             while (n % i === 0) {
@@ -332,11 +335,7 @@ const math = {
         }
         return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
     },
-    //Note: Dependent Function (Dependent on: primeFactors)
-    primeFactorsOf(n, returnType = 'Arr') {
-        return this.primeFactors(n, returnType);
-    },
-    primeFactorization(n, returnType = 'Arr') {
+    primeFactorizationOf(n, returnType = 'Arr') {
         let factors = [];
         for (let i = 2; i <= Math.sqrt(n); i++) {
             while (n % i === 0) {
@@ -348,10 +347,6 @@ const math = {
             factors.push(n);
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
-    },
-    //Note: Dependent Function (Dependent on: primeFactorization)
-    primeFactorizationOf(n, returnType = 'Arr') {
-        return this.primeFactorization(n, returnType);
     },
     greatestCommonDivisor(...n) {
         const gcd = (x, y) => !y ? x : gcd(y, x % y);
@@ -405,6 +400,66 @@ const math = {
     csc(n) {
         let cosecant = 1 / Math.sin(convertToRadians(n));
         return +cosecant.toFixed(2);
+    },
+    asin(n) {
+        let arcsine = Math.asin(n) * 180 / Math.PI;
+        return +arcsine.toFixed(2);
+    },
+    acos(n) {
+        let arccosine = Math.acos(n) * 180 / Math.PI;
+        return +arccosine.toFixed(2);
+    },
+    atan(n) {
+        let arctangent = Math.atan(n) * 180 / Math.PI;
+        return +arctangent.toFixed(2);
+    },
+    acot(n) {
+        let arccotangent = Math.atan(1 / n) * 180 / Math.PI;
+        return +arccotangent.toFixed(2);
+    },
+    asec(n) {
+        let arcsecant = Math.acos(1 / n) * 180 / Math.PI;
+        return +arcsecant.toFixed(2);
+    },
+    acsc(n) {
+        let arccosecant = Math.asin(1 / n) * 180 / Math.PI;
+        return +arccosecant.toFixed(2);
+    },
+    sinh(n) {
+        return Math.sinh(n);
+    },
+    cosh(n) {
+        return Math.cosh(n);
+    },
+    tanh(n) {
+        return Math.tanh(n);
+    },
+    coth(n) {
+        return 1 / Math.tanh(n);
+    },
+    sech(n) {
+        return 1 / Math.cosh(n);
+    },
+    csch(n) {
+        return 1 / Math.sinh(n);
+    },
+    asinh(n) {
+        return Math.asinh(n);
+    },
+    acosh(n) {
+        return Math.acosh(n);
+    },
+    atanh(n) {
+        return Math.atanh(n);
+    },
+    acoth(n) {
+        return Math.atanh(1 / n);
+    },
+    asech(n) {
+        return Math.acosh(1 / n);
+    },
+    acsch(n) {
+        return Math.asinh(1 / n);
     },
     /*
         evaluateExpression Function

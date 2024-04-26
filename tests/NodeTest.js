@@ -24,9 +24,7 @@ console.log(math.mean(1, 2, 3)); // 2
 console.log(math.median(1, 2, 3)); // 2
 console.log(math.mode(1, 1, 2, 2, 3, 'Arr')); // 1, 2
 console.log(math.range(1, 2, 3, 'Arr')); // 1, 3
-console.log(math.factors(12, 'Arr')); // 1, 2, 3, 4, 6, 12
 console.log(math.factorsOf(12, 'Str')); // 1, 2, 3, 4, 6, 12
-console.log(math.primeFactors(12, 'Arr')); // 2, 3
 console.log(math.primeFactorsOf(12, 'Str')); // 2, 3
 console.log(math.primeFactorizationOf(12, 'Str')); // 2^2, 3
 console.log(math.greatestCommonDivisor(14, 21)); // 7
