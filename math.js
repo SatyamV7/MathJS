@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.2.0
-    Last Modified: 25/04/2024 <DD/MM/YYYY>
+    MathJS v1.2.1
+    Last Modified: 26/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -447,8 +447,13 @@ const math = {
             if (typeof math[method] === 'function' && method !== 'chain') {
                 // Dynamically generate a method for the property
                 chained[method] = (...args) => {
-                    if (typeof result === 'number') {
-                        result = math[method](result, ...args);
+                    try {
+                        if (typeof result === 'number') {
+                            result = math[method](result, ...args);
+                        }
+                    }
+                    catch (error) {
+                        console.error(`Error executing method ${method}:`, error);
                     }
                     return chained; // Return the chained object
                 };
