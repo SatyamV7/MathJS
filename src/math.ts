@@ -1,5 +1,5 @@
 /*
-    MathJS v1.2.3
+    MathJS v1.2.4
     Last Modified: 26/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -569,6 +569,9 @@ const math = {
 
     evaluateExpression(expression: string, variables: { [key: string]: number }) { //Evaluate the expression with the variables
         try {
+            if (typeof expression !== 'string') {
+                throw new Error('Expression must be a string');
+            }
             if (variables) {
                 for (let variable in variables) {
                     const regex = new RegExp('\\b' + variable + '\\b', 'g');
@@ -583,6 +586,14 @@ const math = {
                 .replace(/\^/g, '**')
                 .replace(/÷/g, '/')
                 .replace(/×/g, '*');
+            // Regular expression to match allowed mathematical operators and functions
+            const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\]]+$/;
+            // Check if the expression contains only allowed characters
+            for (let i = 0; i < expression.length; i++) {
+                if (!allowedCharactersRegex.test(expression[i])) {
+                    throw new Error(`Expression contains disallowed character: ${expression[i]} at character position: ${i} in expression: ${expression}`);
+                }
+            }
             return Function('math', `'use strict'; return (${expression})`)(math);
         } catch (error) {
             throw new Error('Error occurred while evaluating the expression: ' + error);
