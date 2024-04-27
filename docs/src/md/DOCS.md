@@ -37,7 +37,7 @@ Include either of the following script in your html file
 ```
 
 > ⓘ Note
-> **_This library does Universal Module Definition (UMD) support i.e you can call math.js as a normal js or import it as a Module (CommonJS)._**
+> **_This library supports Universal Module Definition (UMD) i.e you can use MathJS as a normal javascript file or import it as a Module (CommonJS)._**
 
 <h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
