@@ -1,5 +1,5 @@
-declare function getUnts(str: string): string;
-declare function getNumericalValue(str: string): number;
+declare let debugging: boolean;
+declare function getUnits(str: string): string;
 declare function convertToRadians(n: string): number;
 declare const math: {
     e: number;

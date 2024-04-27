@@ -24,9 +24,7 @@ function Test() {
     console.log(math.median(1, 2, 3)); // 2
     console.log(math.mode(1, 1, 2, 2, 3, 'Arr')); // 1, 2
     console.log(math.range(1, 2, 3, 'Arr')); // 1, 3
-    console.log(math.factors(12, 'Arr')); // 1, 2, 3, 4, 6, 12
     console.log(math.factorsOf(12, 'Str')); // 1, 2, 3, 4, 6, 12
-    console.log(math.primeFactors(12, 'Arr')); // 2, 3
     console.log(math.primeFactorsOf(12, 'Str')); // 2, 3
     console.log(math.primeFactorizationOf(12, 'Str')); // 2^2, 3
     console.log(math.greatestCommonDivisor(14, 21)); // 7
@@ -61,12 +59,12 @@ function Test() {
     console.log(math.logBase5(25)); // 2
     console.log(math.logBase10(100)); // 2
     console.log(math.sin(90)); // 1
-    console.log(math.cos(0)); // 1
+    console.log(math.cos('pi/2 rad')); // 0
     console.log(math.tan(45)); // 1
     console.log(math.cot(45)); // 1
     console.log(math.sec(0)); // 1
     console.log(math.csc(90)); // 1
-    console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
+    console.log(math.evaluate('((2 * tan(45) + 3) * 4 ^ x) + PI', { x: 2 })); // 80
     console.log(math.chain(10).add(5).subtract(3).multiply(2).divide(4).result()); // 6
     console.log(math.chain(2).result()); // 2
 

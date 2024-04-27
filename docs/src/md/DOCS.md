@@ -2,17 +2,15 @@
 <img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
 </center>
 
- _A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions_
+ _A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions._
 
 > ⓘ Note
 > **_This library does not support complex numbers._**
 
-> &#128161; Info
->Each function is defined using https JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
 
 # Brief Explanation about MathJS Library
 
-This JavaScript file, math.js, is a library that provides various mathematical functions.
+The MathJS library is a collection of mathematical functions that can be used in both node.js and in the browser. It provides various mathematical functions for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 
 _Github Repository_: [@SatyamV7/MathJS](https://github.com/SatyamV7/MathJS)
 
@@ -38,45 +36,16 @@ Include either of the following script in your html file
 <h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
 
+    ```bash
     npm i @cypher_077/math
+    ```
+And then import it in your project:
 
+    ```javascript
+    // Import the MathJS library
+    const math = require('@cypher_077/math');
+    ```
 ## Usage
-<h4>For Browser:</h4>
-
-    <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
-    <script>
-        console.log(math.hypotenuse(3, 4)); // 5
-
-        console.log(math.mean(1, 2, 3, 4, 5)); // 3
-
-        console.log(math.greatestCommonDivisor(12, 18)); // 6
-
-        console.log(math.leastCommonMultiple(12, 18)); // 36
-
-        console.log(math.isPrime(2)); // true
-
-        console.log(math.isArmstrong(153)); // true
-
-        console.log(math.isPalindrome(121)); // true
-
-        console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
-
-        console.log(
-                    math.chain(10)
-                        .add(5)
-                        .subtract(3)
-                        .multiply(2)
-                        .divide(4)
-                        .result()
-        ); // 6
-
-        // and so on
-    </script>
-
-<h4>For Node.js:</h4>
-
-        // Import the MathJS library
-        const math = require('@cypher_077/math');
 
         console.log(math.hypotenuse(3, 4)); // 5
 
@@ -91,6 +60,8 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
         console.log(math.isArmstrong(153)); // true
 
         console.log(math.isPalindrome(121)); // true
+
+        console.log(math.); // true
 
         console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
 
@@ -106,110 +77,185 @@ Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" ta
         // and so on
 
 
-## Mathematical Constants
-It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include
-| Name | Type | Description |
-| --- | --- | --- |
-| `math.e` | Constant | Euler's number |
-| `math.PI` | Constant | Pi |
-| `math.LN2` | Constant | Natural logarithm of 2 |
-| `math.LN10` | Constant | Natural logarithm of 10 |
-| `math.TAU` | Constant | Tau (2 * Pi) |
-| `math.LOG2E` | Constant | Base 2 logarithm of Euler's number |
-| `math.LOG10E` | Constant | Base 10 logarithm of Euler's number |
-| `math.EPSILON` | Constant | Smallest interval between representable numbers |
-| `math.PHI` | Constant | Golden ratio |
+### Mathematical Constants
+
+It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include:
+
+| Name | Description |
+| --- | --- |
+| `math.e` | Mathematical constant e. |
+| `math.PI` | Mathematical constant π. |
+| `math.LN2` | Natural logarithm of 2. |
+| `math.LN10` | Natural logarithm of 10. |
+| `math.TAU` | Tau (2π). |
+| `math.LOG2E` | Base 2 logarithm of E. |
+| `math.LOG10E` | Base 10 logarithm of E. |
+| `math.EPSILON` | Difference between 1 and the smallest value greater than 1 that is representable as a float. |
+| `math.PHI` | Golden ratio. |
 
 ### Basic Arithmetic Functions
-The library provides functions for basic arithmetic operations, such as
-| Name | Type | Description |
-| --- | --- | --- |
-| `math.add(...n)` | Function | Add all parameters |
-| `math.subtract(...n)` | Function | Subtract all parameters |
-| `math.multiply(...n)` | Function | Multiply all parameters |
-| `math.divide(...n)` | Function | Divide all parameters |
-| `math.square(n)` | Function | Square the parameter |
-| `math.cube(n)` | Function | Cube the parameter |
-| `math.power(n, e)` | Function | Raise the parameter to the exponent |
-| `math.root(n, e)` | Function | Return the nth root of the parameter |
-| `math.round(n)` | Function | Round the parameter |
-| `math.roundUp(n)` | Function | Round up the parameter |
-| `math.roundDown(n)` | Function | Round down the parameter |
-| `math.absolute(n)` | Function | Return the absolute value of the parameter |
-| `math.remainder(n, d)` | Function | Return the remainder of the parameter divided by the divisor |
-| `math.max(...n)` | Function | Return the maximum of the parameters |
-| `math.min(...n)` | Function | Return the minimum of the parameters |
-| `math.sqrt(n)` | Function | Return the square root of the parameter |
-| `math.cbrt(n)` | Function | Return the cube root of the parameter |
-| `math.hypotenuse(a, b)` | Function | Return the hypotenuse of a right-angled triangle given the other two sides |
-| `math.average(...n)` | Function | Return the average of the parameters |
-| `math.mean(...n)` | Function | Return the mean of the parameters |
-| `math.median(...n)` | Function | Return the median of the parameters |
-| `math.mode(...n)` | Function | Return the mode of the parameters |
-| `math.range(...n)` | Function | Return the range of the parameters |
-| `math.greatestCommonDivisor(...n)` <br> or `math.highestCommonFactor(...n)` <br> or `math.GCD(...n)` or `math.HCF(...n)`| Function | Return the greatest common divisor of the parameters |
-| `math.leastCommonMultiple(...n)` <br> or `math.LCM(...n)` | Function | Return the least common multiple of the parameters |
 
-### Comparison Functions
-It also includes functions to check if a number is even, odd, prime, composite, or finite.
+The library provides functions for basic arithmetic operations, such as:
+
 | Name | Type | Description |
 | --- | --- | --- |
-| `math.isEven(n)` | Function | Return true if the parameter is even |
-| `math.isOdd(n)` | Function | Return true if the parameter is odd |
-| `math.isPositive(n)` | Function | Return true if the parameter is positive |
-| `math.isNegative(n)` | Function | Return true if the parameter is negative |
-| `math.isZero(n)` | Function | Return true if the parameter is zero |
-| `math.isInteger(n)` | Function | Return true if the parameter is an integer |
-| `math.isFloat(n)` | Function | Return true if the parameter is a float |
-| `math.isPrime(n)` | Function | Return true if the parameter is a prime number |
-| `math.isComposite(n)` | Function | Return true if the parameter is a composite number |
-| `math.isDivisible(n, d)` | Function | Return true if the parameter is divisible by the divisor |
-| `math.isPowerof(n, e)` | Function | Return true if the parameter is a power of the exponent |
-| `math.isPerfectSquare(n)` | Function | Return true if the parameter is a perfect square |
-| `math.isPerfectCube(n)` | Function | Return true if the parameter is a perfect cube |
-| `math.isPerfectPower(n, e)` | Function | Return true if the parameter is a perfect power of the exponent |
-| `math.isFactor(n, f)` | Function | Return true if the parameter is a factor of the factor |
-| `math.isMultiple(n, m)` | Function | Return true if the parameter is a multiple of the multiple |
-| `math.isArmstrong(n)` | Function | Return true if the parameter is an Armstrong number |
-| `math.isPalindrome(n)` | Function | Return true if the parameter is a palindrome |
-| `math.isFinite(n)` | Function | Return true if the parameter is a finite number |
-| `math.isInfinite(n)` | Function | Return true if the parameter is an infinite number |
+| `math.add(...n)` | Function | Returns the sum of the given numbers. |
+| `math.subtract(...n)` | Function | Returns the difference of the given numbers. |
+| `math.multiply(...n)` | Function | Returns the product of the given numbers. |
+| `math.divide(...n)` | Function | Returns the division of the given numbers. |
+| `math.remainder(n, d)` | Function | Returns the remainder of the division of `n` by `d`. |
+
+### Statistical Functions
+
+The library provides functions for statistical operations, such as:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `math.max(...n)` | Function | Returns the maximum value from the given numbers. |
+| `math.min(...n)` | Function | Returns the minimum value from the given numbers. |
+| `math.average(...n)` | Function | Returns the average value of the given numbers. |
+| `math.median(...n)` | Function | Returns the median value of the given numbers. |
+| `math.mode(...n)` | Function | Returns the mode value of the given numbers. |
+| `math.range(...n)` | Function | Returns the range of the given numbers. |
+| `math.variance(...n)` | Function | Returns the variance of the given numbers. |
+| `math.standardDeviation(...n)` | Function | Returns the standard deviation of the given numbers. |
+
+### Logical Functions
+
+It also includes functions which perform logical operations, such as:
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `math.isEqual(a, b)` | Function | Checks if two values are equal. |
+| `math.isEven(n)` | Function | Checks if a number is even. |
+| `math.isOdd(n)` | Function | Checks if a number is odd. |
+| `math.isPositive(n)` | Function | Checks if a number is positive. |
+| `math.isNegative(n)` | Function | Checks if a number is negative. |
+| `math.isZero(n)` | Function | Checks if a number is zero. |
+| `math.isInteger(n)` | Function | Checks if a number is an integer. |
+| `math.isFloat(n)` | Function | Checks if a number is a float. |
+| `math.isPrime(n)` | Function | Checks if a number is prime. |
+| `math.isComposite(n)` | Function | Checks if a number is composite. |
+| `math.isDivisible(n, d)` | Function | Checks if `n` is divisible by `d`. |
+| `math.isPowerOf(n, e)` | Function | Checks if `n` is a power of `e`. |
+| `math.isPerfectSquare(n)` | Function | Checks if a number is a perfect square. |
+| `math.isPerfectCube(n)` | Function | Checks if a number is a perfect cube. |
+| `math.isPerfectPower(n, b)` | Function | Checks if `n` is a perfect power of `b`. |
+| `math.isMultiple(n, m)` | Function | Checks if `n` is a multiple of `m`. |
+| `math.isFactor(n, f)` | Function | Checks if `f` is a factor of `n`. |
+| `math.isArmstrong(n)` | Function | Checks if a number is an Armstrong number. |
+| `math.isPalindrome(n)` | Function | Checks if a number is a palindrome. |
+| `math.isFinite(n)` | Function | Checks if a number is finite. |
+| `math.isInfinite(n)` | Function | Checks if a number is infinite. |
 
 ### Factorial and Fibonacci Functions
-The library provides functions to calculate the factorial of a number and the nth Fibonacci number.
-| Name | Type | Description |
-| --- | --- | --- |
-| `math.factorial(n)` | Function | Return the factorial of the parameter |
-| `math.fibonacci(n)` | Function | Return the nth Fibonacci number |
 
-### Random Number Function
-There's a function to generate a random number between two given numbers.
+The library provides functions to calculate the factorial and Fibonacci series.
+
 | Name | Type | Description |
 | --- | --- | --- |
-| `math.random(a, b)` | Function | Return a random number between a and b |
+| `math.factorial(n)` | Function | Returns the factorial of `n`. |
+| `math.fibonacci(n)` | Function | Returns the nth Fibonacci number. |
+| `math.fibonacciSeries(n, returnType)` | Function | Returns the Fibonacci series up to `n` terms. |
+
+### Random Number Functions
+
+There's a function to generate a random number between two given numbers.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `math.random(a, b)` | Function | Returns a random integer between `a` and `b`, inclusive. |
 
 ### Advanced Arithmetic Functions
-The library also includes advanced arithmetic functions, such as
+
+The library provides functions for advanced arithmetic operations, such as:
+
 | Name | Type | Description |
 | --- | --- | --- |
-| `math.log(n, b)` | Function | Return the natural logarithm of the parameter w.r.t. the base |
-| `math.logBase2(n)` | Function | Return the base 2 logarithm of the parameter|
-| `math.logBase5(n)` | Function | Return the base 5 logarithm of the parameter |
-| `math.logBase10(n)` | Function | Return the base 10 logarithm of the parameter |
+| `math.log(n, b)` | Function | Returns the logarithm of `n` with base `b`. |
+| `math.logBase2(n)` | Function | Returns the base 2 logarithm of `n`. |
+| `math.logBase5(n)` | Function | Returns the base 5 logarithm of `n`. |
+| `math.logBase10(n)` | Function | Returns the base 10 logarithm of `n`. |
+| `math.square(n)` | Function | Returns the square of `n`. |
+| `math.cube(n)` | Function | Returns the cube of `n`. |
+| `math.power(n, e)` | Function | Returns `n` raised to the power of `e`. |
+| `math.nthPower(n, e)` | Function | Returns `n` raised to the power of `e`. |
+| `math.root(n, e)` | Function | Returns the `e`th root of `n`. |
+| `math.nthRoot(n, e)` | Function | Returns the `e`th root of `n`. |
+| `math.round(n)` | Function | Rounds `n` to the nearest integer. |
+| `math.roundUp(n)` | Function | Rounds `n` up to the nearest integer. |
+| `math.roundDown(n)` | Function | Rounds `n` down to the nearest integer. |
+| `math.absolute(n)` | Function | Returns the absolute value of `n`. |
+| `math.sqrt(n)` | Function | Returns the square root of `n`. |
+| `math.cbrt(n)` | Function | Returns the cube root of `n`. |
+| `math.hypotenuse(a, b)` | Function | Returns the hypotenuse of a right triangle with side lengths `a` and `b`. |
+| `math.factorsOf(n, returnType)` | Function | Returns the factors of `n`. |
+| `math.primeFactorsOf(n, returnType)` | Function | Returns the prime factors of `n`. |
+| `math.primeFactorizationOf(n, returnType)` | Function | Returns the prime factorization of `n`. |
+| `math.greatestCommonDivisor(...n)` | Function | Returns the greatest common divisor of the given numbers. |
+| `math.leastCommonMultiple(...n)` | Function | Returns the least common multiple of the given numbers. |
 
 ### Trigonometric Functions
-Finally, the library provides functions to calculate the sine, cosine, tangent, cotangent, secant, and cosecant of a number.
-| Name | Type | Description |
-| --- | --- | --- |
-| `math.sin(n)` | Function | Return the sine of the parameter till 2 decimal places |
-| `math.cos(n)` | Function | Return the cosine of the parameter till 2 decimal places |
-| `math.tan(n)` | Function | Return the tangent of the parameter till 2 decimal places |
-| `math.cot(n)` | Function | Return the cotangent of the parameter till 2 decimal places |
-| `math.sec(n)` | Function | Return the secant of the parameter till 2 decimal places |
-| `math.csc(n)` | Function | Return the cosecant of the parameter till 2 decimal places |
 
-### Evaluate Expression
-There's a function to evaluate given expression.
+The library provides functions to calculate trigonometric values.
+
+> &#128161; Info
+> **_All trigonometric functions accept values in degree, radians and gradians. You can achieve this by specifying utits like this._**
+
+```javascript
+math.sin('90 deg'); // Returns 1
+math.cos('PI/2 rad'); // Returns 0
+math.tan('3/4*PI rad'); // Returns -1
+```
+
 | Name | Type | Description |
 | --- | --- | --- |
-| `math.evaluateExpression(e)` | Function | Evaluate the given expression |
+| `math.sin(n)` | Function | Returns the sine of the parameter till 2 decimal places. |
+| `math.cos(n)` | Function | Returns the cosine of the parameter till 2 decimal places. |
+| `math.tan(n)` | Function | Returns the tangent of the parameter till 2 decimal places. |
+| `math.cot(n)` | Function | Returns the cotangent of the parameter till 2 decimal places. |
+| `math.sec(n)` | Function | Returns the secant of the parameter till 2 decimal places. |
+| `math.csc(n)` | Function | Returns the cosecant of the parameter till 2 decimal places. |
+| `math.asin(n)` | Function | Returns the arcsine of the parameter in degrees till 2 decimal places. |
+| `math.acos(n)` | Function | Returns the arccosine of the parameter in degrees till 2 decimal places. |
+| `math.atan(n)` | Function | Returns the arctangent of the parameter in degrees till 2 decimal places. |
+| `math.acot(n)` | Function | Returns the arccotangent of the parameter in degrees till 2 decimal places. |
+| `math.asec(n)` | Function | Returns the arcsecant of the parameter in degrees till 2 decimal places. |
+| `math.acsc(n)` | Function | Returns the arccosecant of the parameter in degrees till 2 decimal places. |
+| `math.sinh(n)` | Function | Returns the hyperbolic sine of `n`. |
+| `math.cosh(n)` | Function | Returns the hyperbolic cosine of `n`. |
+| `math.tanh(n)` | Function | Returns the hyperbolic tangent of `n`. |
+| `math.coth(n)` | Function | Returns the hyperbolic cotangent of `n`. |
+| `math.sech(n)` | Function | Returns the hyperbolic secant of `n`. |
+| `math.csch(n)` | Function | Returns the hyperbolic cosecant of `n`. |
+| `math.asinh(n)` | Function | Returns the hyperbolic arcsine of `n`. |
+| `math.acosh(n)` | Function | Returns the hyperbolic arccosine of `n`. |
+| `math.atanh(n)` | Function | Returns the hyperbolic arctangent of `n`. |
+| `math.acoth(n)` | Function | Returns the hyperbolic arccotangent of `n`. |
+| `math.asech(n)` | Function | Returns the hyperbolic arcsecant of `n`. |
+| `math.acsch(n)` | Function | Returns the hyperbolic arccosecant of `n`. |
+
+### Evaluation of Mathematical Expressions
+
+This is an expression evaluator of this library that can evaluate mathematical expressions with optional variables.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `math.evaluate(expression, variables)` | Function | Evaluates a mathematical expression with optional variables. |
+
+### Chaining Methods
+
+The library provides a method to chain arithmetic operations.
+
+Example:
+```javascript
+math.chain(5)
+  .add(3)
+  .multiply(2)
+  .result(); // Returns 16
+
+math.chain()
+  .add(5)
+  .divide(2)
+  .result(); // Returns 2.5
+```

@@ -1,35 +1,33 @@
 "use strict";
 /*
-    MathJS v1.2.5
-    Last Modified: 26/04/2024 <DD/MM/YYYY>
+    MathJS v1.2.6
+    Last Modified: 28/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
     Repository: github.com/SatyamV7/MathJS
     License: MIT License
 */
+// Debugging Mode
+let debugging = false;
 /*
     Helper Functions
 */
-function getUnts(str) {
+function getUnits(str) {
     str = str.toString();
-    const units = str.match(/[a-zA-Z]+/g);
+    const units = str.match(/(?!\b(pi|tau)\b)\b[a-z]+\b/gi);
+    debugging ? console.log('Units:', units) : null;
     return units ? units.join('') : '';
 }
-function getNumericalValue(str) {
-    str = str.toString();
-    const numericalValue = str.match(/\d+/);
-    return numericalValue ? +numericalValue[0] : 0;
-}
 function convertToRadians(n) {
-    let num = getNumericalValue(n);
-    if (getUnts(n) == 'deg' || getUnts(n) == '') {
+    let num = math.evaluate(n.toString().replace(/(?<![a-zA-Z])(pi|tau)(?![a-zA-Z])|[a-zA-Z]/gi, (match, p1) => p1 ? match : ''), {});
+    if (getUnits(n) == 'deg' || getUnits(n) == '') {
         return num * Math.PI / 180;
     }
-    else if (getUnts(n) == 'grad') {
+    else if (getUnits(n) == 'grad') {
         return num * Math.PI / 200;
     }
-    else if (getUnts(n) == 'rad') {
+    else if (getUnits(n) == 'rad') {
         return num;
     }
     else {
@@ -475,22 +473,29 @@ const math = {
                     expression = expression.replace(regex, variables[variable].toString());
                 }
             }
-            for (let method in math) {
-                const regex = new RegExp(`\\b${method}\\b`, 'g');
-                expression = expression.replace(regex, `math['${method}']`);
-            }
             expression = expression
                 .replace(/\^/g, '**')
                 .replace(/÷/g, '/')
-                .replace(/×/g, '*');
+                .replace(/×/g, '*')
+                .replace(/\bPI\b/g, 'pi')
+                .replace(/\bTAU\b/g, 'tau')
+                .replace(/\bpi\b/gi, '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
+                .replace(/\btau\b/gi, '6.2831853071795864769252867665590057683943387987502116419498891846156328125724179972560696506842341358');
+            for (let method in math) {
+                if (method !== 'pi' && method !== 'tau') {
+                    const regex = new RegExp(`\\b${method}\\b`, 'g');
+                    expression = expression.replace(regex, `math['${method}']`);
+                }
+            }
             // Regular expression to match allowed mathematical operators and functions
-            const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\]]+$/;
+            const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\].]+$/;
             // Check if the expression contains only allowed characters
             for (let i = 0; i < expression.length; i++) {
                 if (!allowedCharactersRegex.test(expression[i])) {
                     throw new Error(`Expression contains disallowed character: ${expression[i]} at character position: ${i} in expression: ${expression}`);
                 }
             }
+            debugging ? console.log('Expression:', expression) : null;
             return Function('math', `'use strict'; return (${expression})`)(math);
         }
         catch (error) {
