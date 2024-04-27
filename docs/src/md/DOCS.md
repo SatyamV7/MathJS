@@ -27,7 +27,7 @@ MathJS can be used in both node.js and in the browser.
 <h4>For Browser:</h4>
 
 Include either of the following script in your html file
-```
+```HTML
     <!--unminified version(16 KB)-->
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
@@ -42,21 +42,20 @@ Include either of the following script in your html file
 <h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
 
-bash
+```bash
+    npm install @cypher_077/math
+```
 
-    ```
-    npm i @cypher_077/math
-    ```
 And then import it in your project:
 
-javascript
 
-    ```
+```JavaScript
     // Import the MathJS library
     const math = require('@cypher_077/math');
-    ```
-## Usage
+```
 
+## Usage
+```JavaScript
         console.log(math.hypotenuse(3, 4)); // 5
 
         console.log(math.mean(1, 2, 3, 4, 5)); // 3
@@ -85,7 +84,7 @@ javascript
         ); // 6
 
         // and so on
-
+```
 
 ### Mathematical Constants
 
