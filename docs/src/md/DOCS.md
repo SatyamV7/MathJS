@@ -42,12 +42,16 @@ Include either of the following script in your html file
 <h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
 
-    ```bash
+bash
+
+    ```
     npm i @cypher_077/math
     ```
 And then import it in your project:
 
-    ```javascript
+javascript
+
+    ```
     // Import the MathJS library
     const math = require('@cypher_077/math');
     ```
