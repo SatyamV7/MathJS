@@ -1,8 +1,14 @@
 <center>
 <img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
-</center>
 
- _A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions._
+
+<h4>
+ A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
+</h4>
+
+[![npm](https://img.shields.io/npm/v/@cypher_077/math)](https://www.npmjs.com/package/@cypher_077/math) [![Downloads](https://img.shields.io/npm/dm/@cypher_077/math.svg)](https://www.npmjs.com/package/@cypher_077/math) [![Build Status](https://github.com/SatyamV7/MathJS/workflows/Node.js%20CI/badge.svg)](https://github.com/SatyamV7/MathJS/actions) ![GitHub](https://img.shields.io/github/license/SatyamV7/MathJS) ![GitHub](https://img.shields.io/github/stars/SatyamV7/MathJS)
+
+</center>
 
 > ⓘ Note
 > **_This library does not support complex numbers._**
@@ -22,11 +28,11 @@ MathJS can be used in both node.js and in the browser.
 
 Include either of the following script in your html file
 ```
-    <!--unminified version(12kb)-->
+    <!--unminified version(16 KB)-->
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
     <!--Recommended for browsers-->
-    <!--minified version(12kb → 5.55kb)-->
+    <!--minified version(16 KB → 7.25 KB)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 

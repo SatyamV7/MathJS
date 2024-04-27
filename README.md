@@ -1,21 +1,26 @@
 <center>
 <img src="https://satyamv7.github.io/MathJS/assets/MathJSBanner.svg" width="60%" style="margin-top: 40px">
+
+
+<h4>
+ A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
+</h4>
+
+[![npm](https://img.shields.io/npm/v/@cypher_077/math)](https://www.npmjs.com/package/@cypher_077/math) [![Downloads](https://img.shields.io/npm/dm/@cypher_077/math.svg)](https://www.npmjs.com/package/@cypher_077/math) [![Build Status](https://github.com/SatyamV7/MathJS/workflows/Node.js%20CI/badge.svg)](https://github.com/SatyamV7/MathJS/actions) ![GitHub](https://img.shields.io/github/license/SatyamV7/MathJS) ![GitHub](https://img.shields.io/github/stars/SatyamV7/MathJS)
+
 </center>
-
- A JavaScript library for basic and advanced arithmetic operations, comparison functions, factorial and fibonacci functions, random number functions, and trigonometric functions
-
 
 > [!NOTE]
 > **_This library does not support complex numbers._**
 
->[!TIP]
->Each function is defined using JavaScript's function keyword, and many of them use the ... (spread) syntax to accept any number of arguments. They also use JavaScript's built-in Math object to perform various mathematical operations.
 
-## Brief Explanation about MathJS Library
+# Brief Explanation about MathJS Library
 
-This JavaScript file, math.js, is a library that provides various mathematical functions.
+The MathJS library is a collection of mathematical functions that can be used in both node.js and in the browser. It provides various mathematical functions for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 
-### Installation
+_Github Repository_: [@SatyamV7/MathJS](https://github.com/SatyamV7/MathJS)
+
+## Installation
 
 MathJS can be used in both node.js and in the browser.
 
@@ -23,11 +28,11 @@ MathJS can be used in both node.js and in the browser.
 
 Include either of the following script in your html file
 ```
-    <!--unminified version(12kb)-->
+    <!--unminified version(16 KB)-->
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
     <!--Recommended for browsers-->
-    <!--minified version(12kb → 5.55kb)-->
+    <!--minified version(16 KB → 7.25 KB)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 

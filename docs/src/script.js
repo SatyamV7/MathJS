@@ -2,9 +2,9 @@ url = "./src/md/DOCS.md";
 fetch(url)
     .then(response => response.text())
     .then(results => {
-        var converter = new showdown.Converter();
-        converter.setFlavor('github');
-        var html = converter.makeHtml(results);
+        const parser = new markDownParser.Parser();
+        parser.setFlavor('github');
+        const html = parser.makeHtml(results);
         document.querySelector('#root').innerHTML = html;
     })
     .catch(error => console.error('Error:', error));
