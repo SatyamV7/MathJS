@@ -2,7 +2,7 @@ const math = require('../math.js');
 
 const startTime = performance.now()
 
-debugging = true;
+math.debuggingMode = true;
 
 console.log(math.add(1, 2, 3)); // 6
 console.log(math.subtract(1, 2, 3)); // -4

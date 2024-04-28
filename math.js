@@ -1,6 +1,6 @@
 "use strict";
 /*
-    MathJS v1.2.7
+    MathJS v1.2.8
     Last Modified: 28/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -400,64 +400,76 @@ const math = {
         return +cosecant.toFixed(2);
     },
     asin(n) {
-        let arcsine = Math.asin(n) * 180 / Math.PI;
+        let arcsine = Math.asin(convertToRadians(n));
         return +arcsine.toFixed(2);
     },
     acos(n) {
-        let arccosine = Math.acos(n) * 180 / Math.PI;
+        let arccosine = Math.acos(convertToRadians(n));
         return +arccosine.toFixed(2);
     },
     atan(n) {
-        let arctangent = Math.atan(n) * 180 / Math.PI;
+        let arctangent = Math.atan(convertToRadians(n));
         return +arctangent.toFixed(2);
     },
     acot(n) {
-        let arccotangent = Math.atan(1 / n) * 180 / Math.PI;
+        let arccotangent = 1 / Math.atan(convertToRadians(n));
         return +arccotangent.toFixed(2);
     },
     asec(n) {
-        let arcsecant = Math.acos(1 / n) * 180 / Math.PI;
+        let arcsecant = 1 / Math.acos(convertToRadians(n));
         return +arcsecant.toFixed(2);
     },
     acsc(n) {
-        let arccosecant = Math.asin(1 / n) * 180 / Math.PI;
+        let arccosecant = 1 / Math.asin(convertToRadians(n));
         return +arccosecant.toFixed(2);
     },
     sinh(n) {
-        return Math.sinh(n);
+        let hyperbolicSine = Math.sinh(convertToRadians(n));
+        return +hyperbolicSine.toFixed(2);
     },
     cosh(n) {
-        return Math.cosh(n);
+        let hyperbolicCosine = Math.cosh(convertToRadians(n));
+        return +hyperbolicCosine.toFixed(2);
     },
     tanh(n) {
-        return Math.tanh(n);
+        let hyperbolicTangent = Math.tanh(convertToRadians(n));
+        return +hyperbolicTangent.toFixed(2);
     },
     coth(n) {
-        return 1 / Math.tanh(n);
+        let hyperbolicCotangent = 1 / Math.tanh(convertToRadians(n));
+        return +hyperbolicCotangent.toFixed(2);
     },
     sech(n) {
-        return 1 / Math.cosh(n);
+        let hyperbolicSecant = 1 / Math.cosh(convertToRadians(n));
+        return +hyperbolicSecant.toFixed(2);
     },
     csch(n) {
-        return 1 / Math.sinh(n);
+        let hyperbolicCosecant = 1 / Math.sinh(convertToRadians(n));
+        return +hyperbolicCosecant.toFixed(2);
     },
     asinh(n) {
-        return Math.asinh(n);
+        let hyperbolicArcsine = Math.asinh(convertToRadians(n));
+        return +hyperbolicArcsine.toFixed(2);
     },
     acosh(n) {
-        return Math.acosh(n);
+        let hyperbolicArccosine = Math.acosh(convertToRadians(n));
+        return +hyperbolicArccosine.toFixed(2);
     },
     atanh(n) {
-        return Math.atanh(n);
+        let hyperbolicArctangent = Math.atanh(convertToRadians(n));
+        return +hyperbolicArctangent.toFixed(2);
     },
     acoth(n) {
-        return Math.atanh(1 / n);
+        let hyperbolicArccotangent = 1 / Math.atanh(convertToRadians(n));
+        return +hyperbolicArccotangent.toFixed(2);
     },
     asech(n) {
-        return Math.acosh(1 / n);
+        let hyperbolicArcsecant = 1 / Math.acosh(convertToRadians(n));
+        return +hyperbolicArcsecant.toFixed(2);
     },
     acsch(n) {
-        return Math.asinh(1 / n);
+        let hyperbolicArccosecant = 1 / Math.asinh(convertToRadians(n));
+        return +hyperbolicArccosecant.toFixed(2);
     },
     /*
         evaluateExpression Function

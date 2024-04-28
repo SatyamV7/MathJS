@@ -1,5 +1,5 @@
 /*
-    MathJS v1.2.7
+    MathJS v1.2.8
     Last Modified: 28/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -483,82 +483,94 @@ const math = {
         return +cosecant.toFixed(2);
     },
 
-    asin(n: number): number { //Return the arcsine of the parameter
-        let arcsine = Math.asin(n) * 180 / Math.PI;
+    asin(n: string): number { //Return the arcsine of the parameter
+        let arcsine = Math.asin(convertToRadians(n));
         return +arcsine.toFixed(2);
     },
 
-    acos(n: number): number { //Return the arccosine of the parameter
-        let arccosine = Math.acos(n) * 180 / Math.PI;
+    acos(n: string): number { //Return the arccosine of the parameter
+        let arccosine = Math.acos(convertToRadians(n));
         return +arccosine.toFixed(2);
     },
 
-    atan(n: number): number { //Return the arctangent of the parameter
-        let arctangent = Math.atan(n) * 180 / Math.PI;
+    atan(n: string): number { //Return the arctangent of the parameter
+        let arctangent = Math.atan(convertToRadians(n));
         return +arctangent.toFixed(2);
     },
 
-    acot(n: number): number { //Return the arccotangent of the parameter
-        let arccotangent = Math.atan(1 / n) * 180 / Math.PI;
+    acot(n: string): number { //Return the arccotangent of the parameter
+        let arccotangent = 1 / Math.atan(convertToRadians(n));
         return +arccotangent.toFixed(2);
     },
 
-    asec(n: number): number { //Return the arcsecant of the parameter
-        let arcsecant = Math.acos(1 / n) * 180 / Math.PI;
+    asec(n: string): number { //Return the arcsecant of the parameter
+        let arcsecant = 1 / Math.acos(convertToRadians(n));
         return +arcsecant.toFixed(2);
     },
 
-    acsc(n: number): number { //Return the arccosecant of the parameter
-        let arccosecant = Math.asin(1 / n) * 180 / Math.PI;
+    acsc(n: string): number { //Return the arccosecant of the parameter
+        let arccosecant = 1 / Math.asin(convertToRadians(n));
         return +arccosecant.toFixed(2);
     },
 
-    sinh(n: number): number { //Return the hyperbolic sine of the parameter
-        return Math.sinh(n);
+    sinh(n: string): number { //Return the hyperbolic sine of the parameter
+        let hyperbolicSine = Math.sinh(convertToRadians(n));
+        return +hyperbolicSine.toFixed(2);
     },
 
-    cosh(n: number): number { //Return the hyperbolic cosine of the parameter
-        return Math.cosh(n);
+    cosh(n: string): number { //Return the hyperbolic cosine of the parameter
+        let hyperbolicCosine = Math.cosh(convertToRadians(n));
+        return +hyperbolicCosine.toFixed(2);
     },
 
-    tanh(n: number): number { //Return the hyperbolic tangent of the parameter
-        return Math.tanh(n);
+    tanh(n: string): number { //Return the hyperbolic tangent of the parameter
+        let hyperbolicTangent = Math.tanh(convertToRadians(n));
+        return +hyperbolicTangent.toFixed(2);
     },
 
-    coth(n: number): number { //Return the hyperbolic cotangent of the parameter
-        return 1 / Math.tanh(n);
+    coth(n: string): number { //Return the hyperbolic cotangent of the parameter
+        let hyperbolicCotangent = 1 / Math.tanh(convertToRadians(n));
+        return +hyperbolicCotangent.toFixed(2);
     },
 
-    sech(n: number): number { //Return the hyperbolic secant of the parameter
-        return 1 / Math.cosh(n);
+    sech(n: string): number { //Return the hyperbolic secant of the parameter
+        let hyperbolicSecant = 1 / Math.cosh(convertToRadians(n));
+        return +hyperbolicSecant.toFixed(2);
     },
 
-    csch(n: number): number { //Return the hyperbolic cosecant of the parameter
-        return 1 / Math.sinh(n);
+    csch(n: string): number { //Return the hyperbolic cosecant of the parameter
+        let hyperbolicCosecant = 1 / Math.sinh(convertToRadians(n));
+        return +hyperbolicCosecant.toFixed(2);
     },
 
-    asinh(n: number): number { //Return the inverse hyperbolic sine of the parameter
-        return Math.asinh(n);
+    asinh(n: string): number { //Return the hyperbolic arcsine of the parameter
+        let hyperbolicArcsine = Math.asinh(convertToRadians(n));
+        return +hyperbolicArcsine.toFixed(2);
     },
 
-    acosh(n: number): number { //Return the inverse hyperbolic cosine of the parameter
-        return Math.acosh(n);
+    acosh(n: string): number { //Return the hyperbolic arccosine of the parameter
+        let hyperbolicArccosine = Math.acosh(convertToRadians(n));
+        return +hyperbolicArccosine.toFixed(2);
     },
 
-    atanh(n: number): number { //Return the inverse hyperbolic tangent of the parameter
-        return Math.atanh(n);
+    atanh(n: string): number { //Return the hyperbolic arctangent of the parameter
+        let hyperbolicArctangent = Math.atanh(convertToRadians(n));
+        return +hyperbolicArctangent.toFixed(2);
     },
 
-    acoth(n: number): number { //Return the inverse hyperbolic cotangent of the parameter
-        return Math.atanh(1 / n);
+    acoth(n: string): number { //Return the hyperbolic arccotangent of the parameter
+        let hyperbolicArccotangent = 1 / Math.atanh(convertToRadians(n));
+        return +hyperbolicArccotangent.toFixed(2);
     },
 
-    asech(n: number): number { //Return the inverse hyperbolic secant of the parameter
-        return Math.acosh(1 / n);
+    asech(n: string): number { //Return the hyperbolic arcsecant of the parameter
+        let hyperbolicArcsecant = 1 / Math.acosh(convertToRadians(n));
+        return +hyperbolicArcsecant.toFixed(2);
     },
 
-    acsch(n: number): number { //Return the inverse hyperbolic cosecant of the parameter
-        return Math.asinh(1 / n);
+    acsch(n: string): number { //Return the hyperbolic arccosecant of the parameter
+        let hyperbolicArccosecant = 1 / Math.asinh(convertToRadians(n));
+        return +hyperbolicArccosecant.toFixed(2);
     },
 
     /*
