@@ -1,7 +1,7 @@
-declare let debugging: boolean;
 declare function getUnits(str: string): string;
 declare function convertToRadians(n: string): number;
 declare const math: {
+    debuggingMode: boolean;
     e: number;
     PI: number;
     LN2: number;

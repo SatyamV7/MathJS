@@ -1,6 +1,6 @@
 "use strict";
 /*
-    MathJS v1.2.6
+    MathJS v1.2.7
     Last Modified: 28/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -8,15 +8,13 @@
     Repository: github.com/SatyamV7/MathJS
     License: MIT License
 */
-// Debugging Mode
-let debugging = false;
 /*
     Helper Functions
 */
 function getUnits(str) {
     str = str.toString();
     const units = str.match(/(?!\b(pi|tau)\b)\b[a-z]+\b/gi);
-    debugging ? console.log('Units:', units) : null;
+    math.debuggingMode ? console.log('Units:', units) : null;
     return units ? units.join('') : '';
 }
 function convertToRadians(n) {
@@ -35,6 +33,8 @@ function convertToRadians(n) {
     }
 }
 const math = {
+    // Debugging Mode
+    debuggingMode: false,
     /*
         Mathematical Constants
     */
@@ -477,8 +477,6 @@ const math = {
                 .replace(/\^/g, '**')
                 .replace(/÷/g, '/')
                 .replace(/×/g, '*')
-                .replace(/\bPI\b/g, 'pi')
-                .replace(/\bTAU\b/g, 'tau')
                 .replace(/\bpi\b/gi, '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
                 .replace(/\btau\b/gi, '6.2831853071795864769252867665590057683943387987502116419498891846156328125724179972560696506842341358');
             for (let method in math) {
@@ -488,14 +486,14 @@ const math = {
                 }
             }
             // Regular expression to match allowed mathematical operators and functions
-            const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\].]+$/;
+            const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\].,]+$/;
             // Check if the expression contains only allowed characters
             for (let i = 0; i < expression.length; i++) {
                 if (!allowedCharactersRegex.test(expression[i])) {
                     throw new Error(`Expression contains disallowed character: ${expression[i]} at character position: ${i} in expression: ${expression}`);
                 }
             }
-            debugging ? console.log('Expression:', expression) : null;
+            this.debuggingMode ? console.log('Expression:', expression) : null;
             return Function('math', `'use strict'; return (${expression})`)(math);
         }
         catch (error) {
