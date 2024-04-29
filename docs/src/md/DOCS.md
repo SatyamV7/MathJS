@@ -28,11 +28,11 @@ MathJS can be used in both node.js and in the browser.
 
 Include either of the following script in your html file
 ```HTML
-    <!--unminified version(16 KB)-->
+    <!--unminified version(14.5 kB)-->
     <script src="https://unpkg.com/@cypher_077/math/math.js"></script>
 
     <!--Recommended for browsers-->
-    <!--minified version(16 KB → 7.25 KB)-->
+    <!--minified version(14.5 kB → 7.20 kB)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
 
@@ -136,6 +136,7 @@ It also includes functions which perform logical operations, such as:
 | Name | Type | Description |
 | --- | --- | --- |
 | `math.isEqual(a, b)` | Function | Checks if two values are equal. |
+| `math.isNearlyEqual(a, b)` | Function | Checks if two values are nearly equal. |
 | `math.isEven(n)` | Function | Checks if a number is even. |
 | `math.isOdd(n)` | Function | Checks if a number is odd. |
 | `math.isPositive(n)` | Function | Checks if a number is positive. |
@@ -151,7 +152,7 @@ It also includes functions which perform logical operations, such as:
 | `math.isPerfectCube(n)` | Function | Checks if a number is a perfect cube. |
 | `math.isPerfectPower(n, b)` | Function | Checks if `n` is a perfect power of `b`. |
 | `math.isMultiple(n, m)` | Function | Checks if `n` is a multiple of `m`. |
-| `math.isFactor(n, f)` | Function | Checks if `f` is a factor of `n`. |
+| `math.isFactor(n, f)` | Function | Checks if `f` is a factor of the parameter in degrees till 2 decimal places. |
 | `math.isArmstrong(n)` | Function | Checks if a number is an Armstrong number. |
 | `math.isPalindrome(n)` | Function | Checks if a number is a palindrome. |
 | `math.isFinite(n)` | Function | Checks if a number is finite. |
@@ -163,7 +164,7 @@ The library provides functions to calculate the factorial and Fibonacci series.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| `math.factorial(n)` | Function | Returns the factorial of `n`. |
+| `math.factorial(n)` | Function | Returns the factorial of the parameter in degrees till 2 decimal places. |
 | `math.fibonacci(n)` | Function | Returns the nth Fibonacci number. |
 | `math.fibonacciSeries(n, returnType)` | Function | Returns the Fibonacci series up to `n` terms. |
 
@@ -182,25 +183,23 @@ The library provides functions for advanced arithmetic operations, such as:
 | Name | Type | Description |
 | --- | --- | --- |
 | `math.log(n, b)` | Function | Returns the logarithm of `n` with base `b`. |
-| `math.logBase2(n)` | Function | Returns the base 2 logarithm of `n`. |
-| `math.logBase5(n)` | Function | Returns the base 5 logarithm of `n`. |
-| `math.logBase10(n)` | Function | Returns the base 10 logarithm of `n`. |
-| `math.square(n)` | Function | Returns the square of `n`. |
-| `math.cube(n)` | Function | Returns the cube of `n`. |
+| `math.logBase2(n)` | Function | Returns the base 2 logarithm of the parameter in degrees till 2 decimal places. |
+| `math.logBase5(n)` | Function | Returns the base 5 logarithm of the parameter in degrees till 2 decimal places. |
+| `math.logBase10(n)` | Function | Returns the base 10 logarithm of the parameter in degrees till 2 decimal places. |
+| `math.square(n)` | Function | Returns the square of the parameter in degrees till 2 decimal places. |
+| `math.cube(n)` | Function | Returns the cube of the parameter in degrees till 2 decimal places. |
 | `math.power(n, e)` | Function | Returns `n` raised to the power of `e`. |
-| `math.nthPower(n, e)` | Function | Returns `n` raised to the power of `e`. |
-| `math.root(n, e)` | Function | Returns the `e`th root of `n`. |
-| `math.nthRoot(n, e)` | Function | Returns the `e`th root of `n`. |
+| `math.root(n, e)` | Function | Returns the `e`th root of the parameter in degrees till 2 decimal places. |
 | `math.round(n)` | Function | Rounds `n` to the nearest integer. |
 | `math.roundUp(n)` | Function | Rounds `n` up to the nearest integer. |
 | `math.roundDown(n)` | Function | Rounds `n` down to the nearest integer. |
-| `math.absolute(n)` | Function | Returns the absolute value of `n`. |
-| `math.sqrt(n)` | Function | Returns the square root of `n`. |
-| `math.cbrt(n)` | Function | Returns the cube root of `n`. |
+| `math.absolute(n)` | Function | Returns the absolute value of the parameter in degrees till 2 decimal places. |
+| `math.sqrt(n)` | Function | Returns the square root of the parameter in degrees till 2 decimal places. |
+| `math.cbrt(n)` | Function | Returns the cube root of the parameter in degrees till 2 decimal places. |
 | `math.hypotenuse(a, b)` | Function | Returns the hypotenuse of a right triangle with side lengths `a` and `b`. |
-| `math.factorsOf(n, returnType)` | Function | Returns the factors of `n`. |
-| `math.primeFactorsOf(n, returnType)` | Function | Returns the prime factors of `n`. |
-| `math.primeFactorizationOf(n, returnType)` | Function | Returns the prime factorization of `n`. |
+| `math.factorsOf(n, returnType)` | Function | Returns the factors of the parameter in degrees till 2 decimal places. |
+| `math.primeFactorsOf(n, returnType)` | Function | Returns the prime factors of the parameter in degrees till 2 decimal places. |
+| `math.primeFactorizationOf(n, returnType)` | Function | Returns the prime factorization of the parameter in degrees till 2 decimal places. |
 | `math.greatestCommonDivisor(...n)` | Function | Returns the greatest common divisor of the given numbers. |
 | `math.leastCommonMultiple(...n)` | Function | Returns the least common multiple of the given numbers. |
 
@@ -231,18 +230,18 @@ math.tan('3/4*PI rad'); // Returns -1
 | `math.acot(n)` | Function | Returns the arccotangent of the parameter in degrees till 2 decimal places. |
 | `math.asec(n)` | Function | Returns the arcsecant of the parameter in degrees till 2 decimal places. |
 | `math.acsc(n)` | Function | Returns the arccosecant of the parameter in degrees till 2 decimal places. |
-| `math.sinh(n)` | Function | Returns the hyperbolic sine of `n`. |
-| `math.cosh(n)` | Function | Returns the hyperbolic cosine of `n`. |
-| `math.tanh(n)` | Function | Returns the hyperbolic tangent of `n`. |
-| `math.coth(n)` | Function | Returns the hyperbolic cotangent of `n`. |
-| `math.sech(n)` | Function | Returns the hyperbolic secant of `n`. |
-| `math.csch(n)` | Function | Returns the hyperbolic cosecant of `n`. |
-| `math.asinh(n)` | Function | Returns the hyperbolic arcsine of `n`. |
-| `math.acosh(n)` | Function | Returns the hyperbolic arccosine of `n`. |
-| `math.atanh(n)` | Function | Returns the hyperbolic arctangent of `n`. |
-| `math.acoth(n)` | Function | Returns the hyperbolic arccotangent of `n`. |
-| `math.asech(n)` | Function | Returns the hyperbolic arcsecant of `n`. |
-| `math.acsch(n)` | Function | Returns the hyperbolic arccosecant of `n`. |
+| `math.sinh(n)` | Function | Returns the hyperbolic sine of the parameter in degrees till 2 decimal places. |
+| `math.cosh(n)` | Function | Returns the hyperbolic cosine of the parameter in degrees till 2 decimal places. |
+| `math.tanh(n)` | Function | Returns the hyperbolic tangent of the parameter in degrees till 2 decimal places. |
+| `math.coth(n)` | Function | Returns the hyperbolic cotangent of the parameter in degrees till 2 decimal places. |
+| `math.sech(n)` | Function | Returns the hyperbolic secant of the parameter in degrees till 2 decimal places. |
+| `math.csch(n)` | Function | Returns the hyperbolic cosecant of the parameter in degrees till 2 decimal places. |
+| `math.asinh(n)` | Function | Returns the hyperbolic arcsine of the parameter in degrees till 2 decimal places. |
+| `math.acosh(n)` | Function | Returns the hyperbolic arccosine of the parameter in degrees till 2 decimal places. |
+| `math.atanh(n)` | Function | Returns the hyperbolic arctangent of the parameter in degrees till 2 decimal places. |
+| `math.acoth(n)` | Function | Returns the hyperbolic arccotangent of the parameter in degrees till 2 decimal places. |
+| `math.asech(n)` | Function | Returns the hyperbolic arcsecant of the parameter in degrees till 2 decimal places. |
+| `math.acsch(n)` | Function | Returns the hyperbolic arccosecant of the parameter in degrees till 2 decimal places. |
 
 ### Evaluation of Mathematical Expressions
 

@@ -78,11 +78,11 @@ function Test() {
 
     const Time = endTime - startTime
 
-    document.head.title = 'MathJS Web Testing'
-
     document.body.innerText = `Exit code: 0 \n All tests passed! \n Time taken to execute: ${+Time.toFixed(2)}ms \n See Console for detailed results.`
 
-    document.body.style.cssText = 'font-size: 28px;font-family: system-ui;display: flex;justify-content: center;align-items: center;'
+    document.body.style.cssText = 'overflow: hidden;font-size: 28px;font-family: system-ui;display: flex;justify-content: center;align-items: center;'
+
+    document.head.innerHTML = '<title>MathJS Web Testing</title>'
 
 }
 

@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.2.8
-    Last Modified: 28/04/2024 <DD/MM/YYYY>
+    MathJS v1.2.9
+    Last Modified: 30/04/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -50,65 +50,30 @@ const math = {
     /*
         Basic Arithmetic Functions
     */
-    add(...n) {
-        return n.reduce((a, b) => a + b, 0);
-    },
-    //Note: Dependent Function (Dependent on: add)
-    sum(...n) {
-        return this.add(...n);
-    },
-    subtract(...n) {
-        return n.reduce((a, b) => a - b);
-    },
-    //Note: Dependent Function (Dependent on: subtract)
-    difference(...n) {
-        return this.subtract(...n);
-    },
-    multiply(...n) {
-        return n.reduce((a, b) => a * b);
-    },
-    //Note: Dependent Function (Dependent on: multiply)
-    product(...n) {
-        return this.multiply(...n);
-    },
-    divide(...n) {
-        return n.reduce((a, b) => a / b);
-    },
-    //Note: Dependent Function (Dependent on: divide)
-    quotient(...n) {
-        return this.divide(...n);
-    },
-    remainder(n, d) {
-        return n % d;
-    },
+    add: (...n) => n.reduce((a, b) => a + b, 0),
+    subtract: (...n) => n.reduce((a, b) => a - b),
+    multiply: (...n) => n.reduce((a, b) => a * b),
+    divide: (...n) => n.reduce((a, b) => a / b),
+    remainder: (n, d) => n % d,
     /*
         Statistical Functions
     */
-    max(...n) {
-        return Math.max(...n);
-    },
-    min(...n) {
-        return Math.min(...n);
-    },
-    average(...n) {
-        return n.reduce((a, b) => a + b, 0) / n.length;
-    },
-    //Note: Dependent Function (Dependent on: average)
-    mean(...n) {
-        return this.average(...n);
-    },
-    median(...n) {
+    max: (...n) => Math.max(...n),
+    min: (...n) => Math.min(...n),
+    average: (...n) => n.reduce((a, b) => a + b, 0) / n.length,
+    mean: (...n) => math.average(...n),
+    median: (...n) => {
         n.sort((a, b) => a - b);
         const mid = Math.floor(n.length / 2);
         return n.length % 2 !== 0 ? n[mid] : (n[mid - 1] + n[mid]) / 2;
     },
-    mode(...n) {
+    mode: (...n) => {
         let returnType = 'Str';
         if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1].toString())) {
             returnType = n.pop();
         }
         const count = {};
-        n.forEach(e => count[e] = (count[e] || 0) + 1);
+        n.forEach(e => (count[e] = (count[e] || 0) + 1));
         let max = 0, modes = [];
         for (const e in count) {
             if (count[e] > max) {
@@ -121,7 +86,7 @@ const math = {
         }
         return returnType === 'Str' ? modes.join(', ') : modes;
     },
-    range(...n) {
+    range: (...n) => {
         let returnType = 'Str';
         if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1])) {
             returnType = n.pop();
@@ -131,45 +96,25 @@ const math = {
         const range = [numbers[0], numbers[numbers.length - 1]];
         return returnType === 'Str' ? range.join(', ') : range;
     },
-    variance(...n) {
-        const mean = this.mean(...n);
-        return this.mean(...n.map(e => this.square(e - mean)));
+    variance: (...n) => {
+        const mean = math.mean(...n);
+        return math.mean(...n.map(e => math.square(e - mean)));
     },
-    standardDeviation(...n) {
-        return Math.sqrt(this.variance(...n));
-    },
+    standardDeviation: (...n) => Math.sqrt(math.variance(...n)),
     /*
         Logical Functions
     */
-    isEqual(a, b) {
-        return a === b;
-    },
-    isEven(n) {
-        return n % 2 === 0;
-    },
-    isOdd(n) {
-        return n % 2 !== 0;
-    },
-    isPositive(n) {
-        return n > 0;
-    },
-    isNegative(n) {
-        return n < 0;
-    },
-    isZero(n) {
-        return n === 0;
-    },
-    isInteger(n) {
-        return Number.isInteger(n);
-    },
-    isFloat(n) {
-        return Number(n) === n && n % 1 !== 0;
-    },
-    isPrime(n) {
-        if (n == 1) {
-            return false;
-        }
-        if (n < 2) {
+    isEqual: (a, b) => a === b,
+    isNearlyEqual: (a, b, epsilon = Number.EPSILON) => Math.abs(a - b) < epsilon,
+    isEven: (n) => n % 2 === 0,
+    isOdd: (n) => n % 2 !== 0,
+    isPositive: (n) => n > 0,
+    isNegative: (n) => n < 0,
+    isZero: (n) => n === 0,
+    isInteger: (n) => Number.isInteger(n),
+    isFloat: (n) => Number(n) === n && n % 1 !== 0,
+    isPrime: (n) => {
+        if (n === 1 || n < 2) {
             return false;
         }
         for (let i = 2; i < n; i++) {
@@ -179,50 +124,22 @@ const math = {
         }
         return true;
     },
-    //Note: Dependent Function (Dependent on: isPrime)
-    isComposite(n) {
-        if (n == 1) {
-            return false;
-        }
-        return !this.isPrime(n);
-    },
-    isDivisible(n, d) {
-        return n % d === 0;
-    },
-    isPowerOf(n, e) {
-        return Math.log(n) / Math.log(e) % 1 === 0;
-    },
-    isPerfectSquare(n) {
-        return Math.sqrt(n) % 1 === 0;
-    },
-    isPerfectCube(n) {
-        return Math.cbrt(n) % 1 === 0;
-    },
-    isPerfectPower(n, b) {
-        return Math.log(n) / Math.log(b) % 1 === 0;
-    },
-    isMultiple(n, m) {
-        return n % m === 0;
-    },
-    isFactor(n, f) {
-        return f % n === 0;
-    },
-    isArmstrong(n) {
-        return n === n.toString().split('').reduce((a, b) => a + Math.pow(parseInt(b), n.toString().length), 0);
-    },
-    isPalindrome(n) {
-        return n.toString() === n.toString().split('').reverse().join('');
-    },
-    isFinite(n) {
-        return Number.isFinite(n);
-    },
-    isInfinite(n) {
-        return !Number.isFinite(n);
-    },
+    isComposite: (n) => !math.isPrime(n),
+    isDivisible: (n, d) => n % d === 0,
+    isPowerOf: (n, e) => Math.log(n) / Math.log(e) % 1 === 0,
+    isPerfectSquare: (n) => Math.sqrt(n) % 1 === 0,
+    isPerfectCube: (n) => Math.cbrt(n) % 1 === 0,
+    isPerfectPower: (n, b) => Math.log(n) / Math.log(b) % 1 === 0,
+    isMultiple: (n, m) => n % m === 0,
+    isFactor: (n, f) => f % n === 0,
+    isArmstrong: (n) => n === n.toString().split('').reduce((a, b) => a + Math.pow(parseInt(b), n.toString().length), 0),
+    isPalindrome: (n) => n.toString() === n.toString().split('').reverse().join(''),
+    isFinite: (n) => Number.isFinite(n),
+    isInfinite: (n) => !Number.isFinite(n),
     /*
         Factorial and Fibonacci Functions
     */
-    factorial(n) {
+    factorial: (n) => {
         let int = 1;
         if (n === 0)
             return 1;
@@ -230,7 +147,7 @@ const math = {
             int = int * i;
         return int;
     },
-    fibonacci(n) {
+    fibonacci: (n) => {
         let a = 1, b = 0, temp;
         for (; n >= 0; n--) {
             temp = a;
@@ -239,80 +156,40 @@ const math = {
         }
         return b;
     },
-    //Note: Dependent Function (Dependent on: fibonacci)
-    fibonacciSeries(n, returnType = 'Str') {
-        let series = [];
-        for (let i = 0; i < n; i++) {
-            series.push(this.fibonacci(i));
-        }
+    fibonacciSeries: (n, returnType = 'Str') => {
+        const series = Array.from({ length: n }, (_, i) => math.fibonacci(i));
         return returnType === 'Str' ? series.join(', ') : series;
     },
     /*
         Random Number Functions
     */
-    random(a, b) {
-        return Math.floor(Math.random() * (b - a + 1)) + a;
-    },
+    random: (a, b) => Math.floor(Math.random() * (b - a + 1)) + a,
     /*
         Advanced Arithmetic Functions
     */
-    log(n, b) {
+    log: (n, b) => {
         if (b !== undefined) {
-            let log = Math.log(n) / Math.log(b);
+            const log = Math.log(n) / Math.log(b);
             return +log.toFixed(2);
         }
-        let log = Math.log(n);
+        const log = Math.log(n);
         return +log.toFixed(2);
     },
-    logBase2(n) {
-        return Math.log2(n);
-    },
-    logBase5(n) {
-        return Math.log(n) / Math.log(5);
-    },
-    logBase10(n) {
-        return Math.log10(n);
-    },
-    square(n) {
-        return n * n;
-    },
-    cube(n) {
-        return n * n * n;
-    },
-    power(n, e) {
-        return Math.pow(n, e);
-    },
-    nthPower(n, e) {
-        return Math.pow(n, e);
-    },
-    root(n, e) {
-        return Math.pow(n, 1 / e);
-    },
-    nthRoot(n, e) {
-        return Math.pow(n, 1 / e);
-    },
-    round(n) {
-        return Math.round(n);
-    },
-    roundUp(n) {
-        return Math.ceil(n);
-    },
-    roundDown(n) {
-        return Math.floor(n);
-    },
-    absolute(n) {
-        return Math.abs(n);
-    },
-    sqrt(n) {
-        return Math.sqrt(n);
-    },
-    cbrt(n) {
-        return Math.cbrt(n);
-    },
-    hypotenuse(a, b) {
-        return Math.hypot(a, b);
-    },
-    factorsOf(n, returnType = 'Arr') {
+    logBase2: (n) => Math.log2(n),
+    logBase5: (n) => Math.log(n) / Math.log(5),
+    logBase10: (n) => Math.log10(n),
+    square: (n) => n ** 2,
+    cube: (n) => n ** 3,
+    power: (n, e) => n ** e,
+    root: (n, e) => n ** (1 / e),
+    round: (n) => Math.round(n),
+    roundUp: (n) => Math.ceil(n),
+    roundDown: (n) => Math.floor(n),
+    absolute: (n) => Math.abs(n),
+    sqrt: (n) => Math.sqrt(n),
+    cbrt: (n) => Math.cbrt(n),
+    hypotenuse: (a, b) => Math.hypot(a, b),
+    factorsOf: (n, returnType = 'Arr') => {
         const factors = [];
         for (let i = 1; i <= n; i++) {
             if (n % i === 0) {
@@ -321,7 +198,7 @@ const math = {
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
-    primeFactorsOf(n, returnType = 'Arr') {
+    primeFactorsOf: (n, returnType = 'Arr') => {
         const primeFactors = [];
         for (let i = 2; i <= n; i++) {
             while (n % i === 0) {
@@ -333,8 +210,8 @@ const math = {
         }
         return returnType === 'Str' ? primeFactors.join(', ') : primeFactors;
     },
-    primeFactorizationOf(n, returnType = 'Arr') {
-        let factors = [];
+    primeFactorizationOf: (n, returnType = 'Arr') => {
+        const factors = [];
         for (let i = 2; i <= Math.sqrt(n); i++) {
             while (n % i === 0) {
                 factors.push(i);
@@ -346,135 +223,122 @@ const math = {
         }
         return returnType === 'Str' ? factors.join(', ') : factors;
     },
-    greatestCommonDivisor(...n) {
-        const gcd = (x, y) => !y ? x : gcd(y, x % y);
+    greatestCommonDivisor: (...n) => {
+        const gcd = (x, y) => (!y ? x : gcd(y, x % y));
         return n.reduce((a, b) => gcd(a, b));
     },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    GCD(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    highestCommonFactor(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    //Note: Dependent Function (Dependent on: greatestCommonDivisor)
-    HCF(...n) {
-        return this.greatestCommonDivisor(...n);
-    },
-    leastCommonMultiple(...n) {
-        const hcf = (x, y) => !y ? x : hcf(y, x % y);
+    GCD: (...n) => math.greatestCommonDivisor(...n),
+    highestCommonFactor: (...n) => math.greatestCommonDivisor(...n),
+    HCF: (...n) => math.greatestCommonDivisor(...n),
+    leastCommonMultiple: (...n) => {
+        const hcf = (x, y) => (!y ? x : hcf(y, x % y));
         const lcm = (x, y) => (x * y) / n.reduce((a, b) => hcf(a, b));
-        ;
         return n.reduce((a, b) => lcm(a, b));
     },
-    //Note: Dependent Function (Dependent on: leastCommonMultiple)
-    LCM(...n) {
-        return this.leastCommonMultiple(...n);
-    },
+    LCM: (...n) => math.leastCommonMultiple(...n),
     /*
         Trigonometric Functions
     */
-    sin(n) {
-        let sine = Math.sin(convertToRadians(n));
+    sin: (n) => {
+        const sine = Math.sin(convertToRadians(n));
         return +sine.toFixed(2);
     },
-    cos(n) {
-        let cosine = Math.cos(convertToRadians(n));
+    cos: (n) => {
+        const cosine = Math.cos(convertToRadians(n));
         return +cosine.toFixed(2);
     },
-    tan(n) {
-        let tangent = Math.tan(convertToRadians(n));
+    tan: (n) => {
+        const tangent = Math.tan(convertToRadians(n));
         return +tangent.toFixed(2);
     },
-    cot(n) {
-        let cotangent = 1 / Math.tan(convertToRadians(n));
+    cot: (n) => {
+        const cotangent = 1 / Math.tan(convertToRadians(n));
         return +cotangent.toFixed(2);
     },
-    sec(n) {
-        let secant = 1 / Math.cos(convertToRadians(n));
+    sec: (n) => {
+        const secant = 1 / Math.cos(convertToRadians(n));
         return +secant.toFixed(2);
     },
-    csc(n) {
-        let cosecant = 1 / Math.sin(convertToRadians(n));
+    csc: (n) => {
+        const cosecant = 1 / Math.sin(convertToRadians(n));
         return +cosecant.toFixed(2);
     },
-    asin(n) {
-        let arcsine = Math.asin(convertToRadians(n));
+    asin: (n) => {
+        const arcsine = Math.asin(convertToRadians(n));
         return +arcsine.toFixed(2);
     },
-    acos(n) {
-        let arccosine = Math.acos(convertToRadians(n));
+    acos: (n) => {
+        const arccosine = Math.acos(convertToRadians(n));
         return +arccosine.toFixed(2);
     },
-    atan(n) {
-        let arctangent = Math.atan(convertToRadians(n));
+    atan: (n) => {
+        const arctangent = Math.atan(convertToRadians(n));
         return +arctangent.toFixed(2);
     },
-    acot(n) {
-        let arccotangent = 1 / Math.atan(convertToRadians(n));
+    acot: (n) => {
+        const arccotangent = 1 / Math.atan(convertToRadians(n));
         return +arccotangent.toFixed(2);
     },
-    asec(n) {
-        let arcsecant = 1 / Math.acos(convertToRadians(n));
+    asec: (n) => {
+        const arcsecant = 1 / Math.acos(convertToRadians(n));
         return +arcsecant.toFixed(2);
     },
-    acsc(n) {
-        let arccosecant = 1 / Math.asin(convertToRadians(n));
+    acsc: (n) => {
+        const arccosecant = 1 / Math.asin(convertToRadians(n));
         return +arccosecant.toFixed(2);
     },
-    sinh(n) {
-        let hyperbolicSine = Math.sinh(convertToRadians(n));
+    sinh: (n) => {
+        const hyperbolicSine = Math.sinh(convertToRadians(n));
         return +hyperbolicSine.toFixed(2);
     },
-    cosh(n) {
-        let hyperbolicCosine = Math.cosh(convertToRadians(n));
+    cosh: (n) => {
+        const hyperbolicCosine = Math.cosh(convertToRadians(n));
         return +hyperbolicCosine.toFixed(2);
     },
-    tanh(n) {
-        let hyperbolicTangent = Math.tanh(convertToRadians(n));
+    tanh: (n) => {
+        const hyperbolicTangent = Math.tanh(convertToRadians(n));
         return +hyperbolicTangent.toFixed(2);
     },
-    coth(n) {
-        let hyperbolicCotangent = 1 / Math.tanh(convertToRadians(n));
+    coth: (n) => {
+        const hyperbolicCotangent = 1 / Math.tanh(convertToRadians(n));
         return +hyperbolicCotangent.toFixed(2);
     },
-    sech(n) {
-        let hyperbolicSecant = 1 / Math.cosh(convertToRadians(n));
+    sech: (n) => {
+        const hyperbolicSecant = 1 / Math.cosh(convertToRadians(n));
         return +hyperbolicSecant.toFixed(2);
     },
-    csch(n) {
-        let hyperbolicCosecant = 1 / Math.sinh(convertToRadians(n));
+    csch: (n) => {
+        const hyperbolicCosecant = 1 / Math.sinh(convertToRadians(n));
         return +hyperbolicCosecant.toFixed(2);
     },
-    asinh(n) {
-        let hyperbolicArcsine = Math.asinh(convertToRadians(n));
+    asinh: (n) => {
+        const hyperbolicArcsine = Math.asinh(convertToRadians(n));
         return +hyperbolicArcsine.toFixed(2);
     },
-    acosh(n) {
-        let hyperbolicArccosine = Math.acosh(convertToRadians(n));
+    acosh: (n) => {
+        const hyperbolicArccosine = Math.acosh(convertToRadians(n));
         return +hyperbolicArccosine.toFixed(2);
     },
-    atanh(n) {
-        let hyperbolicArctangent = Math.atanh(convertToRadians(n));
+    atanh: (n) => {
+        const hyperbolicArctangent = Math.atanh(convertToRadians(n));
         return +hyperbolicArctangent.toFixed(2);
     },
-    acoth(n) {
-        let hyperbolicArccotangent = 1 / Math.atanh(convertToRadians(n));
+    acoth: (n) => {
+        const hyperbolicArccotangent = 1 / Math.atanh(convertToRadians(n));
         return +hyperbolicArccotangent.toFixed(2);
     },
-    asech(n) {
-        let hyperbolicArcsecant = 1 / Math.acosh(convertToRadians(n));
+    asech: (n) => {
+        const hyperbolicArcsecant = 1 / Math.acosh(convertToRadians(n));
         return +hyperbolicArcsecant.toFixed(2);
     },
-    acsch(n) {
-        let hyperbolicArccosecant = 1 / Math.asinh(convertToRadians(n));
+    acsch: (n) => {
+        const hyperbolicArccosecant = 1 / Math.asinh(convertToRadians(n));
         return +hyperbolicArccosecant.toFixed(2);
     },
     /*
-        evaluateExpression Function
+        Evaluate Function
     */
-    evaluateExpression(expression, variables) {
+    evaluate: (expression, variables) => {
         try {
             if (typeof expression !== 'string') {
                 throw new Error('Expression must be a string');
@@ -497,36 +361,27 @@ const math = {
                     expression = expression.replace(regex, `math['${method}']`);
                 }
             }
-            // Regular expression to match allowed mathematical operators and functions
             const allowedCharactersRegex = /^[\d\s+\-*/()a-zA-Z"''\[\].,]+$/;
-            // Check if the expression contains only allowed characters
             for (let i = 0; i < expression.length; i++) {
                 if (!allowedCharactersRegex.test(expression[i])) {
                     throw new Error(`Expression contains disallowed character: ${expression[i]} at character position: ${i} in expression: ${expression}`);
                 }
             }
-            this.debuggingMode ? console.log('Expression:', expression) : null;
+            math.debuggingMode ? console.log('Expression:', expression) : null;
             return Function('math', `'use strict'; return (${expression})`)(math);
         }
         catch (error) {
             throw new Error('Error occurred while evaluating the expression: ' + error);
         }
     },
-    //Note: Dependent Function (Dependent on: evaluateExpression)
-    evaluate(expression, variables) {
-        return this.evaluateExpression(expression, variables);
-    },
     /*
         Chain Handler
     */
-    chain(initialValue) {
+    chain: (initialValue) => {
         let result = initialValue;
         const chained = {};
-        // Iterate over properties of math object
         for (const method in math) {
-            // Check if the property is a function and not the chain method itself
             if (typeof math[method] === 'function' && method !== 'chain') {
-                // Dynamically generate a method for the property
                 chained[method] = (...args) => {
                     try {
                         if (typeof result === 'number') {
@@ -536,11 +391,10 @@ const math = {
                     catch (error) {
                         console.error(`Error executing method ${method}:`, error);
                     }
-                    return chained; // Return the chained object
+                    return chained;
                 };
             }
         }
-        // Add a done method to return the final result
         chained.result = () => {
             return result;
         };
