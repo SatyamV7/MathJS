@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.2.9
-    Last Modified: 30/04/2024 <DD/MM/YYYY>
+    MathJS v1.3.0
+    Last Modified: 4/05/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -69,22 +69,24 @@ const math = {
     },
     mode: (...n) => {
         let returnType = 'Str';
-        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1].toString())) {
+        if (typeof n[n.length - 1] === 'string' && ['Str', 'Arr'].includes(n[n.length - 1])) {
             returnType = n.pop();
         }
         const count = {};
-        n.forEach(e => (count[e] = (count[e] || 0) + 1));
-        let max = 0, modes = [];
-        for (const e in count) {
-            if (count[e] > max) {
-                modes = [parseInt(e)];
-                max = count[e];
+        const modes = [];
+        let maxCount = 0;
+        n.forEach(e => {
+            const key = typeof e === 'string' ? `s_${e}` : e.toString();
+            count[key] = (count[key] || 0) + 1;
+            if (count[key] > maxCount) {
+                modes.splice(0, modes.length, e);
+                maxCount = count[key];
             }
-            else if (count[e] === max) {
-                modes.push(parseInt(e));
+            else if (count[key] === maxCount) {
+                modes.push(e);
             }
-        }
-        return returnType === 'Str' ? modes.join(', ') : modes;
+        });
+        return returnType === 'Str' ? modes.map(e => typeof e === 'string' ? e : e.toString()).join(', ') : modes;
     },
     range: (...n) => {
         let returnType = 'Str';
@@ -92,8 +94,9 @@ const math = {
             returnType = n.pop();
         }
         const numbers = n.filter((item) => typeof item === 'number');
-        numbers.sort((a, b) => a - b);
-        const range = [numbers[0], numbers[numbers.length - 1]];
+        const min = Math.min(...numbers);
+        const max = Math.max(...numbers);
+        const range = [min, max];
         return returnType === 'Str' ? range.join(', ') : range;
     },
     variance: (...n) => {
@@ -114,10 +117,14 @@ const math = {
     isInteger: (n) => Number.isInteger(n),
     isFloat: (n) => Number(n) === n && n % 1 !== 0,
     isPrime: (n) => {
-        if (n === 1 || n < 2) {
+        if (n === 2) {
+            return true;
+        }
+        if (n === 1 || n % 2 === 0) {
             return false;
         }
-        for (let i = 2; i < n; i++) {
+        const sqrt = Math.sqrt(n);
+        for (let i = 3; i <= sqrt; i += 2) {
             if (n % i === 0) {
                 return false;
             }
@@ -140,19 +147,18 @@ const math = {
         Factorial and Fibonacci Functions
     */
     factorial: (n) => {
-        let int = 1;
         if (n === 0)
             return 1;
-        for (let i = 2; i <= n; i++)
-            int = int * i;
-        return int;
+        let factorial = 1;
+        for (let i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        return factorial;
     },
     fibonacci: (n) => {
-        let a = 1, b = 0, temp;
-        for (; n >= 0; n--) {
-            temp = a;
-            a = a + b;
-            b = temp;
+        let a = 0, b = 1;
+        for (let i = 2; i <= n; i++) {
+            [a, b] = [b, a + b];
         }
         return b;
     },

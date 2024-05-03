@@ -21,7 +21,7 @@ declare const math: {
     average: (...n: number[]) => number;
     mean: (...n: number[]) => number;
     median: (...n: number[]) => number;
-    mode: (...n: (number | 'Str' | 'Arr')[]) => string | number[];
+    mode: (...n: (number | string | any)[]) => string | any[];
     range: (...n: (number | 'Str' | 'Arr')[]) => string | number[];
     variance: (...n: number[]) => number;
     standardDeviation: (...n: number[]) => number;
