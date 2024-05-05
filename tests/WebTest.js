@@ -59,11 +59,11 @@ function Test() {
     console.log(math.logBase5(25)); // 2
     console.log(math.logBase10(100)); // 2
     console.log(math.sin(90)); // 1
-    console.log(math.cos('pi/2 rad')); // 0
-    console.log(math.tan(45)); // 1
-    console.log(math.cot(45)); // 1
-    console.log(math.sec(0)); // 1
-    console.log(math.csc(90)); // 1
+    console.log(math.cos('PI/2 rad')); // 0
+    console.log(math.tan('PI/2 rad')); // Infinity
+    console.log(math.cot('0 rad')); // Infinity
+    console.log(math.sec('PI/2 rad')); // Infinity
+    console.log(math.csc('PI rad')); // Infinity
     console.log(math.evaluate('((2 * tan(45) + 3) * 4 ^ x) + PI', { x: 2 })); // 80
     console.log(math.chain(10).add(5).subtract(3).multiply(2).divide(4).result()); // 6
     console.log(math.chain(2).result()); // 2

@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.3.0
-    Last Modified: 4/05/2024 <DD/MM/YYYY>
+    MathJS v1.3.1
+    Last Modified: 05/05/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -31,6 +31,9 @@ function convertToRadians(n) {
     else {
         throw new Error('Invalid Unit');
     }
+}
+function validateAngle(Angle, Function) {
+    return ((Function === 'tan' || Function === 'sec') && (Angle === Math.PI / 2 || Angle === 3 * Math.PI / 2)) ? Number.POSITIVE_INFINITY : ((Function === 'cot' || Function === 'csc') && (Angle === 0 || Angle === Math.PI)) ? Number.POSITIVE_INFINITY : Angle;
 }
 const math = {
     // Debugging Mode
@@ -246,100 +249,34 @@ const math = {
         Trigonometric Functions
     */
     sin: (n) => {
-        const sine = Math.sin(convertToRadians(n));
+        const angle = convertToRadians(n);
+        const sine = Math.sin(angle);
         return +sine.toFixed(2);
     },
     cos: (n) => {
-        const cosine = Math.cos(convertToRadians(n));
+        const angle = convertToRadians(n);
+        const cosine = Math.cos(angle);
         return +cosine.toFixed(2);
     },
     tan: (n) => {
-        const tangent = Math.tan(convertToRadians(n));
+        const angle = validateAngle(convertToRadians(n), 'tan');
+        const tangent = Math.tan(angle);
         return +tangent.toFixed(2);
     },
     cot: (n) => {
-        const cotangent = 1 / Math.tan(convertToRadians(n));
+        const angle = validateAngle(convertToRadians(n), 'cot');
+        const cotangent = 1 / Math.tan(angle);
         return +cotangent.toFixed(2);
     },
     sec: (n) => {
-        const secant = 1 / Math.cos(convertToRadians(n));
+        const angle = validateAngle(convertToRadians(n), 'sec');
+        const secant = 1 / Math.cos(angle);
         return +secant.toFixed(2);
     },
     csc: (n) => {
-        const cosecant = 1 / Math.sin(convertToRadians(n));
+        const angle = validateAngle(convertToRadians(n), 'csc');
+        const cosecant = 1 / Math.sin(angle);
         return +cosecant.toFixed(2);
-    },
-    asin: (n) => {
-        const arcsine = Math.asin(convertToRadians(n));
-        return +arcsine.toFixed(2);
-    },
-    acos: (n) => {
-        const arccosine = Math.acos(convertToRadians(n));
-        return +arccosine.toFixed(2);
-    },
-    atan: (n) => {
-        const arctangent = Math.atan(convertToRadians(n));
-        return +arctangent.toFixed(2);
-    },
-    acot: (n) => {
-        const arccotangent = 1 / Math.atan(convertToRadians(n));
-        return +arccotangent.toFixed(2);
-    },
-    asec: (n) => {
-        const arcsecant = 1 / Math.acos(convertToRadians(n));
-        return +arcsecant.toFixed(2);
-    },
-    acsc: (n) => {
-        const arccosecant = 1 / Math.asin(convertToRadians(n));
-        return +arccosecant.toFixed(2);
-    },
-    sinh: (n) => {
-        const hyperbolicSine = Math.sinh(convertToRadians(n));
-        return +hyperbolicSine.toFixed(2);
-    },
-    cosh: (n) => {
-        const hyperbolicCosine = Math.cosh(convertToRadians(n));
-        return +hyperbolicCosine.toFixed(2);
-    },
-    tanh: (n) => {
-        const hyperbolicTangent = Math.tanh(convertToRadians(n));
-        return +hyperbolicTangent.toFixed(2);
-    },
-    coth: (n) => {
-        const hyperbolicCotangent = 1 / Math.tanh(convertToRadians(n));
-        return +hyperbolicCotangent.toFixed(2);
-    },
-    sech: (n) => {
-        const hyperbolicSecant = 1 / Math.cosh(convertToRadians(n));
-        return +hyperbolicSecant.toFixed(2);
-    },
-    csch: (n) => {
-        const hyperbolicCosecant = 1 / Math.sinh(convertToRadians(n));
-        return +hyperbolicCosecant.toFixed(2);
-    },
-    asinh: (n) => {
-        const hyperbolicArcsine = Math.asinh(convertToRadians(n));
-        return +hyperbolicArcsine.toFixed(2);
-    },
-    acosh: (n) => {
-        const hyperbolicArccosine = Math.acosh(convertToRadians(n));
-        return +hyperbolicArccosine.toFixed(2);
-    },
-    atanh: (n) => {
-        const hyperbolicArctangent = Math.atanh(convertToRadians(n));
-        return +hyperbolicArctangent.toFixed(2);
-    },
-    acoth: (n) => {
-        const hyperbolicArccotangent = 1 / Math.atanh(convertToRadians(n));
-        return +hyperbolicArccotangent.toFixed(2);
-    },
-    asech: (n) => {
-        const hyperbolicArcsecant = 1 / Math.acosh(convertToRadians(n));
-        return +hyperbolicArcsecant.toFixed(2);
-    },
-    acsch: (n) => {
-        const hyperbolicArccosecant = 1 / Math.asinh(convertToRadians(n));
-        return +hyperbolicArccosecant.toFixed(2);
     },
     /*
         Evaluate Function

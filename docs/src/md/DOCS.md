@@ -224,24 +224,6 @@ math.tan('3/4*PI rad'); // Returns -1
 | `math.cot(n)` | Function | Returns the cotangent of the parameter till 2 decimal places. |
 | `math.sec(n)` | Function | Returns the secant of the parameter till 2 decimal places. |
 | `math.csc(n)` | Function | Returns the cosecant of the parameter till 2 decimal places. |
-| `math.asin(n)` | Function | Returns the arcsine of the parameter in degrees till 2 decimal places. |
-| `math.acos(n)` | Function | Returns the arccosine of the parameter in degrees till 2 decimal places. |
-| `math.atan(n)` | Function | Returns the arctangent of the parameter in degrees till 2 decimal places. |
-| `math.acot(n)` | Function | Returns the arccotangent of the parameter in degrees till 2 decimal places. |
-| `math.asec(n)` | Function | Returns the arcsecant of the parameter in degrees till 2 decimal places. |
-| `math.acsc(n)` | Function | Returns the arccosecant of the parameter in degrees till 2 decimal places. |
-| `math.sinh(n)` | Function | Returns the hyperbolic sine of the parameter in degrees till 2 decimal places. |
-| `math.cosh(n)` | Function | Returns the hyperbolic cosine of the parameter in degrees till 2 decimal places. |
-| `math.tanh(n)` | Function | Returns the hyperbolic tangent of the parameter in degrees till 2 decimal places. |
-| `math.coth(n)` | Function | Returns the hyperbolic cotangent of the parameter in degrees till 2 decimal places. |
-| `math.sech(n)` | Function | Returns the hyperbolic secant of the parameter in degrees till 2 decimal places. |
-| `math.csch(n)` | Function | Returns the hyperbolic cosecant of the parameter in degrees till 2 decimal places. |
-| `math.asinh(n)` | Function | Returns the hyperbolic arcsine of the parameter in degrees till 2 decimal places. |
-| `math.acosh(n)` | Function | Returns the hyperbolic arccosine of the parameter in degrees till 2 decimal places. |
-| `math.atanh(n)` | Function | Returns the hyperbolic arctangent of the parameter in degrees till 2 decimal places. |
-| `math.acoth(n)` | Function | Returns the hyperbolic arccotangent of the parameter in degrees till 2 decimal places. |
-| `math.asech(n)` | Function | Returns the hyperbolic arcsecant of the parameter in degrees till 2 decimal places. |
-| `math.acsch(n)` | Function | Returns the hyperbolic arccosecant of the parameter in degrees till 2 decimal places. |
 
 ### Evaluation of Mathematical Expressions
 

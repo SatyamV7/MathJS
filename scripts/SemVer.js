@@ -53,7 +53,7 @@ process.stdin.once('data', function (data) {
                 // Get today's date
                 const date = new Date();
                 const formattedMonth = (date.getMonth() + 1).toString().padStart(2, '0');
-                const formattedDate = `${date.getDate()}/${formattedMonth}/${date.getFullYear()}`;
+                const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${formattedMonth}/${date.getFullYear()}`;
 
                 // Replace the version and date in the file
                 let result = data.replace(/MathJS v\d+\.\d+\.\d+/, `MathJS v${version}`);

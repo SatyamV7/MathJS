@@ -1,5 +1,6 @@
 declare function getUnits(str: string): string;
 declare function convertToRadians(n: string): number;
+declare function validateAngle(Angle: number, Function: string): number;
 declare const math: {
     debuggingMode: boolean;
     e: number;
@@ -81,24 +82,6 @@ declare const math: {
     cot: (n: string) => number;
     sec: (n: string) => number;
     csc: (n: string) => number;
-    asin: (n: string) => number;
-    acos: (n: string) => number;
-    atan: (n: string) => number;
-    acot: (n: string) => number;
-    asec: (n: string) => number;
-    acsc: (n: string) => number;
-    sinh: (n: string) => number;
-    cosh: (n: string) => number;
-    tanh: (n: string) => number;
-    coth: (n: string) => number;
-    sech: (n: string) => number;
-    csch: (n: string) => number;
-    asinh: (n: string) => number;
-    acosh: (n: string) => number;
-    atanh: (n: string) => number;
-    acoth: (n: string) => number;
-    asech: (n: string) => number;
-    acsch: (n: string) => number;
     evaluate: (expression: string, variables: {
         [key: string]: number;
     }) => any;
