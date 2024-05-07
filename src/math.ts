@@ -1,6 +1,6 @@
 /*
-    MathJS v1.3.1
-    Last Modified: 05/05/2024 <DD/MM/YYYY>
+    MathJS v1.3.2
+    Last Modified: 07/05/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -21,14 +21,16 @@ function getUnits(str: string): string {
 
 function convertToRadians(n: string): number { //Convert the parameter to radians
     let num = math.evaluate(n.toString().replace(/(?<![a-zA-Z])(pi|tau)(?![a-zA-Z])|[a-zA-Z]/gi, (match, p1) => p1 ? match : ''), {}) as number;
-    if (getUnits(n) == 'deg' || getUnits(n) == '') {
-        return num * Math.PI / 180;
-    } else if (getUnits(n) == 'grad') {
-        return num * Math.PI / 200;
-    } else if (getUnits(n) == 'rad') {
-        return num;
-    } else {
-        throw new Error('Invalid Unit');
+    switch (getUnits(n)) {
+        case 'deg':
+        case '':
+            return num * Math.PI / 180;
+        case 'grad':
+            return num * Math.PI / 200;
+        case 'rad':
+            return num;
+        default:
+            throw new Error('Invalid Unit');
     }
 }
 
@@ -39,6 +41,7 @@ function validateAngle(Angle: number, Function: string): number {
 const math = {
 
     // Debugging Mode
+
     debuggingMode: false,
 
     /*
