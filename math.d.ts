@@ -3,6 +3,7 @@ declare function convertToRadians(n: string): number;
 declare function validateAngle(Angle: number, Function: string): number;
 declare const math: {
     debuggingMode: boolean;
+    FundamentalTheoremOfArithmetic: () => string;
     e: number;
     PI: number;
     LN2: number;

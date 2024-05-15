@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.3.2
-    Last Modified: 07/05/2024 <DD/MM/YYYY>
+    MathJS v1.3.4
+    Last Modified: 15/05/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -37,6 +37,10 @@ function validateAngle(Angle, Function) {
 const math = {
     // Debugging Mode
     debuggingMode: false,
+    /*
+        Fundamental Theorem of Arithmetic
+    */
+    FundamentalTheoremOfArithmetic: () => 'In mathematics, the fundamental theorem of arithmetic, also called the unique factorization theorem and prime factorization theorem, states that every integer greater than 1 can be represented uniquely as a product of prime numbers, up to the order of the factors.',
     /*
         Mathematical Constants
     */
@@ -295,8 +299,8 @@ const math = {
                 .replace(/\^/g, '**')
                 .replace(/÷/g, '/')
                 .replace(/×/g, '*')
-                .replace(/\bpi\b/gi, '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
-                .replace(/\btau\b/gi, '6.2831853071795864769252867665590057683943387987502116419498891846156328125724179972560696506842341358');
+                .replace(/\bpi\b/gi, 'PI')
+                .replace(/\btau\b/gi, 'TAU');
             for (let method in math) {
                 if (method !== 'pi' && method !== 'tau') {
                     const regex = new RegExp(`\\b${method}\\b`, 'g');

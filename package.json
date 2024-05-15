@@ -1,6 +1,6 @@
 {
   "name": "@cypher_077/math",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "description": "A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.",
   "main": "math.js",
   "types": "math.d.ts",
@@ -12,7 +12,7 @@
     "test": "node ./tests/NodeTest.js && exit 0",
     "minify": "minify math.js --out-file dist/math.min.js",
     "prepublishTasks": "npm run version && npm run build",
-    "publish": "npm run prepublishTasks && npm publish --access public && exit"
+    "publishToRegistry": "npm run prepublishTasks && npm publish --access public && exit"
   },
   "repository": {
     "type": "git",
