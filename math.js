@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.3.4
-    Last Modified: 15/05/2024 <DD/MM/YYYY>
+    MathJS v1.3.5
+    Last Modified: 23/05/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -38,10 +38,6 @@ const math = {
     // Debugging Mode
     debuggingMode: false,
     /*
-        Fundamental Theorem of Arithmetic
-    */
-    FundamentalTheoremOfArithmetic: () => 'In mathematics, the fundamental theorem of arithmetic, also called the unique factorization theorem and prime factorization theorem, states that every integer greater than 1 can be represented uniquely as a product of prime numbers, up to the order of the factors.',
-    /*
         Mathematical Constants
     */
     e: Math.E,
@@ -60,7 +56,7 @@ const math = {
     subtract: (...n) => n.reduce((a, b) => a - b),
     multiply: (...n) => n.reduce((a, b) => a * b),
     divide: (...n) => n.reduce((a, b) => a / b),
-    remainder: (n, d) => n % d,
+    remainder: (...n) => n.reduce((a, b) => a % b),
     /*
         Statistical Functions
     */

@@ -112,7 +112,7 @@ The library provides functions for basic arithmetic operations, such as:
 | `math.subtract(...n)` | Function | Returns the difference of the given numbers. |
 | `math.multiply(...n)` | Function | Returns the product of the given numbers. |
 | `math.divide(...n)` | Function | Returns the division of the given numbers. |
-| `math.remainder(n, d)` | Function | Returns the remainder of the division of `n` by `d`. |
+| `math.remainder(...n)` | Function | Returns the remainder of the division of the numbers. |
 
 ### Statistical Functions
 
@@ -208,7 +208,7 @@ The library provides functions for advanced arithmetic operations, such as:
 The library provides functions to calculate trigonometric values.
 
 > &#128161; Info
-> **_All trigonometric functions accept values in degree, radians and gradians. You can achieve this by specifying utits like this._**
+> **_All trigonometric functions accept values in degree and radians. You can achieve this by specifying units like this._**
 
 ```javascript
 math.sin('90 deg'); // Returns 1
