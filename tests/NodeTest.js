@@ -4,7 +4,6 @@ const startTime = performance.now()
 
 math.debuggingMode = false;
 
-console.log(math.FundamentalTheoremOfArithmetic());
 console.log(math.add(1, 2, 3)); // 6
 console.log(math.subtract(1, 2, 3)); // -4
 console.log(math.multiply(1, 2, 3)); // 6
