@@ -1,7 +1,7 @@
 "use strict";
 /*
     MathJS v1.3.5
-    Last Modified: 23/05/2024 <DD/MM/YYYY>
+    Last Modified: 03/06/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -18,7 +18,7 @@ function getUnits(str) {
     return units ? units.join('') : '';
 }
 function convertToRadians(n) {
-    let num = math.evaluate(n.toString().replace(/(?<![a-zA-Z])(pi|tau)(?![a-zA-Z])|[a-zA-Z]/gi, (match, p1) => p1 ? match : ''), {});
+    let num = math.evaluate(n.toString().replace(/(?<![a-zA-Z])(pi|tau)(?![a-zA-Z])|[a-zA-Z]/gi, (match, p) => p ? match : ''), {});
     switch (getUnits(n)) {
         case 'deg':
         case '':
