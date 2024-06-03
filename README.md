@@ -6,7 +6,7 @@
  A JavaScript library for basic and advanced arithmetic operations, satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
 </h4>
 
-[![npm](https://img.shields.io/npm/v/@cypher_077/math)](https://www.npmjs.com/package/@cypher_077/math) [![Downloads](https://img.shields.io/npm/dm/@cypher_077/math.svg)](https://www.npmjs.com/package/@cypher_077/math) [![Build Status](https://github.com/SatyamV7/MathJS/workflows/Node.js%20CI/badge.svg)](https://github.com/SatyamV7/MathJS/actions) ![GitHub](https://img.shields.io/github/license/SatyamV7/MathJS) ![GitHub](https://img.shields.io/github/stars/SatyamV7/MathJS)
+[![npm](https://img.shields.io/npm/v/@cypher_077/math)](https://www.npmjs.com/package/@cypher_077/math) [![Build Status](https://github.com/SatyamV7/MathJS/workflows/Node.js%20CI/badge.svg)](https://github.com/SatyamV7/MathJS/actions) ![GitHub](https://img.shields.io/github/license/SatyamV7/MathJS)
 
 </center>
 
