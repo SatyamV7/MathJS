@@ -24,6 +24,9 @@ _Github Repository_: [@SatyamV7/MathJS](https://github.com/SatyamV7/MathJS)
 
 MathJS can be used in both node.js and in the browser.
 
+> ⓘ Note
+> **_This library supports Universal Module Definition (UMD) i.e you can treat MathJS as a normal JavaScript file or import it as a Module (CommonJS)._**
+
 <h4>For Browser:</h4>
 
 Include either of the following script in your html file
@@ -35,9 +38,6 @@ Include either of the following script in your html file
     <!--minified version(14.5 kB → 7.20 kB)-->
     <script src="https://unpkg.com/@cypher_077/math/dist/math.min.js"></script>
 ```
-
-> ⓘ Note
-> **_This library supports Universal Module Definition (UMD) i.e you can use MathJS as a normal javascript file or import it as a Module (CommonJS)._**
 
 <h4>Via NPM:</h4>
 Install MathJS using <a href="https://www.npmjs.com/package/@cypher_077/math" target="_blank">npm</a>:
@@ -70,11 +70,11 @@ And then import it in your project:
 
         console.log(math.isPalindrome(121)); // true
 
-        console.log(math.); // true
+        console.log(math.isDivisible(16, 4)); // true
 
         console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
 
-                console.log(
+        console.log(
                     math.chain(10)
                         .add(5)
                         .subtract(3)
@@ -249,3 +249,7 @@ math.chain()
   .divide(2)
   .result(); // Returns 2.5
 ```
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/SatyamV7/MathJS/blob/main/LICENSE) file for details.
+&nbsp;
