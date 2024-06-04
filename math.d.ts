@@ -85,7 +85,7 @@ declare const math: {
     evaluate: (expression: string, variables: {
         [key: string]: number;
     }) => any;
-    chain: (initialValue: number) => {
+    chain: (initialValue?: number) => {
         [key: string]: Function;
     };
 };

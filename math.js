@@ -1,7 +1,7 @@
 "use strict";
 /*
-    MathJS v1.3.5
-    Last Modified: 03/06/2024 <DD/MM/YYYY>
+    MathJS v1.3.6
+    Last Modified: 04/06/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
     Note: The author is not resposible fo accuracy of the results
@@ -319,7 +319,7 @@ const math = {
     /*
         Chain Handler
     */
-    chain: (initialValue) => {
+    chain: (initialValue = 0) => {
         let result = initialValue;
         const chained = {};
         for (const method in math) {
