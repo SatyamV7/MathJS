@@ -74,6 +74,10 @@ And then import it in your project:
 
         console.log(math.evaluate('(2 * tan(45) + 3) * 4 ^ x', { x: 2 })); // 80
 
+        console.log(math.evaluate('cos(x) ^ 2 - sin(x) ^ 2', {x: 45})) // 0
+
+        console.log(math.evaluate('2x ^ 2', { x: 2 })); // 8
+
         console.log(
                     math.chain(10)
                         .add(5)
