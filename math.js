@@ -1,6 +1,6 @@
 "use strict";
 /*
-    MathJS v1.3.6
+    MathJS v1.3.7
     Last Modified: 04/06/2024 <DD/MM/YYYY>
     Author: Satyam Verma <github.com/SatyamV7>
     Description: A JavaScript library for basic and advanced arithmetic operations, Satistical functions, logical functions, factorial and fibonacci functions, random number functions, and trigonometric functions.
@@ -285,6 +285,7 @@ const math = {
             if (typeof expression !== 'string') {
                 throw new Error('Expression must be a string');
             }
+            expression = expression.replace(/(\d)(?=[a-zA-Z])/g, '$1*');
             if (variables) {
                 for (let variable in variables) {
                     const regex = new RegExp('\\b' + variable + '\\b', 'g');
