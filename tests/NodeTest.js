@@ -47,7 +47,6 @@ console.log(math.isDivisible(4, 2)); // true
 console.log(math.isPowerOf(8, 2)); // true
 console.log(math.isPerfectSquare(4)); // true
 console.log(math.isPerfectCube(8)); // true
-console.log(math.isPerfectPower(8, 2)); // true
 console.log(math.isMultiple(4, 2)); // true
 console.log(math.isFactor(2, 4)); // true
 console.log(math.isArmstrong(153)); // true
