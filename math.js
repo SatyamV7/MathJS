@@ -138,7 +138,6 @@ const math = {
     isPowerOf: (n, e) => Math.log(n) / Math.log(e) % 1 === 0,
     isPerfectSquare: (n) => Math.sqrt(n) % 1 === 0,
     isPerfectCube: (n) => Math.cbrt(n) % 1 === 0,
-    isPerfectPower: (n, b) => Math.log(n) / Math.log(b) % 1 === 0,
     isMultiple: (n, m) => n % m === 0,
     isFactor: (n, f) => f % n === 0,
     isArmstrong: (n) => n === n.toString().split('').reduce((a, b) => a + Math.pow(parseInt(b), n.toString().length), 0),

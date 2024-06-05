@@ -178,8 +178,6 @@ const math = {
 
     isPerfectCube: (n: number): boolean => Math.cbrt(n) % 1 === 0,
 
-    isPerfectPower: (n: number, b: number): boolean => Math.log(n) / Math.log(b) % 1 === 0,
-
     isMultiple: (n: number, m: number): boolean => n % m === 0,
 
     isFactor: (n: number, f: number): boolean => f % n === 0,

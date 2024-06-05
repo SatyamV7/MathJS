@@ -41,7 +41,6 @@ declare const math: {
     isPowerOf: (n: number, e: number) => boolean;
     isPerfectSquare: (n: number) => boolean;
     isPerfectCube: (n: number) => boolean;
-    isPerfectPower: (n: number, b: number) => boolean;
     isMultiple: (n: number, m: number) => boolean;
     isFactor: (n: number, f: number) => boolean;
     isArmstrong: (n: number) => boolean;

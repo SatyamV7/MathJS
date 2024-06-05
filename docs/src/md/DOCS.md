@@ -94,17 +94,17 @@ And then import it in your project:
 
 It defines several mathematical constants using JavaScript's built-in Math object and Number object. These include:
 
-| Name | Description |
-| --- | --- |
-| `math.e` | Mathematical constant e. |
-| `math.PI` | Mathematical constant π. |
-| `math.LN2` | Natural logarithm of 2. |
-| `math.LN10` | Natural logarithm of 10. |
-| `math.TAU` | Tau (2π). |
-| `math.LOG2E` | Base 2 logarithm of E. |
-| `math.LOG10E` | Base 10 logarithm of E. |
-| `math.EPSILON` | Difference between 1 and the smallest value greater than 1 that is representable as a float. |
-| `math.PHI` | Golden ratio. |
+| Name | Type | Description |
+| --- | --- | --- |
+| `math.e` | Constant | Mathematical constant e. |
+| `math.PI` | Constant |Mathematical constant π. |
+| `math.LN2` | Constant |Natural logarithm of 2. |
+| `math.LN10` | Constant |Natural logarithm of 10. |
+| `math.TAU` | Constant |Tau (2π). |
+| `math.LOG2E` | Constant |Base 2 logarithm of E. |
+| `math.LOG10E` | Constant |Base 10 logarithm of E. |
+| `math.EPSILON` | Constant |Difference between 1 and the smallest value greater than 1 that is representable as a float. |
+| `math.PHI` | Constant |Golden ratio. |
 
 ### Basic Arithmetic Functions
 
@@ -154,7 +154,6 @@ It also includes functions which perform logical operations, such as:
 | `math.isPowerOf(n, e)` | Function | Checks if `n` is a power of `e`. |
 | `math.isPerfectSquare(n)` | Function | Checks if a number is a perfect square. |
 | `math.isPerfectCube(n)` | Function | Checks if a number is a perfect cube. |
-| `math.isPerfectPower(n, b)` | Function | Checks if `n` is a perfect power of `b`. |
 | `math.isMultiple(n, m)` | Function | Checks if `n` is a multiple of `m`. |
 | `math.isFactor(n, f)` | Function | Checks if `f` is a factor of the parameter in degrees till 2 decimal places. |
 | `math.isArmstrong(n)` | Function | Checks if a number is an Armstrong number. |
